@@ -7,6 +7,7 @@ import '../constant/colors.dart';
 import '../constant/image_pathes.dart';
 import 'build_label_text.dart';
 import 'text_field_widget.dart';
+import 'text__widget.dart';
 
 class ForgetPassWidget extends StatelessWidget {
   ForgetPassWidget(
@@ -48,13 +49,11 @@ class ForgetPassWidget extends StatelessWidget {
             ),
             Padding(
               padding: EdgeInsets.only(left: 5.w, top: 4.5.h),
-              child: Text(
-                '$textBar',
-                style: GoogleFonts.poppins(
-                  color: Color(0xff51526C),
-                  fontSize: 17.sp,
-                  fontWeight: FontWeight.w500,
-                ),
+              child: TextWidget(
+                text: '$textBar',
+                color: Color(0xff51526C),
+                fontSize: 17.sp,
+                fontWeight: FontWeight.w500,
               ),
             ),
           ],
@@ -76,15 +75,12 @@ class ForgetPassWidget extends StatelessWidget {
         Center(
           child: SizedBox(
             width: 80.w,
-            child: Text(
-              '$text',
+            child: TextWidget(
               textAlign: TextAlign.center,
-              style: GoogleFonts.poppins(
-                color: Color(0xff51526C),
-                fontSize: 16.7.sp,
-                fontWeight: FontWeight.w500,
-                
-              ),
+              text: '$text',
+              color: Color(0xff51526C),
+              fontSize: 16.7.sp,
+              fontWeight: FontWeight.w500,
             ),
           ),
         ),

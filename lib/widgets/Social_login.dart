@@ -3,17 +3,16 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:sizer/sizer.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../constant/colors.dart';
+import 'text__widget.dart';
 
 Widget SocialLoginButtons() {
   return Column(
     children: [
-      Text(
-        'Or Continue With',
-        style: GoogleFonts.poppins(
-          color: const Color(0xFF51526C),
-          fontSize: 14.7.sp,
-          fontWeight: FontWeight.w400, //semibold
-        ),
+      TextWidget(
+        text: 'Or Continue With',
+        color: const Color(0xFF51526C),
+        fontSize: 14.7.sp,
+        fontWeight: FontWeight.w400,
       ),
       SizedBox(height: 5.h),
       Row(
@@ -67,8 +66,6 @@ Widget SocialLoginButtons() {
           ),
         ],
       ),
-      
-
     ],
   );
 }

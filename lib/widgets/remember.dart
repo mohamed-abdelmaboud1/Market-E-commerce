@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:sizer/sizer.dart';
 import '../constant/app_router.dart';
 import '../constant/colors.dart';
+import 'text__widget.dart';
 
 class buildRememberMeRow extends StatefulWidget {
   const buildRememberMeRow({super.key});
@@ -32,12 +33,11 @@ class _MyWidgetState extends State<buildRememberMeRow> {
                 });
               }),
         ),
-        Text(
-          'Remember me',
-          style: GoogleFonts.poppins(
-              color: Colors.black,
-              fontSize: 14.4.sp,
-              fontWeight: FontWeight.w400),
+        TextWidget(
+          text: 'Remember me',
+          color: Colors.black,
+          fontSize: 14.4.sp,
+          fontWeight: FontWeight.w400,
         ),
         const Spacer(),
         Padding(
@@ -48,12 +48,11 @@ class _MyWidgetState extends State<buildRememberMeRow> {
               onPressed: () {
                 context.push(AppRouter.forgetPasswordWithPhone);
               },
-              child: Text(
-                'Forgot password?',
-                style: GoogleFonts.poppins(
-                    color: PrimaryColor,
-                    fontSize: 14.4.sp,
-                    fontWeight: FontWeight.w500),
+              child: TextWidget(
+                text: 'Forgot password?',
+                color: PrimaryColor,
+                fontSize: 14.4.sp,
+                fontWeight: FontWeight.w500,
               ),
             ),
           ),

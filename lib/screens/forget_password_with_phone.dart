@@ -11,6 +11,7 @@ import '../constant/colors.dart';
 import '../widgets/build_label_text.dart';
 import '../widgets/custom_button.dart';
 import '../widgets/text_field_widget.dart';
+import '../widgets/text__widget.dart';
 
 class ForgetPasswordWithPhone extends StatefulWidget {
   ForgetPasswordWithPhone({super.key});
@@ -42,6 +43,7 @@ class _ForgetPasswordWithPhoneState extends State<ForgetPasswordWithPhone> {
               sizePaddding: 26,
               text: "Phone Number",
             ),
+
             TextFieldWidget(
               mailPassText: 'Phone Number',
               icon: Icons.phone,
@@ -64,13 +66,11 @@ class _ForgetPasswordWithPhoneState extends State<ForgetPasswordWithPhone> {
               onPressed: () {
                 context.push(AppRouter.forgetPasswordWithMail);
               },
-              child: Text(
-                'Try Another Way',
-                style: GoogleFonts.poppins(
-                  color: PrimaryColor,
-                  fontSize: 16.7.sp,
-                  fontWeight: FontWeight.w600,
-                ),
+              child: TextWidget(
+                text: 'Try Another Way',
+                color: PrimaryColor,
+                fontSize: 16.7.sp,
+                fontWeight: FontWeight.w600,
               ),
             )
           ],

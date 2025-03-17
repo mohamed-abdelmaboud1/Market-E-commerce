@@ -1,6 +1,9 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:marketi_ecommers/constant/colors.dart';
+import 'package:sizer/sizer.dart';
+
+import 'text__widget.dart';
 
 class OtpTimer extends StatefulWidget {
   @override
@@ -54,16 +57,14 @@ class _OtpTimerState extends State<OtpTimer> {
           onTap: _canResend
               ? () {
                   print("Resend Code Clicked");
-                  startTimer(); 
+                  startTimer();
                 }
               : null,
-          child: Text(
-            "Resend Code",
-            style: TextStyle(
-              color: _canResend ? PrimaryColor : Color(0xff51526C),
-              fontWeight: FontWeight.w600,
-              fontSize: 16,
-            ),
+          child: TextWidget(
+            text: 'Resend Code',
+            color: _canResend ? PrimaryColor : Color(0xff51526C),
+            fontSize: 16,
+            fontWeight: FontWeight.w600,
           ),
         ),
       ],

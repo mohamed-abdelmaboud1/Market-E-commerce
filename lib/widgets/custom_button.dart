@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sizer/sizer.dart';
 
+import 'text__widget.dart';
+
 class CustomButton extends StatelessWidget {
   final String button;
   final VoidCallback onPressed;
   Color textcolor;
   Color groundColor;
-   CustomButton({
+  CustomButton({
     super.key,
     required this.button,
     required this.onPressed,
@@ -25,15 +27,13 @@ class CustomButton extends StatelessWidget {
         decoration: BoxDecoration(
           color: groundColor,
           borderRadius: BorderRadius.circular(14),
-          
         ),
         child: Center(
-          child: Text(
-            button,
-            style: GoogleFonts.poppins(
-                color: textcolor,
-                fontSize: 18.sp,
-                fontWeight: FontWeight.w500),
+          child: TextWidget(
+            text: '$button',
+            color: textcolor,
+            fontSize: 18.sp,
+            fontWeight: FontWeight.w500,
           ),
         ),
       ),

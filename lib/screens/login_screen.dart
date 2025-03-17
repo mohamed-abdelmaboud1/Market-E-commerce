@@ -10,6 +10,7 @@ import '../widgets/Social_login.dart';
 import '../widgets/custom_button.dart';
 import '../widgets/remember.dart';
 import '../widgets/text_field_widget.dart';
+import '../widgets/text__widget.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -130,25 +131,21 @@ class _LoginScreenState extends State<LoginScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
-                  'Are you new in Marketi',
-                  style: GoogleFonts.poppins(
-                    color: const Color(0xFF51526C),
-                    fontSize: 14.7.sp,
-                    fontWeight: FontWeight.w400,
-                  ),
+                TextWidget(
+                  text: 'Are you new in Marketi',
+                  color: Color(0xff51526C),
+                  fontSize: 14.7.sp,
+                  fontWeight: FontWeight.w400,
                 ),
                 GestureDetector(
                   onTap: () {
                     context.push(AppRouter.registerPath);
                   },
-                  child: Text(
-                    ' register?',
-                    style: GoogleFonts.poppins(
-                      color: PrimaryColor,
-                      fontSize: 14.7.sp,
-                      fontWeight: FontWeight.w400,
-                    ),
+                  child: TextWidget(
+                    text: 'register?',
+                    color: PrimaryColor,
+                    fontSize: 14.7.sp,
+                    fontWeight: FontWeight.w400,
                   ),
                 ),
               ],
