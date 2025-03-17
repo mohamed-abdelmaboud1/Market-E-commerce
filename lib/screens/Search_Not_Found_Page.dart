@@ -1,0 +1,44 @@
+import 'package:flutter/material.dart';
+import 'package:marketi_ecommers/constant/image_pathes.dart';
+import 'package:marketi_ecommers/widgets/bar_widget.dart';
+import 'package:marketi_ecommers/widgets/four_orgnaized_widget.dart';
+import 'package:marketi_ecommers/widgets/search_widget.dart';
+import 'package:sizer/sizer.dart';
+
+class SearchNotFoundPage extends StatefulWidget {
+  const SearchNotFoundPage({super.key});
+
+  @override
+  State<SearchNotFoundPage> createState() => _SearchNotFoundPageState();
+}
+
+class _SearchNotFoundPageState extends State<SearchNotFoundPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            BarWidget(),
+            SizedBox(
+              height: 2.h,
+            ),
+            SearchWidget(),
+            FourOrgnaizedWidget(
+              image: Image.asset(
+                ImagePathes.image11,
+                width: 200.w,
+                height: 30.h,
+              ),
+              textBold: "Oops Not Found!",
+              textNormal:
+                  "Check our big offers, fresh products and fill your cart with items",
+              textButton: "Continue Shopping",
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

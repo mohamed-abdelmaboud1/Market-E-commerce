@@ -1,13 +1,17 @@
 import 'package:go_router/go_router.dart';
+import 'package:marketi_ecommers/screens/Search_Not_Found_Page.dart';
+import 'package:marketi_ecommers/screens/Success_Order_Page.dart';
+import 'package:marketi_ecommers/screens/cart_empty.dart';
 import 'package:marketi_ecommers/screens/forget_password_with_mail.dart';
 import 'package:marketi_ecommers/screens/forget_password_with_phone.dart';
 import 'package:marketi_ecommers/screens/verify_code_with_mail.dart';
+
 import '../screens/confirmation_new_pass.dart';
 import '../screens/login_screen.dart';
-import '../screens/register_screen.dart';
 import '../screens/on_boarding1.dart';
 import '../screens/on_boarding2.dart';
 import '../screens/on_boarding3.dart';
+import '../screens/register_screen.dart';
 import '../screens/splash.dart';
 import '../screens/verify_code_with_phone.dart';
 
@@ -23,6 +27,9 @@ class AppRouter {
   static String verifyCodeWithPhone = '/verifyCodeWithPhone';
   static String verifyCodeWithMail = '/verifyCodeWithMail';
   static String confirmationNewPass = '/confirmationNewPass';
+  static String searchNotFoundPage = '/searchNotFoundPage';
+  static String successOrderPage = '/successOrderPage';
+  static String cartEmpty = '/cartEmpty';
   static GoRouter router = GoRouter(
     initialLocation: '/',
     routes: [
@@ -52,22 +59,35 @@ class AppRouter {
       ),
       GoRoute(
         path: forgetPasswordWithPhone,
-        builder: (context, state) =>  ForgetPasswordWithPhone(),
+        builder: (context, state) => ForgetPasswordWithPhone(),
       ),
       GoRoute(
         path: forgetPasswordWithMail,
-        builder: (context, state) =>  ForgetPasswordWithMail(),
+        builder: (context, state) => ForgetPasswordWithMail(),
       ),
       GoRoute(
         path: verifyCodeWithPhone,
-        builder: (context, state) =>  VerifyCodeWithPhone(),
+        builder: (context, state) => VerifyCodeWithPhone(),
       ),
       GoRoute(
         path: verifyCodeWithMail,
-        builder: (context, state) =>  VerifyCodeWithMail(),
-      ), GoRoute(
+        builder: (context, state) => VerifyCodeWithMail(),
+      ),
+      GoRoute(
         path: confirmationNewPass,
-        builder: (context, state) =>  ConfirmationNewPass(),
+        builder: (context, state) => const ConfirmationNewPass(),
+      ),
+      GoRoute(
+        path: successOrderPage,
+        builder: (context, state) => SuccessOrderPage(),
+      ),
+      GoRoute(
+        path: cartEmpty,
+        builder: (context, state) => CartEmpty(),
+      ),
+      GoRoute(
+        path: searchNotFoundPage,
+        builder: (context, state) => const SearchNotFoundPage(),
       ),
     ],
   );

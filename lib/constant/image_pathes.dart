@@ -10,6 +10,8 @@ class ImagePathes {
   static const String image7 = 'images/image7.png';
   static const String image8 = 'images/image8.png';
   static const String image9 = 'images/image9.png';
-  static const String image10 = 'images/imag10.png';
+  static const String image10 = 'images/image10.png';
+  static const String image11 = 'images/image11.png';
+  static const String image12 = 'images/image12.png';
 
 }
