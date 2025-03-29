@@ -4,6 +4,7 @@ import 'package:marketi_ecommers/screens/Success_Order_Page.dart';
 import 'package:marketi_ecommers/screens/cart_empty.dart';
 import 'package:marketi_ecommers/screens/forget_password_with_mail.dart';
 import 'package:marketi_ecommers/screens/forget_password_with_phone.dart';
+import 'package:marketi_ecommers/screens/home_screen.dart';
 import 'package:marketi_ecommers/screens/verify_code_with_mail.dart';
 
 import '../screens/confirmation_new_pass.dart';
@@ -30,6 +31,7 @@ class AppRouter {
   static String searchNotFoundPage = '/searchNotFoundPage';
   static String successOrderPage = '/successOrderPage';
   static String cartEmpty = '/cartEmpty';
+  static String homePath = '/homePath';
   static GoRouter router = GoRouter(
     initialLocation: '/',
     routes: [
@@ -88,6 +90,10 @@ class AppRouter {
       GoRoute(
         path: searchNotFoundPage,
         builder: (context, state) => const SearchNotFoundPage(),
+      ),
+      GoRoute(
+        path: homePath,
+        builder: (context, state) => const HomeScreen(),
       ),
     ],
   );

@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import '../constant/colors.dart';
+import 'package:go_router/go_router.dart';
 import 'package:sizer/sizer.dart';
+
+import '../constant/app_router.dart';
+import '../constant/colors.dart';
 import '../constant/image_pathes.dart';
 import '../widgets/Social_login.dart';
 import '../widgets/build_label_text.dart';
 import '../widgets/custom_button.dart';
-import '../widgets/remember.dart';
 import '../widgets/text_field_widget.dart';
 
 class RegisterScreen extends StatefulWidget {
@@ -17,7 +18,6 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
-
   final TextEditingController _fullNameController = TextEditingController();
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _phoneController = TextEditingController();
@@ -27,7 +27,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
       TextEditingController();
 
   final _formKey = GlobalKey<FormState>();
-  bool _isLoading = false;
+  final bool _isLoading = false;
   @override
   void dispose() {
     _fullNameController.dispose();
@@ -42,7 +42,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
   String? _emailError;
   String? _passwordError;
 
-  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -72,7 +71,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             Icons.arrow_left_outlined,
                             size: 5.h,
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
                         )),
                       ),
                     ),
@@ -130,7 +131,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
               mailPassText: 'Phone Number',
               icon: Icons.phone,
               controller: _phoneController,
-              
             ),
             SizedBox(
               height: 1.h,
@@ -183,7 +183,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
               textcolor: Colors.white,
               groundColor: PrimaryColor,
               button: "Sign Up",
-              onPressed: () {},
+              onPressed: () {
+                context.push(AppRouter.homePath);
+              },
             ),
             SizedBox(
               height: 1.h,
