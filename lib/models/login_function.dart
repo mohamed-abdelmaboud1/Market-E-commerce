@@ -1,11 +1,9 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:marketi_ecommers/constant/app_router.dart';
 
-class LoginFunction extends StatelessWidget {
-  const LoginFunction({super.key});
-  
+class LoginFunction {
+  const LoginFunction();
 
-  @override
-  Widget build(BuildContext context) {
-    return const Placeholder();
-  }
+
 }
