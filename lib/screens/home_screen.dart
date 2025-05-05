@@ -4,7 +4,7 @@ import 'package:marketi_ecommers/widgets/category_view_widget.dart';
 import 'package:marketi_ecommers/widgets/product_widget.dart';
 import 'package:sizer/sizer.dart';
 
-import '../widgets/BottomNavigation.dart' show Bottomnavigation;
+import '../widgets/bottom_navigation.dart' show Bottomnavigation;
 import '../widgets/search_widget.dart' show SearchWidget;
 import '../widgets/text__widget.dart';
 

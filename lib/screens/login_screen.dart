@@ -114,10 +114,11 @@ class _LoginScreenState extends State<LoginScreen> {
                         textcolor: Colors.white,
                         groundColor: PrimaryColor,
                         button: "Log In",
-                        onPressed: () {
-                          // context.read<UserCubit>().signIn();
-                          cubit.signIn();
-                        }),
+                        onPressed: () async {
+                          await cubit.signIn();
+                          context.push(AppRouter.homePath);
+                        },
+                      ),
                 SizedBox(
                   height: 1.h,
                 ),
@@ -137,7 +138,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         context.push(AppRouter.registerPath);
                       },
                       child: TextWidget(
-                        text: 'register?',
+                        text: ' register?',
                         color: PrimaryColor,
                         fontSize: 14.7.sp,
                         fontWeight: FontWeight.w400,

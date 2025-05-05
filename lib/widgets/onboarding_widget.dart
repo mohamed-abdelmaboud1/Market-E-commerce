@@ -5,7 +5,7 @@ import 'package:sizer/sizer.dart';
 import '../constant/app_router.dart';
 import '../constant/colors.dart';
 import 'custom_button.dart';
-import 'dots_Indicator.dart';
+import 'dots_indicator.dart';
 import 'text__widget.dart';
 
 class OnboardingWidget extends StatelessWidget {

@@ -1,19 +1,10 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 import 'package:marketi_ecommers/constant/image_pathes.dart';
 import 'package:marketi_ecommers/widgets/bar_widget.dart';
-import 'package:marketi_ecommers/widgets/forget_pass_widget.dart';
 import 'package:marketi_ecommers/widgets/four_orgnaized_widget.dart';
 import 'package:sizer/sizer.dart';
 
-import '../constant/app_router.dart';
-import '../constant/colors.dart';
-import '../widgets/build_label_text.dart';
-import '../widgets/custom_button.dart';
-import '../widgets/text__widget.dart';
-import '../widgets/text_field_widget.dart';
 
 class SuccessOrderPage extends StatefulWidget {
   SuccessOrderPage({super.key});
@@ -40,7 +31,7 @@ class _SuccessOrderPageState extends State<SuccessOrderPage> {
               ),
               textBold: "Thank You!",
               textNormal:
-                  "Woah, You Have sucessfully orderd",
+                  "Wha, You Have successfully ordered",
               textButton: "Go Home",
             ),
           ],

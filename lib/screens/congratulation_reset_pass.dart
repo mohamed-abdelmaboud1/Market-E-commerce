@@ -9,14 +9,9 @@ import '../constant/image_pathes.dart';
 import '../widgets/custom_button.dart';
 import '../widgets/text__widget.dart';
 
-class ConfirmationNewPass extends StatefulWidget {
-  const ConfirmationNewPass({super.key});
+class CongratulationResetPass extends StatelessWidget {
+  const CongratulationResetPass({super.key});
 
-  @override
-  State<ConfirmationNewPass> createState() => _ConfirmationNewPassState();
-}
-
-class _ConfirmationNewPassState extends State<ConfirmationNewPass> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -98,7 +93,7 @@ class _ConfirmationNewPassState extends State<ConfirmationNewPass> {
                 groundColor: PrimaryColor,
                 button: "Log In",
                 onPressed: () {
-                  // context.push(AppRouter.home);
+                   context.push(AppRouter.loginPath);
                 }),
           ],
         ),

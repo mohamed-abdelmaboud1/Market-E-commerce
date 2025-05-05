@@ -1,9 +1,7 @@
 import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
 import 'package:marketi_ecommers/core/Api/api_consumer.dart';
 import 'package:marketi_ecommers/core/Api/api_interceptors.dart';
 import 'package:marketi_ecommers/core/Api/endpoints.dart';
-import 'package:marketi_ecommers/core/errors/error_model.dart';
 import 'package:marketi_ecommers/core/errors/exceptions.dart';
 
 class DioConsumer extends ApiConsumer {

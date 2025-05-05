@@ -7,7 +7,8 @@ import 'package:marketi_ecommers/screens/forget_password_with_phone.dart';
 import 'package:marketi_ecommers/screens/home_screen.dart';
 import 'package:marketi_ecommers/screens/verify_code_with_mail.dart';
 
-import '../screens/confirmation_new_pass.dart';
+import '../screens/confirmation_new_pass .dart';
+import '../screens/congratulation_reset_pass.dart';
 import '../screens/login_screen.dart';
 import '../screens/on_boarding1.dart';
 import '../screens/on_boarding2.dart';
@@ -28,12 +29,13 @@ class AppRouter {
   static String verifyCodeWithPhone = '/verifyCodeWithPhone';
   static String verifyCodeWithMail = '/verifyCodeWithMail';
   static String confirmationNewPass = '/confirmationNewPass';
+  static String congratulationResetPass = '/congratulationResetPass';
   static String searchNotFoundPage = '/searchNotFoundPage';
   static String successOrderPage = '/successOrderPage';
   static String cartEmpty = '/cartEmpty';
   static String homePath = '/homePath';
   static GoRouter router = GoRouter(
-    initialLocation: '/',
+    initialLocation: '/loginPath',
     routes: [
       GoRoute(
         path: splashPath,
@@ -78,6 +80,10 @@ class AppRouter {
       GoRoute(
         path: confirmationNewPass,
         builder: (context, state) => const ConfirmationNewPass(),
+      ),
+       GoRoute(
+        path: congratulationResetPass,
+        builder: (context, state) => const CongratulationResetPass(),
       ),
       GoRoute(
         path: successOrderPage,

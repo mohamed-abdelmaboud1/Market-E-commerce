@@ -12,7 +12,7 @@ class TextFieldWidget extends StatefulWidget {
   final VoidCallback? onTap;
 
   const TextFieldWidget({
-    Key? key,
+    super.key,
     required this.mailPassText,
     required this.icon,
     this.controller,
@@ -20,7 +20,7 @@ class TextFieldWidget extends StatefulWidget {
     this.keyboardType,
     this.readOnly = false,
     this.onTap,
-  }) : super(key: key);
+  });
   @override
   State<TextFieldWidget> createState() => _TextFieldWidgetState();
 }
@@ -80,7 +80,7 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(3.w),
                   borderSide: const BorderSide(
-                    color: Color(0xffB2CCFFB2),
+                    color: Color(0xffb2ccffb2),
                   ),
                 ),
                 focusedBorder: OutlineInputBorder(

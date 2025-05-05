@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 
 import '../constant/colors.dart';
@@ -19,8 +21,8 @@ class DotsIndicator extends StatelessWidget {
       children: List.generate(totalDots, (index) {
         bool isActive = index == currentIndex; 
         return AnimatedContainer(
-          duration: Duration(milliseconds: 300),
-          margin: EdgeInsets.symmetric(horizontal: 5),
+          duration: const Duration(milliseconds: 300),
+          margin: const EdgeInsets.symmetric(horizontal: 5),
           width:  20.0, 
           height: 20.0,
           decoration: BoxDecoration(

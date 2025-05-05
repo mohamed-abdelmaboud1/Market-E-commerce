@@ -7,7 +7,7 @@ import '../constant/app_router.dart';
 import '../constant/colors.dart';
 import '../constant/image_pathes.dart';
 import '../widgets/custom_button.dart';
-import '../widgets/dots_Indicator.dart';
+import '../widgets/dots_indicator.dart';
 import '../widgets/onboarding_widget.dart';
 
 class OnBoarding2 extends StatelessWidget {

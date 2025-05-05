@@ -6,21 +6,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:marketi_ecommers/core/Api/dio_consumer.dart';
 import 'package:sizer/sizer.dart';
 
+import 'cache/cache_helper.dart';
 import 'constant/app_router.dart';
 import 'cubit/user/user_cubit.dart';
 
-// void main() {
-//   runApp(
-//     BlocProvider(
-//       create: (context) => UserCubit(),
-//       child: DevicePreview(
-//         enabled: !kReleaseMode,
-//         builder: (context) => const MarketEcommers(),
-//       ),
-//     ),
-//   );
-// }
-void main() {
+
+void main()async {
+   WidgetsFlutterBinding.ensureInitialized();
+  await CacheHelper.init();
   runApp(
     DevicePreview(
       enabled: !kReleaseMode,

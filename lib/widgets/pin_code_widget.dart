@@ -5,33 +5,34 @@ import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:sizer/sizer.dart';
 
 class PinCodeWidget extends StatelessWidget {
-  const PinCodeWidget({super.key});
+   PinCodeWidget({super.key,required this.codeController});
+  TextEditingController codeController;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:  EdgeInsets.symmetric(horizontal: 7.h),
+      padding: EdgeInsets.symmetric(horizontal: 7.w),
       child: PinCodeTextField(
+        controller: codeController,
         appContext: context,
-        length: 4, 
+        length: 6,
         onChanged: (value) {
-          print(value); 
+          print(value);
         },
         onCompleted: (value) {
-          print("Completed: $value"); 
+          print("Completed: $value");
         },
         pinTheme: PinTheme(
           shape: PinCodeFieldShape.box,
           borderRadius: BorderRadius.circular(10),
-          fieldHeight: 65,
-          fieldWidth: 65,
+          fieldHeight: 50,
+          fieldWidth: 50,
           activeColor: PrimaryColor,
           selectedColor: PrimaryColor,
           inactiveColor: Colors.grey.shade300,
           activeFillColor: Colors.white,
           selectedFillColor: Colors.white,
           inactiveFillColor: Colors.white,
-          
         ),
         keyboardType: TextInputType.number,
         enableActiveFill: true,

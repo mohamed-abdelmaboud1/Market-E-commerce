@@ -1,19 +1,16 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:marketi_ecommers/constant/image_pathes.dart';
 import 'package:marketi_ecommers/widgets/forget_pass_widget.dart';
 import 'package:marketi_ecommers/widgets/otp_timer_widget.dart';
-import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:sizer/sizer.dart';
-
 import '../constant/app_router.dart';
 import '../constant/colors.dart';
-import '../widgets/build_label_text.dart';
+import '../cubit/user/user_cubit.dart';
+import '../cubit/user/user_state.dart';
 import '../widgets/custom_button.dart';
 import '../widgets/pin_code_widget.dart';
-import '../widgets/text_field_widget.dart';
 
 class VerifyCodeWithMail extends StatefulWidget {
   VerifyCodeWithMail({super.key});
@@ -23,39 +20,63 @@ class VerifyCodeWithMail extends StatefulWidget {
 }
 
 class _VerifyCodeWithMailState extends State<VerifyCodeWithMail> {
-  final TextEditingController _phoneController = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            ForgetPassWidget(
-                textBar: "Verification Code",
-                image: ImagePathes.image7,
-                text: "Please enter the 4 digit code sent to: You@gmail.com "),
-            SizedBox(
-              height: 5.h,
+    final cubit = context.read<UserCubit>();
+    return BlocConsumer<UserCubit, UserState>(
+      listener: (context, State) {
+        if (State is resetPassSuccess) {
+          ScaffoldMessenger.of(context).showSnackBar(
+             SnackBar(
+              backgroundColor: Colors.green,
+              content:
+                  Center(child: Text(State.message)),
             ),
-            PinCodeWidget(),
-            SizedBox(
-              height: 3.h,
+          );
+        } else if (State is SignUpFailure) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(State.errMessage),
             ),
-            CustomButton(
-              textcolor: Colors.white,
-              groundColor: PrimaryColor,
-              button: "Verify Code",
-              onPressed: () {
-                context.push(AppRouter.confirmationNewPass);
-              },
+          );
+        }
+      },
+      builder: (context, State) {
+        return Scaffold(
+          body: SingleChildScrollView(
+            child: Column(
+              children: [
+                ForgetPassWidget(
+                    textBar: "Verification Code",
+                    image: ImagePathes.image7,
+                    text:
+                        "Please enter the 4 digit code sent to: You@gmail.com "),
+                SizedBox(
+                  height: 5.h,
+                ),
+                PinCodeWidget(codeController: cubit.codeConfirm),
+                SizedBox(
+                  height: 3.h,
+                ),
+               State is resetPassLoading
+                  ? const CircularProgressIndicator()
+                  :  CustomButton(
+                  textcolor: Colors.white,
+                  groundColor: PrimaryColor,
+                  button: "Verify Code",
+                  onPressed: () async{
+                        await cubit.activatedResetePassword();
+                    context.push(AppRouter.confirmationNewPass);
+                  },
+                ),
+                SizedBox(height: 3.h),
+                OtpTimer(),
+                SizedBox(height: 20.h),
+              ],
             ),
-            SizedBox(height: 3.h),
-            OtpTimer(),
-            SizedBox(height: 20.h),
-          ],
-        ),
-      ),
+          ),
+        );
+      },
     );
   }
 }

@@ -185,9 +185,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         textcolor: Colors.white,
                         groundColor: PrimaryColor,
                         button: "Sign Up",
-                        onPressed: () {
-                          cubit.signUp();
-                          //context.push(AppRouter.homePath);
+                      onPressed: () async {
+                          await cubit.signUp();
+                          context.push(AppRouter.homePath);
                         },
                       ),
                 SizedBox(
