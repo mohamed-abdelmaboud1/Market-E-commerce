@@ -1,21 +1,21 @@
 import 'package:go_router/go_router.dart';
-import 'package:marketi_ecommers/screens/Search_Not_Found_Page.dart';
-import 'package:marketi_ecommers/screens/Success_Order_Page.dart';
-import 'package:marketi_ecommers/screens/cart_empty.dart';
-import 'package:marketi_ecommers/screens/forget_password_with_mail.dart';
-import 'package:marketi_ecommers/screens/forget_password_with_phone.dart';
-import 'package:marketi_ecommers/screens/home_screen.dart';
-import 'package:marketi_ecommers/screens/verify_code_with_mail.dart';
+import 'package:marketi_ecommers/Feature/search/presentation/view/Search_Not_Found_Page.dart';
+import 'package:marketi_ecommers/Feature/success_order/presentation/view/Success_Order_Page.dart';
+import 'package:marketi_ecommers/Feature/cart/presentation/view/cart_empty.dart';
+import 'package:marketi_ecommers/Feature/for_password/presentation/view/forget_password_with_mail.dart';
+import 'package:marketi_ecommers/Feature/for_password/presentation/view/forget_password_with_phone.dart';
+import 'package:marketi_ecommers/Feature/home/presentation/view/home_screen.dart';
+import 'package:marketi_ecommers/Feature/verify/presentation/view/verify_code_with_mail.dart';
 
-import '../screens/confirmation_new_pass .dart';
-import '../screens/congratulation_reset_pass.dart';
-import '../screens/login_screen.dart';
-import '../screens/on_boarding1.dart';
-import '../screens/on_boarding2.dart';
-import '../screens/on_boarding3.dart';
-import '../screens/register_screen.dart';
-import '../screens/splash.dart';
-import '../screens/verify_code_with_phone.dart';
+import '../Feature/for_password/presentation/view/confirmation_new_pass .dart';
+import '../Feature/for_password/presentation/view/congratulation_reset_pass.dart';
+import '../Feature/login/presentation/view/login_screen.dart';
+import '../Feature/splash/presentation/view/on_boarding1.dart';
+import '../Feature/splash/presentation/view/on_boarding2.dart';
+import '../Feature/splash/presentation/view/on_boarding3.dart';
+import '../Feature/register/presentation/view/register_screen.dart';
+import '../Feature/splash/presentation/view/splash.dart';
+import '../Feature/verify/presentation/view/verify_code_with_phone.dart';
 
 class AppRouter {
   static String splashPath = '/';

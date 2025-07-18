@@ -1,0 +1,82 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:marketi_ecommers/constant/image_pathes.dart';
+import 'package:marketi_ecommers/widgets/forget_pass_widget.dart';
+import 'package:marketi_ecommers/widgets/otp_timer_widget.dart';
+import 'package:sizer/sizer.dart';
+import '../../../../constant/app_router.dart';
+import '../../../../constant/colors.dart';
+import '../../../login/presentation/view_models/user_cubit/user_cubit.dart';
+import '../../../login/presentation/view_models/user_cubit/user_state.dart';
+import '../../../../widgets/custom_button.dart';
+import '../../../../widgets/pin_code_widget.dart';
+
+class VerifyCodeWithMail extends StatefulWidget {
+  VerifyCodeWithMail({super.key});
+
+  @override
+  State<VerifyCodeWithMail> createState() => _VerifyCodeWithMailState();
+}
+
+class _VerifyCodeWithMailState extends State<VerifyCodeWithMail> {
+  @override
+  Widget build(BuildContext context) {
+    final cubit = context.read<UserCubit>();
+    return BlocConsumer<UserCubit, UserState>(
+      listener: (context, State) {
+        if (State is resetPassSuccess) {
+          ScaffoldMessenger.of(context).showSnackBar(
+             SnackBar(
+              backgroundColor: Colors.green,
+              content:
+                  Center(child: Text(State.message)),
+            ),
+          );
+        } else if (State is SignUpFailure) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(State.errMessage),
+            ),
+          );
+        }
+      },
+      builder: (context, State) {
+        return Scaffold(
+          body: SingleChildScrollView(
+            child: Column(
+              children: [
+                ForgetPassWidget(
+                    textBar: "Verification Code",
+                    image: ImagePathes.image7,
+                    text:
+                        "Please enter the 4 digit code sent to: You@gmail.com "),
+                SizedBox(
+                  height: 5.h,
+                ),
+                PinCodeWidget(codeController: cubit.codeConfirm),
+                SizedBox(
+                  height: 3.h,
+                ),
+               State is resetPassLoading
+                  ? const CircularProgressIndicator()
+                  :  CustomButton(
+                  textcolor: Colors.white,
+                  groundColor: PrimaryColor,
+                  button: "Verify Code",
+                  onPressed: () async{
+                        await cubit.activatedResetePassword();
+                    context.push(AppRouter.confirmationNewPass);
+                  },
+                ),
+                SizedBox(height: 3.h),
+                OtpTimer(),
+                SizedBox(height: 20.h),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+}

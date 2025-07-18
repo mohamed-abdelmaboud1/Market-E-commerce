@@ -8,7 +8,7 @@ import 'package:sizer/sizer.dart';
 
 import 'cache/cache_helper.dart';
 import 'constant/app_router.dart';
-import 'cubit/user/user_cubit.dart';
+import 'Feature/login/presentation/view_models/user_cubit/user_cubit.dart';
 
 
 void main()async {
