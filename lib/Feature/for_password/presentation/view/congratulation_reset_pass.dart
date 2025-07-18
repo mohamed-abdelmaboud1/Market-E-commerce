@@ -6,8 +6,8 @@ import 'package:sizer/sizer.dart';
 
 import '../../../../constant/colors.dart';
 import '../../../../constant/image_pathes.dart';
-import '../../../../widgets/custom_button.dart';
-import '../../../../widgets/text__widget.dart';
+import '../../../../utils/custom_button.dart';
+import '../../../../utils/custom_text__widget.dart';
 
 class CongratulationResetPass extends StatelessWidget {
   const CongratulationResetPass({super.key});
@@ -76,7 +76,7 @@ class CongratulationResetPass extends StatelessWidget {
             ),
             SizedBox(
               width: 95.w,
-              child: TextWidget(
+              child: CustomTextWidget(
                 text:
                     "You have updated the password. please login again with your latest password",
                 textAlign: TextAlign.center,

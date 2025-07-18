@@ -6,9 +6,9 @@ import 'package:sizer/sizer.dart';
 import '../../../../constant/app_router.dart';
 import '../../../../constant/colors.dart';
 import '../../../../constant/image_pathes.dart';
-import '../../../../widgets/custom_button.dart';
-import '../../../../widgets/dots_indicator.dart';
-import '../../../../widgets/onboarding_widget.dart';
+import '../../../../utils/custom_button.dart';
+import 'widgets/dots_indicator.dart';
+import 'widgets/onboarding_widget.dart';
 
 class OnBoarding2 extends StatelessWidget {
   const OnBoarding2({super.key});
@@ -19,15 +19,14 @@ class OnBoarding2 extends StatelessWidget {
       backgroundColor: Colors.white,
       body: Column(
         children: [
-          Center(
-              child: OnboardingWidget(
-            text1: "Easy to Buy",
-            text2:
-                "Find the perfect item that suits your style and needs With secure payment options and fast delivery, shopping has never been easier.",
-            image: ImagePathes.image2,
-            indexOfDOt: 1,
-            
-          )),
+          OnboardingWidget(
+                      text1: "Easy to Buy",
+                      text2:
+            "Find the perfect item that suits your style and needs With secure payment options and fast delivery, shopping has never been easier.",
+                      image: ImagePathes.image2,
+                      indexOfDOt: 1,
+                      
+                    ),
           Spacer(),
           CustomButton(
             button: "Next",

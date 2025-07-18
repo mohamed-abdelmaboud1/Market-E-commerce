@@ -2,15 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:marketi_ecommers/constant/image_pathes.dart';
-import 'package:marketi_ecommers/widgets/forget_pass_widget.dart';
-import 'package:marketi_ecommers/widgets/otp_timer_widget.dart';
+import 'package:marketi_ecommers/Feature/for_password/presentation/view/widgets/forget_pass_widget.dart';
+import 'package:marketi_ecommers/Feature/verify/presentation/view/widgets/otp_timer_widget.dart';
 import 'package:sizer/sizer.dart';
 import '../../../../constant/app_router.dart';
 import '../../../../constant/colors.dart';
-import '../../../login/presentation/view_models/user_cubit/user_cubit.dart';
-import '../../../login/presentation/view_models/user_cubit/user_state.dart';
-import '../../../../widgets/custom_button.dart';
-import '../../../../widgets/pin_code_widget.dart';
+import '../../../../cubit/user_cubit/user_state.dart';
+import '../view_models/activated_reset_password_cubit.dart';
+import '../../../for_password/presentation/view_models/reset_pass_state/resete_pass_state.dart';
+import '../../../../utils/custom_button.dart';
+import 'widgets/pin_code_widget.dart';
+import '../../../register/presentation/view_models/signUP_cubit/signUP_state.dart';
 
 class VerifyCodeWithMail extends StatefulWidget {
   VerifyCodeWithMail({super.key});
@@ -22,8 +24,8 @@ class VerifyCodeWithMail extends StatefulWidget {
 class _VerifyCodeWithMailState extends State<VerifyCodeWithMail> {
   @override
   Widget build(BuildContext context) {
-    final cubit = context.read<UserCubit>();
-    return BlocConsumer<UserCubit, UserState>(
+    final cubit = context.read<ActivatedResetPasswordCubit>();
+    return BlocConsumer<ActivatedResetPasswordCubit, UserState>(
       listener: (context, State) {
         if (State is resetPassSuccess) {
           ScaffoldMessenger.of(context).showSnackBar(

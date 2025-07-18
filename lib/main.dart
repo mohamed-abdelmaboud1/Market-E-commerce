@@ -3,12 +3,16 @@ import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:marketi_ecommers/Feature/for_password/presentation/view_models/reset_pass_cubit.dart';
+import 'package:marketi_ecommers/Feature/for_password/presentation/view_models/send_resete_password_cubit.dart';
+import 'package:marketi_ecommers/Feature/login/presentation/view_models/signIn_cubit/signIn_cubit.dart';
+import 'package:marketi_ecommers/Feature/register/presentation/view_models/signUP_cubit/signUP_cubit.dart';
+import 'package:marketi_ecommers/Feature/verify/presentation/view_models/activated_reset_password_cubit.dart';
 import 'package:marketi_ecommers/core/Api/dio_consumer.dart';
 import 'package:sizer/sizer.dart';
 
 import 'cache/cache_helper.dart';
 import 'constant/app_router.dart';
-import 'Feature/login/presentation/view_models/user_cubit/user_cubit.dart';
 
 
 void main()async {
@@ -19,7 +23,11 @@ void main()async {
       enabled: !kReleaseMode,
       builder: (context) => MultiBlocProvider(
         providers: [
-          BlocProvider<UserCubit>(create: (_) => UserCubit(DioConsumer(dio: Dio()))),
+          BlocProvider<SigninCubit>(create: (_) => SigninCubit(DioConsumer(dio: Dio()))),
+          BlocProvider<SignupCubit>(create: (_) => SignupCubit(DioConsumer(dio: Dio()))),
+          BlocProvider<SendResetePasswordCubit>(create: (_) => SendResetePasswordCubit(DioConsumer(dio: Dio()))),
+          BlocProvider<ActivatedResetPasswordCubit>(create: (_) => ActivatedResetPasswordCubit(DioConsumer(dio: Dio()))),
+          BlocProvider<ResetPassCubit>(create: (_) => ResetPassCubit(DioConsumer(dio: Dio()))),
         ],
         child: const MarketEcommers(),
       ),

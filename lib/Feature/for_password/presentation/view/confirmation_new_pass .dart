@@ -2,18 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:marketi_ecommers/Feature/for_password/presentation/view_models/reset_pass_state/resete_pass_state.dart';
+import 'package:marketi_ecommers/constant/app_router.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../../../constant/app_router.dart' show AppRouter;
 import '../../../../constant/colors.dart';
 import '../../../../constant/image_pathes.dart';
-import '../../../login/presentation/view_models/user_cubit/user_cubit.dart';
-import '../../../login/presentation/view_models/user_cubit/user_state.dart'
-    show UserState, resetPassLoading, resetPassSuccess, restPassFailure;
-import '../../../../widgets/build_label_text.dart';
-import '../../../../widgets/custom_button.dart';
-import '../../../../widgets/text__widget.dart';
-import '../../../../widgets/text_field_widget.dart';
+import '../../../../cubit/user_cubit/user_state.dart';
+import '../../../../utils/custom_button.dart';
+import '../../../../utils/custom_text__widget.dart';
+import '../../../../utils/text_field_widget.dart';
+import '../view_models/reset_pass_cubit.dart';
 
 class ConfirmationNewPass extends StatefulWidget {
   const ConfirmationNewPass({super.key});
@@ -25,8 +24,8 @@ class ConfirmationNewPass extends StatefulWidget {
 class _ConfirmationNewPassState extends State<ConfirmationNewPass> {
   @override
   Widget build(BuildContext context) {
-    final cubit = context.read<UserCubit>();
-    return BlocConsumer<UserCubit, UserState>(
+    final cubit = context.read<ResetPassCubit>();
+    return BlocConsumer<ResetPassCubit, UserState>(
       listener: (context, State) {
         if (State is resetPassSuccess) {
           ScaffoldMessenger.of(context).showSnackBar(
@@ -106,7 +105,7 @@ class _ConfirmationNewPassState extends State<ConfirmationNewPass> {
                 ),
                 SizedBox(
                   width: 95.w,
-                  child: TextWidget(
+                  child: CustomTextWidget(
                     text: "Please Enter Your new Password",
                     textAlign: TextAlign.center,
                     color: const Color(0xff51526C),
