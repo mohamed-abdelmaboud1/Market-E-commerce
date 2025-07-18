@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
-import '../../../../../constant/colors.dart';
+import '../../../../../core/utils/colors.dart';
 import 'dots_indicator.dart';
-import '../../../../../utils/custom_text__widget.dart';
+import '../../../../../core/widgets/core/custom_text__widget.dart';
 
 class OnboardingWidget extends StatelessWidget {
   OnboardingWidget({

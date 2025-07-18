@@ -1,9 +1,9 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:marketi_ecommers/constant/colors.dart';
+import 'package:marketi_ecommers/core/utils/colors.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../../../../utils/custom_text__widget.dart';
+import '../../../../../core/widgets/core/custom_text__widget.dart';
 
 class OtpTimer extends StatefulWidget {
   @override

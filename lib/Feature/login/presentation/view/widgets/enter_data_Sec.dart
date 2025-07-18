@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../../../../utils/text_field_widget.dart';
+import '../../../../../core/widgets/core/text_field_widget.dart';
 import '../../view_models/signIn_cubit/signIn_cubit.dart';
 
 class EnterDataSection extends StatelessWidget {

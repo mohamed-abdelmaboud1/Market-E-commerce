@@ -7,14 +7,14 @@ import 'package:marketi_ecommers/Feature/login/presentation/view/widgets/to_regi
 import 'package:marketi_ecommers/Feature/login/presentation/view_models/signIn_cubit/signIn_state.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../../../../constant/app_router.dart';
-import '../../../../../constant/colors.dart';
-import '../../../../../constant/image_pathes.dart';
+import '../../../../../core/routing/app_router.dart';
+import '../../../../../core/utils/colors.dart';
+import '../../../../../core/utils/image_pathes.dart';
 import '../../../../../cubit/user_cubit/user_state.dart';
-import '../../../../../utils/custom_snack_bar.dart';
+import '../../../../../core/widgets/core/custom_snack_bar.dart';
 import '../../view_models/login_screen_model.dart';
 import '../../../../register/presentation/view/widgets/Social_login.dart';
-import '../../../../../utils/custom_button.dart';
+import '../../../../../core/widgets/core/custom_button.dart';
 import 'remember.dart';
 import '../../view_models/signIn_cubit/signIn_cubit.dart';
 

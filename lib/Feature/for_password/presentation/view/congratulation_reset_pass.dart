@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:marketi_ecommers/constant/app_router.dart';
+import 'package:marketi_ecommers/core/routing/app_router.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../../../constant/colors.dart';
-import '../../../../constant/image_pathes.dart';
-import '../../../../utils/custom_button.dart';
-import '../../../../utils/custom_text__widget.dart';
+import '../../../../core/utils/colors.dart';
+import '../../../../core/utils/image_pathes.dart';
+import '../../../../core/widgets/core/custom_button.dart';
+import '../../../../core/widgets/core/custom_text__widget.dart';
 
 class CongratulationResetPass extends StatelessWidget {
   const CongratulationResetPass({super.key});

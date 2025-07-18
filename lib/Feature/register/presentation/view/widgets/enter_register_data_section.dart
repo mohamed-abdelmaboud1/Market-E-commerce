@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:marketi_ecommers/Feature/register/presentation/view/widgets/build_label_text.dart';
-import 'package:marketi_ecommers/utils/text_field_widget.dart';
+import 'package:marketi_ecommers/core/widgets/core/text_field_widget.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../view_models/signUP_cubit/signUP_cubit.dart';

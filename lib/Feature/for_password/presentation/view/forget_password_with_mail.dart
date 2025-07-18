@@ -5,16 +5,16 @@ import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:marketi_ecommers/Feature/for_password/presentation/view_models/reset_pass_state/resete_pass_state.dart';
 import 'package:marketi_ecommers/Feature/for_password/presentation/view_models/send_resete_password_cubit.dart';
-import 'package:marketi_ecommers/constant/image_pathes.dart';
+import 'package:marketi_ecommers/core/utils/image_pathes.dart';
 import 'package:marketi_ecommers/cubit/user_cubit/user_state.dart';
 import 'package:marketi_ecommers/Feature/for_password/presentation/view/widgets/forget_pass_widget.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../../../constant/app_router.dart';
-import '../../../../constant/colors.dart';
+import '../../../../core/routing/app_router.dart';
+import '../../../../core/utils/colors.dart';
 import '../../../register/presentation/view/widgets/build_label_text.dart';
-import '../../../../utils/custom_button.dart';
-import '../../../../utils/text_field_widget.dart';
+import '../../../../core/widgets/core/custom_button.dart';
+import '../../../../core/widgets/core/text_field_widget.dart';
 
 class ForgetPasswordWithMail extends StatefulWidget {
   ForgetPasswordWithMail({super.key});

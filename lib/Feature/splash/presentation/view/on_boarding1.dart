@@ -3,10 +3,10 @@ import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../../../constant/app_router.dart';
-import '../../../../constant/colors.dart';
-import '../../../../constant/image_pathes.dart';
-import '../../../../utils/custom_button.dart';
+import '../../../../core/routing/app_router.dart';
+import '../../../../core/utils/colors.dart';
+import '../../../../core/utils/image_pathes.dart';
+import '../../../../core/widgets/core/custom_button.dart';
 import 'widgets/dots_indicator.dart';
 import 'widgets/onboarding_widget.dart';
 

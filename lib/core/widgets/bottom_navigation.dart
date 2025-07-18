@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../constant/app_router.dart' show AppRouter;
+import '../routing/app_router.dart' show AppRouter;
 
 class Bottomnavigation extends StatefulWidget {
   const Bottomnavigation({super.key});

@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../../../../constant/colors.dart';
-import '../../../../../constant/image_pathes.dart';
+import '../../../../../core/utils/colors.dart';
+import '../../../../../core/utils/image_pathes.dart';
 import '../../../../register/presentation/view/widgets/build_label_text.dart';
-import '../../../../../utils/text_field_widget.dart';
-import '../../../../../utils/custom_text__widget.dart';
+import '../../../../../core/widgets/core/text_field_widget.dart';
+import '../../../../../core/widgets/core/custom_text__widget.dart';
 
 class ForgetPassWidget extends StatelessWidget {
   ForgetPassWidget(

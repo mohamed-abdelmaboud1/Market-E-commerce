@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:marketi_ecommers/Feature/home/presentation/view/widgets/product_widget.dart';
-import 'package:marketi_ecommers/constant/image_pathes.dart';
+import 'package:marketi_ecommers/core/utils/image_pathes.dart';
 import 'package:sizer/sizer.dart';
 
 class DetailsPopularProductSection extends StatelessWidget {

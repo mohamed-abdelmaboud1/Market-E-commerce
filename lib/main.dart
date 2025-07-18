@@ -11,8 +11,8 @@ import 'package:marketi_ecommers/Feature/verify/presentation/view_models/activat
 import 'package:marketi_ecommers/core/Api/dio_consumer.dart';
 import 'package:sizer/sizer.dart';
 
-import 'cache/cache_helper.dart';
-import 'constant/app_router.dart';
+import 'core/cache/cache_helper.dart';
+import 'core/routing/app_router.dart';
 
 
 void main()async {

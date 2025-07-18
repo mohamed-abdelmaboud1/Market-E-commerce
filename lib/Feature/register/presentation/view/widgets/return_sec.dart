@@ -2,8 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../../../../constant/colors.dart';
-import '../../../../../constant/image_pathes.dart';
+import '../../../../../core/utils/colors.dart';
+import '../../../../../core/utils/image_pathes.dart';
 
 class RturnSection extends StatelessWidget {
   const RturnSection({

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import '../../../../../constant/colors.dart';
-import '../../../../../utils/custom_text__widget.dart';
+import '../../../../../core/utils/colors.dart';
+import '../../../../../core/widgets/core/custom_text__widget.dart';
 
 Widget SocialLoginButtons() {
   return Column(

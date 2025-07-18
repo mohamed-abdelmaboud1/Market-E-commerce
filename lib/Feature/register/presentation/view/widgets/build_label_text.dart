@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../../../../constant/colors.dart';
-import '../../../../../utils/custom_text__widget.dart';
+import '../../../../../core/utils/colors.dart';
+import '../../../../../core/widgets/core/custom_text__widget.dart';
 
 class BuildLabelText extends StatelessWidget {
   BuildLabelText({required this.sizePaddding, required this.text});

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:marketi_ecommers/constant/image_pathes.dart';
-import 'package:marketi_ecommers/utils/custom_text__widget.dart';
+import 'package:marketi_ecommers/core/utils/image_pathes.dart';
+import 'package:marketi_ecommers/core/widgets/core/custom_text__widget.dart';
 import 'package:sizer/sizer.dart';
 
-import '../constant/colors.dart';
+import '../utils/colors.dart';
 
 class BarWidget extends StatelessWidget {
   BarWidget({super.key, this.textBar});

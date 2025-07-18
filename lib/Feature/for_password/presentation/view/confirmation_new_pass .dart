@@ -3,15 +3,15 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:marketi_ecommers/Feature/for_password/presentation/view_models/reset_pass_state/resete_pass_state.dart';
-import 'package:marketi_ecommers/constant/app_router.dart';
+import 'package:marketi_ecommers/core/routing/app_router.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../../../constant/colors.dart';
-import '../../../../constant/image_pathes.dart';
+import '../../../../core/utils/colors.dart';
+import '../../../../core/utils/image_pathes.dart';
 import '../../../../cubit/user_cubit/user_state.dart';
-import '../../../../utils/custom_button.dart';
-import '../../../../utils/custom_text__widget.dart';
-import '../../../../utils/text_field_widget.dart';
+import '../../../../core/widgets/core/custom_button.dart';
+import '../../../../core/widgets/core/custom_text__widget.dart';
+import '../../../../core/widgets/core/text_field_widget.dart';
 import '../view_models/reset_pass_cubit.dart';
 
 class ConfirmationNewPass extends StatefulWidget {

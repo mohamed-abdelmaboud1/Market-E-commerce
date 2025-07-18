@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:marketi_ecommers/constant/image_pathes.dart';
+import 'package:marketi_ecommers/core/utils/image_pathes.dart';
 import 'package:marketi_ecommers/Feature/for_password/presentation/view/widgets/forget_pass_widget.dart';
 import 'package:marketi_ecommers/Feature/verify/presentation/view/widgets/otp_timer_widget.dart';
 import 'package:sizer/sizer.dart';
-import '../../../../constant/app_router.dart';
-import '../../../../constant/colors.dart';
+import '../../../../core/routing/app_router.dart';
+import '../../../../core/utils/colors.dart';
 import '../../../../cubit/user_cubit/user_state.dart';
 import '../view_models/activated_reset_password_cubit.dart';
 import '../../../for_password/presentation/view_models/reset_pass_state/resete_pass_state.dart';
-import '../../../../utils/custom_button.dart';
+import '../../../../core/widgets/core/custom_button.dart';
 import 'widgets/pin_code_widget.dart';
 import '../../../register/presentation/view_models/signUP_cubit/signUP_state.dart';
 

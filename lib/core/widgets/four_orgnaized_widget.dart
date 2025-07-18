@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:marketi_ecommers/utils/custom_button.dart';
-import 'package:marketi_ecommers/utils/custom_text__widget.dart';
+import 'package:marketi_ecommers/core/widgets/core/custom_button.dart';
+import 'package:marketi_ecommers/core/widgets/core/custom_text__widget.dart';
 import 'package:sizer/sizer.dart';
 
-import '../constant/colors.dart';
+import '../utils/colors.dart';
 
 class FourOrgnaizedWidget extends StatelessWidget {
   FourOrgnaizedWidget(

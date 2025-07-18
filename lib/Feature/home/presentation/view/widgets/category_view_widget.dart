@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:marketi_ecommers/constant/colors.dart';
-import 'package:marketi_ecommers/utils/custom_text__widget.dart';
+import 'package:marketi_ecommers/core/utils/colors.dart';
+import 'package:marketi_ecommers/core/widgets/core/custom_text__widget.dart';
 import 'package:sizer/sizer.dart';
 
 class CategoryViewWidget extends StatelessWidget {

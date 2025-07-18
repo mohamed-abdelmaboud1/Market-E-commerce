@@ -8,13 +8,13 @@ import 'package:marketi_ecommers/Feature/cart/presentation/view/cart_empty.dart'
 import 'package:marketi_ecommers/Feature/for_password/presentation/view/forget_password_with_mail.dart';
 import 'package:marketi_ecommers/Feature/for_password/presentation/view/forget_password_with_phone.dart';
 import 'package:marketi_ecommers/Feature/verify/presentation/view/verify_code_with_mail.dart';
-import '../Feature/for_password/presentation/view/confirmation_new_pass .dart';
-import '../Feature/for_password/presentation/view/congratulation_reset_pass.dart';
-import '../Feature/splash/presentation/view/on_boarding1.dart';
-import '../Feature/splash/presentation/view/on_boarding2.dart';
-import '../Feature/splash/presentation/view/on_boarding3.dart';
-import '../Feature/splash/presentation/view/splash_view.dart';
-import '../Feature/verify/presentation/view/verify_code_with_phone.dart';
+import '../../Feature/for_password/presentation/view/confirmation_new_pass .dart';
+import '../../Feature/for_password/presentation/view/congratulation_reset_pass.dart';
+import '../../Feature/splash/presentation/view/on_boarding1.dart';
+import '../../Feature/splash/presentation/view/on_boarding2.dart';
+import '../../Feature/splash/presentation/view/on_boarding3.dart';
+import '../../Feature/splash/presentation/view/splash_view.dart';
+import '../../Feature/verify/presentation/view/verify_code_with_phone.dart';
 
 class AppRouter {
   static String splashPath = '/';

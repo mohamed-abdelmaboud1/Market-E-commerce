@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../../../../constant/colors.dart';
+import '../../../../../core/utils/colors.dart';
 
 class SkipSection extends StatelessWidget {
   const SkipSection({

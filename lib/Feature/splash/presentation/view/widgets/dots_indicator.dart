@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 
-import '../../../../../constant/colors.dart';
+import '../../../../../core/utils/colors.dart';
 
 class DotsIndicator extends StatelessWidget {
   final int currentIndex; 

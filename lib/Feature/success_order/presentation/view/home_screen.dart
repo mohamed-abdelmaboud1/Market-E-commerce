@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:marketi_ecommers/constant/image_pathes.dart';
-import 'package:marketi_ecommers/widgetsCore/bottom_navigation.dart';
+import 'package:marketi_ecommers/core/utils/image_pathes.dart';
+import 'package:marketi_ecommers/core/widgets/bottom_navigation.dart';
 import 'package:marketi_ecommers/Feature/home/presentation/view/widgets/category_view_widget.dart';
 import 'package:marketi_ecommers/Feature/home/presentation/view/widgets/product_widget.dart';
 import 'package:marketi_ecommers/Feature/search/presentation/view/widgets/search_widget.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../../../utils/custom_text__widget.dart';
+import '../../../../core/widgets/core/custom_text__widget.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});

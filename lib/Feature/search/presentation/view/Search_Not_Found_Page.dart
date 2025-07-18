@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:marketi_ecommers/constant/image_pathes.dart';
-import 'package:marketi_ecommers/widgetsCore/bar_widget.dart';
-import 'package:marketi_ecommers/widgetsCore/four_orgnaized_widget.dart';
+import 'package:marketi_ecommers/core/utils/image_pathes.dart';
+import 'package:marketi_ecommers/core/widgets/bar_widget.dart';
+import 'package:marketi_ecommers/core/widgets/four_orgnaized_widget.dart';
 import 'package:marketi_ecommers/Feature/search/presentation/view/widgets/search_widget.dart';
 import 'package:sizer/sizer.dart';
 

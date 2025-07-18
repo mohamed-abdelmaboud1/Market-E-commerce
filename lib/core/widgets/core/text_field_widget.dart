@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../constant/colors.dart';
+import '../../utils/colors.dart';
 import 'package:sizer/sizer.dart';
 
 class TextFieldWidget extends StatefulWidget {
