@@ -25,6 +25,7 @@ class DioConsumer extends ApiConsumer {
     dynamic data,
     Map<String, dynamic>? queryParameters,
     bool isFormData = false,
+     Options? options
   }) async {
     try {
       final response = await dio.delete(
@@ -44,6 +45,7 @@ class DioConsumer extends ApiConsumer {
     dynamic data,
     Map<String, dynamic>? queryParameters,
     bool isFormData = false,
+     Options? options
   }) async {
     try {
       final response = await dio.get(
@@ -63,7 +65,9 @@ class DioConsumer extends ApiConsumer {
     dynamic data,
     Map<String, dynamic>? queryParameters,
     bool isFormData = false,
+     Options? options
   }) async {
+
     try {
       final response = await dio.patch(
         path,
@@ -82,6 +86,7 @@ class DioConsumer extends ApiConsumer {
     dynamic data,
     Map<String, dynamic>? queryParameters,
     bool isFormData = false,
+     Options? options
   }) async {
     try {
       final response = await dio.post(

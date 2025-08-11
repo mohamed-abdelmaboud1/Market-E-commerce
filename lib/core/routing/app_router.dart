@@ -1,5 +1,11 @@
 import 'package:go_router/go_router.dart';
+import 'package:marketi_ecommers/Feature/home/presentation/view/all_brands_page.dart';
+import 'package:marketi_ecommers/Feature/home/presentation/view/all_categories_page.dart';
+import 'package:marketi_ecommers/Feature/home/presentation/view/best_for_you_page.dart';
+import 'package:marketi_ecommers/Feature/home/presentation/view/buy_again_page.dart';
 import 'package:marketi_ecommers/Feature/home/presentation/view/home_view.dart';
+import 'package:marketi_ecommers/Feature/home/presentation/view/popular_product_page.dart';
+import 'package:marketi_ecommers/Feature/home/presentation/view/product_details.dart';
 import 'package:marketi_ecommers/Feature/login/presentation/view/login_view.dart';
 import 'package:marketi_ecommers/Feature/register/presentation/view/register_view.dart';
 import 'package:marketi_ecommers/Feature/search/presentation/view/Search_Not_Found_Page.dart';
@@ -33,8 +39,14 @@ class AppRouter {
   static String successOrderPage = '/successOrderPage';
   static String cartEmpty = '/cartEmpty';
   static String homePath = '/homePath';
+  static String allBrandsPagePath = '/allBrandsPagePath';
+  static String allCategoriesPagePath = '/allCategoriesPagePath';
+  static String buyAgainPagePath = '/buyAgainPagePath';
+  static String bestForYouPagePath = '/bestForYouPagePath';
+  static String popularProductPagePath = '/popularProductPagePath';
+  static String detailsProductPath = '/detailsPopularProductSectionPath';
   static GoRouter router = GoRouter(
-    initialLocation: splashPath,
+    initialLocation: loginPath,
     routes: [
       GoRoute(
         path: splashPath,
@@ -80,7 +92,7 @@ class AppRouter {
         path: confirmationNewPass,
         builder: (context, state) => const ConfirmationNewPass(),
       ),
-       GoRoute(
+      GoRoute(
         path: congratulationResetPass,
         builder: (context, state) => const CongratulationResetPass(),
       ),
@@ -100,6 +112,33 @@ class AppRouter {
         path: homePath,
         builder: (context, state) => const HomeView(),
       ),
+      GoRoute(
+        path: allBrandsPagePath,
+        builder: (context, state) => const AllBrandsPage(),
+      ),
+      GoRoute(
+        path: allCategoriesPagePath,
+        builder: (context, state) => const AllCategoriesPage(),
+      ),
+      GoRoute(
+        path: bestForYouPagePath,
+        builder: (context, state) => const BestForYouPage(),
+      ),
+      GoRoute(
+        path: buyAgainPagePath,
+        builder: (context, state) => const BuyAgainPage(),
+      ),
+      GoRoute(
+        path: popularProductPagePath,
+        builder: (context, state) => const PopularProductPage(),
+      ),
+      GoRoute(
+          path: detailsProductPath,
+          builder: (context, state) {
+            final product =
+                state.extra ; 
+            return ProductDetails(product: product);
+          }),
     ],
   );
 }
