@@ -4,8 +4,8 @@ import 'package:go_router/go_router.dart';
 import '../routing/app_router.dart' show AppRouter;
 
 class Bottomnavigation extends StatefulWidget {
-  const Bottomnavigation({super.key});
-
+  const Bottomnavigation({super.key, this.onMenuTap});
+  final VoidCallback? onMenuTap;
   @override
   State<Bottomnavigation> createState() => _BottomnavigationState();
 }
@@ -14,9 +14,8 @@ class _BottomnavigationState extends State<Bottomnavigation> {
   int value = 0;
   List<String> bodyPush = [
     AppRouter.homePath,
+    AppRouter.favoritesPath,
     AppRouter.cartEmpty,
-    AppRouter.cartEmpty,
-    AppRouter.loginPath
   ];
   @override
   Widget build(BuildContext context) {
@@ -30,10 +29,15 @@ class _BottomnavigationState extends State<Bottomnavigation> {
         ),
         showUnselectedLabels: true,
         onTap: (int x) {
-          setState(() {
-            value = x;
-          });
-          context.push(bodyPush[value]);
+          if (x == 3) {
+            widget.onMenuTap?.call(); 
+            return; 
+          } else {
+            setState(() {
+              value = x;
+            });
+            context.push(bodyPush[value]); 
+          }
         },
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),

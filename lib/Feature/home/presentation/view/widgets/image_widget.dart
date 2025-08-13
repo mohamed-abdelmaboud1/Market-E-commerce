@@ -2,6 +2,8 @@
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
+import 'package:marketi_ecommers/Feature/home/presentation/view/widgets/category_image.dart';
+import 'package:marketi_ecommers/Feature/home/presentation/view/widgets/details_category_section.dart';
 
 class ImageWidget extends StatefulWidget {
   ImageWidget(
@@ -13,7 +15,9 @@ class ImageWidget extends StatefulWidget {
       this.IsOffer,
       this.isFav,
       this.isAdd,
-      this.isImageMemory = false});
+      this.isImageMemory = false,
+    required  this.nameProduct 
+      });
   String? productImage;
   Uint8List? imageMemory;
   double imageWidth;
@@ -22,6 +26,7 @@ class ImageWidget extends StatefulWidget {
   bool? isFav;
   bool? isAdd;
   bool? isImageMemory;
+  String nameProduct;
 
   @override
   State<ImageWidget> createState() => _ImageWidgetState();
@@ -40,12 +45,13 @@ class _ImageWidgetState extends State<ImageWidget> {
           child: widget.isImageMemory == true
               ? (widget.imageMemory != null && widget.imageMemory!.isNotEmpty
                   ? Image.memory(widget.imageMemory!)
-                  : const Icon(Icons.broken_image))
+                  : Center(child: categoryImage(widget.nameProduct)))
               : (widget.productImage != null && widget.productImage!.isNotEmpty
                   ? Image.network(widget.productImage!,
                       errorBuilder: (context, error, stackTrace) =>
-                          const Icon(Icons.broken_image))
-                  : const Icon(Icons.broken_image)),
+                          Center(child: categoryImage(widget.nameProduct)))
+                          //const Icon(Icons.broken_image))
+                  : Center(child: categoryImage(widget.nameProduct))),
         ),
         if (widget.IsOffer == true)
           Positioned(

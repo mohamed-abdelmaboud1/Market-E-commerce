@@ -45,6 +45,9 @@ class AppRouter {
   static String bestForYouPagePath = '/bestForYouPagePath';
   static String popularProductPagePath = '/popularProductPagePath';
   static String detailsProductPath = '/detailsPopularProductSectionPath';
+  static String menuPath = '/menuPath';
+  static String profilePath = '/profilePath';
+  static String favoritesPath = '/favoritesPath';
   static GoRouter router = GoRouter(
     initialLocation: loginPath,
     routes: [
@@ -139,6 +142,11 @@ class AppRouter {
                 state.extra ; 
             return ProductDetails(product: product);
           }),
+
+      //     GoRoute(
+      //   path: menuPath,
+      //   builder: (context, state) => const MenuView(),
+      // ),
     ],
   );
 }

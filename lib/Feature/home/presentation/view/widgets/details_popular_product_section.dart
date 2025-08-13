@@ -93,7 +93,7 @@ class _DetailsPopularProductSectionState
                                 : ImagePathes.notExistPhoto,
                             price: "${product.price} LE",
                             rating: product.rating!.toStringAsFixed(1),
-                            productName: product.category,
+                            productName: product.title,
                             IsOffer: true,
                             isAdd: true,
                             isFav: true,

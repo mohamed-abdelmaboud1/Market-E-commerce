@@ -41,67 +41,12 @@ class HomeViewBody extends StatelessWidget {
               location: AppRouter.allCategoriesPagePath),
 
           DetailsCategorySection(),
-          //DetailsCategorySection(),
-          //
-
-          // Padding(
-          //   padding: EdgeInsets.symmetric(horizontal: 2.5.h, vertical: 2.h),
-          //   child: Row(
-          //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          //     children: [
-          //       ProductWidget(
-          //           imageWidth: 30.w,
-          //           imageHight: 120,
-          //           productImage: ImagePathes.notExistPhoto,
-          //           productName: "Phones"),
-          //       ProductWidget(
-          //           imageWidth: 30.w,
-          //           imageHight: 120,
-          //           productImage: ImagePathes.notExistPhoto,
-          //           productName: "Food"),
-          //       ProductWidget(
-          //           imageWidth: 25.w,
-          //           imageHight: 120,
-          //           productImage: ImagePathes.notExistPhoto,
-          //           productName: "Fashion"),
-          //     ],
-          //   ),
-          // ),
-
-          //
+          DetailsCategorySection(),
+      
           CategoryViewWidget(text: "Best for You",
               location: AppRouter.bestForYouPagePath),
 
           DetailsPopularProductSection(),
-
-          // Padding(
-          //   padding: EdgeInsets.symmetric(horizontal: 2.5.h, vertical: 2.h),
-          //   child: Row(
-          //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          //     children: [
-          //       ProductWidget(
-          //         productImage: ImagePathes.notExistPhoto,
-          //         imageWidth: 30.w,
-          //         imageHight: 120,
-          //         price: "799 LE",
-          //         productName: "Black JBL Airbods",
-          //         IsOffer: true,
-          //         isFav: true,
-          //         isAdd: true,
-          //       ),
-          //       ProductWidget(
-          //         productImage: ImagePathes.notExistPhoto,
-          //         imageWidth: 30.w,
-          //         imageHight: 10.h,
-          //         price: "13999 LE",
-          //         productName: "Sony Smart TV 55 inch ",
-          //         isFav: true,
-          //         isAdd: true,
-          //       ),
-          //     ],
-          //   ),
-          // ),
-          //
           CategoryViewWidget(text: "Brands",
               location: AppRouter.allBrandsPagePath),
 
@@ -110,33 +55,7 @@ class HomeViewBody extends StatelessWidget {
           CategoryViewWidget(text: "Buy Again",
               location: AppRouter.buyAgainPagePath),
           DetailsPopularProductSection(),
-
-          // Padding(
-          //   padding: EdgeInsets.symmetric(horizontal: 2.5.h, vertical: 2.h),
-          //   child: Row(
-          //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          //     children: [
-          //       ProductWidget(
-          //         imageWidth: 30.w,
-          //         imageHight: 120,
-          //         productImage: ImagePathes.notExistPhoto,
-          //         price: "399 LE",
-          //         productName: "Black Sony Headphone",
-          //         isFav: true,
-          //         isAdd: true,
-          //       ),
-          //       ProductWidget(
-          //         imageWidth: 30.w,
-          //         imageHight: 120,
-          //         productImage: ImagePathes.notExistPhoto,
-          //         price: "14999 LE",
-          //         productName: "HP Chromebook laptop",
-          //         isFav: true,
-          //         isAdd: true,
-          //       ),
-          //     ],
-          //   ),
-          // ),
+          SizedBox(height: 2.h,),
         ],
       ),
     );

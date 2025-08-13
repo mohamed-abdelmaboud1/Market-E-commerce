@@ -1,8 +1,7 @@
 class ImagePathes {
   static const String logo = 'images/logo.png';
   static const notExistPhoto =
-      "https://marketi-app.onrender.com/api/v1/uploads/1726849909332-31flCJDJg+L._AC_SR38,50_.jpg";
-  // "https://www.google.com/imgres?q=not%20exist%20product&imgurl=https%3A%2F%2Fstores.lifestylestores.com%2FVendorpageTheme%2FEnterprise%2FEThemeForLifestyleUpdated%2Fimages%2Fproduct-not-found.jpg&imgrefurl=https%3A%2F%2Fstores.lifestylestores.com%2Flifestyle-stores-ahmedabad-one-mall-shopping-centre-vastrapur-ahmedabad-68729%2FProducts%2Faccessories&docid=zHlbgSXdBLm3nM&tbnid=GoF4BXq2_6jmmM&vet=12ahUKEwjW8pbWt-WOAxXz87sIHf8SHxIQM3oECBoQAA..i&w=400&h=400&hcb=2&ved=2ahUKEwjW8pbWt-WOAxXz87sIHf8SHxIQM3oECBoQAA";
+      "images/not_exist_photo.png";
   static const String image1 = 'images/image1.png';
   static const String image2 = 'images/image2.png';
   static const String image3 = 'images/image3.png';
@@ -17,9 +16,22 @@ class ImagePathes {
   static const String image12 = 'images/image12.png';
   static const String image13 = 'images/image13.png';
   static const String profile = 'images/profile.png';
-  // static const String product1 = 'images/product1.png';
-   static const String product2 = 'images/product2.png';
-  // static const String product3 = 'images/product3.png';
+   static const String product2 = 'images/product1.png';
+   static const String phoneImagePath = 'images/product2.png';
+   static const String fashonImagePath = 'images/T-Shirt.png';
+   static const String foodImagePath = 'images/food.jpg';
+   static const String pampersImagePath = 'images/Pampers_Seventh_Generation.png';
+   static const String pcImagePath = 'images/Laptop_HP_Chromebook_laptop.png';
+   static const String plantImagePath = 'images/Plant.jpg';
+   static const String adidasImagePath = 'images/adidas.png';
+  static const String samsungImagePath = 'images/samsung.png';
+  static const String appleImagePath = 'images/apple.png';
+  static const String sonyImagePath = 'images/sony.png';
+  static const String jblImagePath = 'images/JBL_Logo_2.png';
+  static const String smartTvImagePath = 'images/Smart_Tv.png';
+  static const String canonImagePath = 'images/canon.png';
+    
+    // static const String product3 = 'images/product3.png';
   // static const String product4 = 'images/product4.png';
   // static const String product5 = 'images/product5.png';
   // static const String product6 = 'images/product6.png';

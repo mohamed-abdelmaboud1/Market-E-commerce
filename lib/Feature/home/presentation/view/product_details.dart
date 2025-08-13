@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
+import 'package:marketi_ecommers/Feature/home/presentation/view/widgets/details_category_section.dart';
 import 'package:marketi_ecommers/core/utils/colors.dart';
 import 'package:marketi_ecommers/core/widgets/bar_widget.dart';
 import 'package:marketi_ecommers/core/widgets/core/custom_text__widget.dart';
@@ -28,7 +29,7 @@ class ProductDetails extends StatelessWidget {
               height: 2.h,
             ),
             Image.network(
-              product.images[0].replaceAll('\\', '/'),
+              product.images[0].replaceAll('\\', '/') ,
               width: 90.w,
               fit: BoxFit.cover,
               errorBuilder: (context, error, stackTrace) => Image.asset(

@@ -1,6 +1,4 @@
 import 'dart:typed_data';
-
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -56,7 +54,7 @@ class _DetailsCategorySectionState extends State<DetailsCategorySection> {
                       .map((brand) => InkWell(
                             onTap: () {
                               context.push(AppRouter.detailsProductPath,
-                                  extra:categories );
+                                  extra: categories);
                             },
                             child: ProductWidget(
                               imageWidth: double.infinity,
@@ -78,20 +76,14 @@ class _DetailsCategorySectionState extends State<DetailsCategorySection> {
                       final category = categories[index];
                       return Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: InkWell(
-                            onTap: () {
-                              context.push(AppRouter.detailsProductPath,
-                                  extra: category);
-                            },
-                          child: ProductWidget(
-                            imageWidth: 24.w,
-                            imageHight: 120,
-                            isImageMemory: true,
-                            productImage: category.ImagePath.isNotEmpty
-                                ? "${category.ImagePath.replaceAll('\\', '/')}"
-                                : ImagePathes.notExistPhoto,
-                            productName: category.name,
-                          ),
+                        child: ProductWidget(
+                          imageWidth: 24.w,
+                          imageHight: 120,
+                          isImageMemory: true,
+                          productImage: category.ImagePath.isNotEmpty
+                              ? "${category.ImagePath.replaceAll('\\', '/')}"
+                              : ImagePathes.notExistPhoto,
+                          productName: category.name,
                         ),
                       );
                     },
