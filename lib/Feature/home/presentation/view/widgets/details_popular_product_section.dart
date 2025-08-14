@@ -5,7 +5,6 @@ import 'package:marketi_ecommers/Feature/home/presentation/view/widgets/product_
 import 'package:marketi_ecommers/core/utils/image_pathes.dart';
 import 'package:sizer/sizer.dart';
 import '../../../../../core/routing/app_router.dart';
-import '../../../../../core/widgets/core/custom_snack_bar.dart';
 import '../../view_models/Product/product_cubit.dart';
 import '../../view_models/Product/product_state.dart';
 
@@ -13,8 +12,10 @@ class DetailsPopularProductSection extends StatefulWidget {
   DetailsPopularProductSection({
     super.key,
     this.isScrollerV = false,
+    this.showInternalLoading = true,
   });
   bool isScrollerV;
+  final bool showInternalLoading;
 
   @override
   State<DetailsPopularProductSection> createState() =>
@@ -105,7 +106,14 @@ class _DetailsPopularProductSectionState
                 ),
         );
       } else if (state is ProductLoading) {
-        return Center(child: CircularProgressIndicator());
+        return widget.showInternalLoading
+            ? Container(
+                height: MediaQuery.of(context).size.height *
+                    0.5, 
+                alignment: Alignment.center,
+                child: const CircularProgressIndicator(),
+              )
+            : const SizedBox.shrink();
       } else if (state is ProductError) {
         return Center(child: Text("${state.errMessage}"));
       } else {

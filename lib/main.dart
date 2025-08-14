@@ -9,6 +9,8 @@ import 'package:marketi_ecommers/Feature/home/presentation/view_models/Product/p
 import 'package:marketi_ecommers/Feature/home/presentation/view_models/banners/banners_cubit.dart';
 import 'package:marketi_ecommers/Feature/home/presentation/view_models/brand_and_categories/brand_cubit.dart';
 import 'package:marketi_ecommers/Feature/home/presentation/view_models/brand_and_categories/category_cubit.dart';
+import 'package:marketi_ecommers/Feature/home/presentation/view_models/home_cubit/home_cubit.dart';
+import 'package:marketi_ecommers/Feature/profile/presentation/view_model/user_data/user_data_cubit.dart';
 import 'package:marketi_ecommers/Feature/search/presentation/view_models/topSearch/top_search_cubit.dart';
 import 'package:marketi_ecommers/Feature/login/presentation/view_models/signIn_cubit/signIn_cubit.dart';
 import 'package:marketi_ecommers/Feature/register/presentation/view_models/signUP_cubit/signUP_cubit.dart';
@@ -38,6 +40,14 @@ void main() async {
                   ActivatedResetPasswordCubit(DioConsumer(dio: Dio()))),
           BlocProvider<ResetPassCubit>(
               create: (_) => ResetPassCubit(DioConsumer(dio: Dio()))),
+          BlocProvider<HomeCubit>(
+            create: (_) => HomeCubit(
+              bannersCubit: BannersCubit(DioConsumer(dio: Dio())),
+              productsCubit: ProductCubit(DioConsumer(dio: Dio())),
+              brandCubit: BrandCubit(DioConsumer(dio: Dio())),
+              categoryCubit: CategoryCubit(DioConsumer(dio: Dio())),
+            ),
+          ),
           BlocProvider<ProductCubit>(
               create: (_) => ProductCubit(DioConsumer(dio: Dio()))),
           BlocProvider<BannersCubit>(
@@ -48,6 +58,8 @@ void main() async {
               create: (_) => BrandCubit(DioConsumer(dio: Dio()))),
           BlocProvider<CategoryCubit>(
               create: (_) => CategoryCubit(DioConsumer(dio: Dio()))),
+          BlocProvider<UserDataCubit>(
+              create: (_) => UserDataCubit(DioConsumer(dio: Dio()))),
         ],
         child: const MarketEcommers(),
       ),

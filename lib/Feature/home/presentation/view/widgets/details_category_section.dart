@@ -14,8 +14,11 @@ class DetailsCategorySection extends StatefulWidget {
   DetailsCategorySection({
     super.key,
     this.isScrollerV = false,
+    this.showInternalLoading=true,
   });
   bool isScrollerV;
+    final bool showInternalLoading;
+
   @override
   State<DetailsCategorySection> createState() => _DetailsCategorySectionState();
 }
@@ -91,7 +94,11 @@ class _DetailsCategorySectionState extends State<DetailsCategorySection> {
                 ),
         );
       } else if (state is BrandAndCategoryLoading) {
-        return Center(child: CircularProgressIndicator());
+        return widget.showInternalLoading? Container(
+          height: MediaQuery.of(context).size.height * 0.5, 
+          alignment: Alignment.center,
+          child: const CircularProgressIndicator(),
+        ): const SizedBox.shrink();
       } else if (state is BrandAndCategoryError) {
         return Center(child: Text("${state.errMessage}"));
       } else {

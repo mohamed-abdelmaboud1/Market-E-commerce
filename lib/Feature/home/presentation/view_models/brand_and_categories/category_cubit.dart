@@ -13,38 +13,7 @@ class CategoryCubit extends Cubit<BrandAndCategoryState> {
   CategoryCubit(this.apiConsumer) : super(BrandAndCategoryInitial());
   final ApiConsumer apiConsumer;
 
-Future<Uint8List?> fetchImageBytesWithDio(String imageUrl) async {
-  final dio = Dio();
-  final token = CacheHelper.getData(key: 'token');
 
-  try {
-    final response = await dio.get<List<int>>(
-      imageUrl,
-      options: Options(
-        responseType: ResponseType.bytes,
-        headers: {
-          'Authorization': 'Bearer $token',
-        },
-      ),
-    );
-
-    final contentType = response.headers.value('content-type');
-    print("Fetched from: $imageUrl");
-    print("Content-Type: $contentType");
-
-    if (response.statusCode == 200 &&
-        contentType != null &&
-        contentType.startsWith('image/')) {
-      return Uint8List.fromList(response.data!);
-    } else {
-      print("Invalid image response");
-      return null;
-    }
-  } catch (e) {
-    print("Error loading image: $e");
-    return null;
-  }
-}
 
   Future<void> fetchProducts() async {
     emit(BrandAndCategoryLoading());

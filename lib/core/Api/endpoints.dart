@@ -11,6 +11,7 @@ class Endpoints {
   static String brandsUrl = "$baseUrl/home/brands";
   static String bannerssUrl = "$baseUrl/home/banners";
   static String topSearchsUrl = "$baseUrl/home/topSearch";
+  static String userDataUrl = "$baseUrl/portfoilo/userData";
 }
 
 class ApiKey {
@@ -19,10 +20,16 @@ class ApiKey {
   static String name = "name";
   static String phone = "phone";
   static String confirmPassword = "confirmPassword";
-  static String id = "id";
+  static String id = "id"; // this is used in login and register
   static String statusCode = "statusCode";
   static String message = "message";
   static String token = "token";
   static String status = "status";
   static String code = "code";
+  //for user data model
+  static String getId = "_id"; // this is used in the user data model
+  static String image = "image";
+  static String gender = "gender";
+  static String type = "type";
+  static String address = "address";
 }

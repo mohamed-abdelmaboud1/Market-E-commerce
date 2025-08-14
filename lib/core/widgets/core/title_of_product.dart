@@ -13,7 +13,7 @@ class TitleOfPoducts extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(right: 45.w),
+      padding: EdgeInsets.only(right: 55.w),
       child: CustomTextWidget(
         text: "$title",
         fontSize: 17.sp,

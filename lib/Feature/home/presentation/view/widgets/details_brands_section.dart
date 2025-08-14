@@ -11,8 +11,10 @@ class DetailsBrandsSection extends StatefulWidget {
   DetailsBrandsSection({
     super.key,
     this.isScrollerV = false,
+    this.showInternalLoading = true,
   });
   bool isScrollerV;
+  final bool showInternalLoading;
   @override
   State<DetailsBrandsSection> createState() => _DetailsBrandsSectionState();
 }
@@ -56,7 +58,6 @@ class _DetailsBrandsSectionState extends State<DetailsBrandsSection> {
                                 ? "${brand.ImagePath[0].replaceAll('\\', '/')}"
                                 : ImagePathes.notExistPhoto,
                             productName: brand.name,
-                            
                           ))
                       .toList(),
                 )
@@ -83,7 +84,14 @@ class _DetailsBrandsSectionState extends State<DetailsBrandsSection> {
                 ),
         );
       } else if (state is BrandAndCategoryLoading) {
-        return Center(child: CircularProgressIndicator());
+        return widget.showInternalLoading
+            ? Container(
+                height: MediaQuery.of(context).size.height *
+                    0.5, 
+                alignment: Alignment.center,
+                child: const CircularProgressIndicator(),
+              )
+            : const SizedBox.shrink();
       } else if (state is BrandAndCategoryError) {
         return Center(child: Text("${state.errMessage}"));
       } else {

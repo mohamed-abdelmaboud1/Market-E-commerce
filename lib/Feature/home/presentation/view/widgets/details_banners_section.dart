@@ -10,7 +10,9 @@ import '../../view_models/banners/banners_cubit.dart';
 class DetailsBannersSection extends StatefulWidget {
   const DetailsBannersSection({
     super.key,
+    this.showInternalLoading = true,
   });
+  final bool showInternalLoading;
 
   @override
   State<DetailsBannersSection> createState() => _DetailsBannersSectionState();
@@ -63,7 +65,11 @@ class _DetailsBannersSectionState extends State<DetailsBannersSection> {
           ),
         );
       } else if (state is BannersLoading) {
-        return Center(child: CircularProgressIndicator());
+        return widget.showInternalLoading? Container(
+          height: MediaQuery.of(context).size.height * 0.5, // نص الشاشة أو أي ارتفاع يناسبك
+          alignment: Alignment.center,
+          child: const CircularProgressIndicator(),
+        ) : const SizedBox.shrink();
       } else if (state is BannersError) {
         return Center(child: Text("${state.errMessage}"));
       } else {
