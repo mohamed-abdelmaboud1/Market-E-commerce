@@ -10,12 +10,15 @@ import 'package:marketi_ecommers/Feature/login/presentation/view/login_view.dart
 import 'package:marketi_ecommers/Feature/register/presentation/view/register_view.dart';
 import 'package:marketi_ecommers/Feature/search/presentation/view/Search_Not_Found_Page.dart';
 import 'package:marketi_ecommers/Feature/success_order/presentation/view/Success_Order_Page.dart';
-import 'package:marketi_ecommers/Feature/cart/presentation/view/cart_empty.dart';
 import 'package:marketi_ecommers/Feature/for_password/presentation/view/forget_password_with_mail.dart';
 import 'package:marketi_ecommers/Feature/for_password/presentation/view/forget_password_with_phone.dart';
 import 'package:marketi_ecommers/Feature/verify/presentation/view/verify_code_with_mail.dart';
+import '../../Feature/cart/presentation/view/cart_view.dart';
+import '../../Feature/checkout/presentation/view/checkout_view.dart';
+import '../../Feature/favorite/presentation/view/fav_view.dart';
 import '../../Feature/for_password/presentation/view/confirmation_new_pass .dart';
 import '../../Feature/for_password/presentation/view/congratulation_reset_pass.dart';
+import '../../Feature/profile/presentation/view/profile_view.dart';
 import '../../Feature/splash/presentation/view/on_boarding1.dart';
 import '../../Feature/splash/presentation/view/on_boarding2.dart';
 import '../../Feature/splash/presentation/view/on_boarding3.dart';
@@ -37,7 +40,7 @@ class AppRouter {
   static String congratulationResetPass = '/congratulationResetPass';
   static String searchNotFoundPage = '/searchNotFoundPage';
   static String successOrderPage = '/successOrderPage';
-  static String cartEmpty = '/cartEmpty';
+  static String cartViewPath = '/cartViewPath';
   static String homePath = '/homePath';
   static String allBrandsPagePath = '/allBrandsPagePath';
   static String allCategoriesPagePath = '/allCategoriesPagePath';
@@ -48,8 +51,9 @@ class AppRouter {
   static String menuPath = '/menuPath';
   static String profilePath = '/profilePath';
   static String favoritesPath = '/favoritesPath';
+  static String checkOutPath = '/checkOutPath';
   static GoRouter router = GoRouter(
-    initialLocation: loginPath,
+    initialLocation: checkOutPath,
     routes: [
       GoRoute(
         path: splashPath,
@@ -104,8 +108,8 @@ class AppRouter {
         builder: (context, state) => SuccessOrderPage(),
       ),
       GoRoute(
-        path: cartEmpty,
-        builder: (context, state) => CartEmpty(),
+        path: cartViewPath,
+        builder: (context, state) => CartView(),
       ),
       GoRoute(
         path: searchNotFoundPage,
@@ -138,15 +142,24 @@ class AppRouter {
       GoRoute(
           path: detailsProductPath,
           builder: (context, state) {
-            final product =
-                state.extra ; 
+            final product = state.extra;
             return ProductDetails(product: product);
           }),
-
-      //     GoRoute(
-      //   path: menuPath,
-      //   builder: (context, state) => const MenuView(),
-      // ),
+      GoRoute(
+        path: profilePath,
+        builder: (context, state) => const ProfileView(),
+      ),
+      GoRoute(
+        path: checkOutPath,
+        builder: (context, state) => const CheckoutView(),
+      ),
+      GoRoute(
+        path: favoritesPath,
+        builder: (context, state) {
+          const favView = const FavView();
+          return favView;
+        },
+      ),
     ],
   );
 }

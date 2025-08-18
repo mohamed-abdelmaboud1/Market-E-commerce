@@ -2,7 +2,9 @@ import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:marketi_ecommers/Feature/profile/presentation/view_model/user_data/user_data_cubit.dart';
+import 'package:marketi_ecommers/core/routing/app_router.dart';
 import 'package:marketi_ecommers/core/utils/image_pathes.dart';
 import 'package:marketi_ecommers/core/widgets/core/custom_text__widget.dart';
 import 'package:marketi_ecommers/cubit/user_cubit/user_state.dart';
@@ -33,14 +35,20 @@ class _BarHomeSectionState extends State<BarHomeSection> {
           padding: EdgeInsets.only(left: 3.h, top: 9.h),
           child: Row(
             children: [
-              CircleAvatar(
-                radius: 2.9.h,
-                backgroundColor: Colors.blue,
+              GestureDetector(
+                onTap: () {
+                  context.go(AppRouter.profilePath);
+                },
                 child: CircleAvatar(
-                  radius: 2.5.h,
-                  backgroundColor: Colors.white,
-                  child: ClipOval(
-                    child: Image.asset(ImagePathes.profile, fit: BoxFit.cover),
+                  radius: 2.9.h,
+                  backgroundColor: Colors.blue,
+                  child: CircleAvatar(
+                    radius: 2.5.h,
+                    backgroundColor: Colors.white,
+                    child: ClipOval(
+                      child:
+                          Image.asset(ImagePathes.profile, fit: BoxFit.cover),
+                    ),
                   ),
                 ),
               ),

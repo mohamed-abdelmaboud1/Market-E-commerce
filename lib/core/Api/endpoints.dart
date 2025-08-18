@@ -12,6 +12,12 @@ class Endpoints {
   static String bannerssUrl = "$baseUrl/home/banners";
   static String topSearchsUrl = "$baseUrl/home/topSearch";
   static String userDataUrl = "$baseUrl/portfoilo/userData";
+  static String addToCartUrl = "$baseUrl/user/addCart";
+  static String deleteFromCartUrl = "$baseUrl/user/deleteCart";
+  static String getCartUrl = "$baseUrl/user/getCart";
+  static String addToFavUrl = "$baseUrl/user/addFavorite";
+  static String deleteFromFavUrl = "$baseUrl/user/deleteFavorite";
+  static String getFavUrl = "$baseUrl/user/getFavorite";
 }
 
 class ApiKey {

@@ -58,6 +58,7 @@ class _DetailsBrandsSectionState extends State<DetailsBrandsSection> {
                                 ? "${brand.ImagePath[0].replaceAll('\\', '/')}"
                                 : ImagePathes.notExistPhoto,
                             productName: brand.name,
+                            productId: brand.id,
                           ))
                       .toList(),
                 )
@@ -77,6 +78,7 @@ class _DetailsBrandsSectionState extends State<DetailsBrandsSection> {
                               ? "${brand.ImagePath[0].replaceAll('\\', '/')}"
                               : ImagePathes.notExistPhoto,
                           productName: brand.name,
+                          productId: brand.id,
                         ),
                       );
                     },
@@ -86,8 +88,7 @@ class _DetailsBrandsSectionState extends State<DetailsBrandsSection> {
       } else if (state is BrandAndCategoryLoading) {
         return widget.showInternalLoading
             ? Container(
-                height: MediaQuery.of(context).size.height *
-                    0.5, 
+                height: MediaQuery.of(context).size.height * 0.5,
                 alignment: Alignment.center,
                 child: const CircularProgressIndicator(),
               )

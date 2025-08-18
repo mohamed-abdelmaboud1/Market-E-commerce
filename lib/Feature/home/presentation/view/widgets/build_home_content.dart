@@ -31,7 +31,6 @@ class BuildHomeContent extends StatelessWidget {
             showInternalLoading: false,
           ),
 
-          //second section
           CategoryViewWidget(
               text: "Category", location: AppRouter.allCategoriesPagePath),
 

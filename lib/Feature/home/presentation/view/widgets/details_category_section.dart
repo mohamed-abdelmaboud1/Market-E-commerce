@@ -14,10 +14,10 @@ class DetailsCategorySection extends StatefulWidget {
   DetailsCategorySection({
     super.key,
     this.isScrollerV = false,
-    this.showInternalLoading=true,
+    this.showInternalLoading = true,
   });
   bool isScrollerV;
-    final bool showInternalLoading;
+  final bool showInternalLoading;
 
   @override
   State<DetailsCategorySection> createState() => _DetailsCategorySectionState();
@@ -32,78 +32,75 @@ class _DetailsCategorySectionState extends State<DetailsCategorySection> {
 
   Widget build(BuildContext context) {
     return BlocConsumer<CategoryCubit, BrandAndCategoryState>(
-        listener: (context, State) {
-      // if (State is BrandAndCategoryLoaded) {
-      //   customSnackBar(context, "category Loaded successfully", Colors.green);
-      // } else if (State is BrandAndCategoryError) {
-      //   customSnackBar(context, State.errMessage, Colors.red);
-      //   print("Error message of get product is ${State.errMessage}");
-      // }
-    }, builder: (context, state) {
-      if (state is BrandAndCategoryLoaded) {
-        final categories = state.products;
-        return Padding(
-          padding: EdgeInsets.symmetric(horizontal: 2.5.h, vertical: 2.h),
-          child: widget.isScrollerV == true
-              ? GridView.count(
-                  crossAxisCount: 2, // عدد الأعمدة
-                  crossAxisSpacing: 2.h,
-                  mainAxisSpacing: 2.h,
-                  shrinkWrap: true,
-                  childAspectRatio: 0.75, // نسبة العرض للارتفاع
-                  physics:
-                      const NeverScrollableScrollPhysics(), // علشان متتداخلش مع Scroll خارجي
-                  children: categories
-                      .map((brand) => InkWell(
-                            onTap: () {
-                              context.push(AppRouter.detailsProductPath,
-                                  extra: categories);
-                            },
+        listener: (context, State) {},
+        builder: (context, state) {
+          if (state is BrandAndCategoryLoaded) {
+            final categories = state.products;
+            return Padding(
+              padding: EdgeInsets.symmetric(horizontal: 2.5.h, vertical: 2.h),
+              child: widget.isScrollerV == true
+                  ? GridView.count(
+                      crossAxisCount: 2, // عدد الأعمدة
+                      crossAxisSpacing: 2.h,
+                      mainAxisSpacing: 2.h,
+                      shrinkWrap: true,
+                      childAspectRatio: 0.75, // نسبة العرض للارتفاع
+                      physics:
+                          const NeverScrollableScrollPhysics(), // علشان متتداخلش مع Scroll خارجي
+                      children: categories
+                          .map((brand) => InkWell(
+                                onTap: () {
+                                  context.push(AppRouter.detailsProductPath,
+                                      extra: categories);
+                                },
+                                child: ProductWidget(
+                                  imageWidth: double.infinity,
+                                  imageHight: 120,
+                                  productImage: brand.ImagePath.isNotEmpty
+                                      ? "${brand.ImagePath[0].replaceAll('\\', '/')}"
+                                      : ImagePathes.notExistPhoto,
+                                  productName: brand.name,
+                                  productId: brand.id,
+                                ),
+                              ))
+                          .toList(),
+                    )
+                  : SizedBox(
+                      height: 25.h,
+                      child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: categories.length,
+                        itemBuilder: (context, index) {
+                          final category = categories[index];
+                          return Padding(
+                            padding: const EdgeInsets.all(8.0),
                             child: ProductWidget(
-                              imageWidth: double.infinity,
+                              imageWidth: 24.w,
                               imageHight: 120,
-                              productImage: brand.ImagePath.isNotEmpty
-                                  ? "${brand.ImagePath[0].replaceAll('\\', '/')}"
+                              productImage: category.ImagePath.isNotEmpty
+                                  ? "${category.ImagePath.replaceAll('\\', '/')}"
                                   : ImagePathes.notExistPhoto,
-                              productName: brand.name,
+                              productName: category.name,
+                              productId: category.id,
                             ),
-                          ))
-                      .toList(),
-                )
-              : SizedBox(
-                  height: 25.h,
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: categories.length,
-                    itemBuilder: (context, index) {
-                      final category = categories[index];
-                      return Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: ProductWidget(
-                          imageWidth: 24.w,
-                          imageHight: 120,
-                          isImageMemory: true,
-                          productImage: category.ImagePath.isNotEmpty
-                              ? "${category.ImagePath.replaceAll('\\', '/')}"
-                              : ImagePathes.notExistPhoto,
-                          productName: category.name,
-                        ),
-                      );
-                    },
-                  ),
-                ),
-        );
-      } else if (state is BrandAndCategoryLoading) {
-        return widget.showInternalLoading? Container(
-          height: MediaQuery.of(context).size.height * 0.5, 
-          alignment: Alignment.center,
-          child: const CircularProgressIndicator(),
-        ): const SizedBox.shrink();
-      } else if (state is BrandAndCategoryError) {
-        return Center(child: Text("${state.errMessage}"));
-      } else {
-        return Center(child: Text("No Category available"));
-      }
-    });
+                          );
+                        },
+                      ),
+                    ),
+            );
+          } else if (state is BrandAndCategoryLoading) {
+            return widget.showInternalLoading
+                ? Container(
+                    height: MediaQuery.of(context).size.height * 0.5,
+                    alignment: Alignment.center,
+                    child: const CircularProgressIndicator(),
+                  )
+                : const SizedBox.shrink();
+          } else if (state is BrandAndCategoryError) {
+            return Center(child: Text("${state.errMessage}"));
+          } else {
+            return Center(child: Text("No Category available"));
+          }
+        });
   }
 }

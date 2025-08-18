@@ -17,50 +17,20 @@ import 'package:marketi_ecommers/Feature/register/presentation/view_models/signU
 import 'package:marketi_ecommers/Feature/verify/presentation/view_models/activated_reset_password_cubit.dart';
 import 'package:marketi_ecommers/core/Api/dio_consumer.dart';
 import 'package:sizer/sizer.dart';
-
+import 'Feature/cart/presentation/view_models/add_to_cart/add_to_cart_cubit.dart';
 import 'core/cache/cache_helper.dart';
 import 'core/routing/app_router.dart';
+import 'core/services/bloc_provider_list.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await CacheHelper.init();
+  final dioConsumer = DioConsumer(dio: Dio());
   runApp(
     DevicePreview(
       enabled: !kReleaseMode,
       builder: (context) => MultiBlocProvider(
-        providers: [
-          BlocProvider<SigninCubit>(
-              create: (_) => SigninCubit(DioConsumer(dio: Dio()))),
-          BlocProvider<SignupCubit>(
-              create: (_) => SignupCubit(DioConsumer(dio: Dio()))),
-          BlocProvider<SendResetePasswordCubit>(
-              create: (_) => SendResetePasswordCubit(DioConsumer(dio: Dio()))),
-          BlocProvider<ActivatedResetPasswordCubit>(
-              create: (_) =>
-                  ActivatedResetPasswordCubit(DioConsumer(dio: Dio()))),
-          BlocProvider<ResetPassCubit>(
-              create: (_) => ResetPassCubit(DioConsumer(dio: Dio()))),
-          BlocProvider<HomeCubit>(
-            create: (_) => HomeCubit(
-              bannersCubit: BannersCubit(DioConsumer(dio: Dio())),
-              productsCubit: ProductCubit(DioConsumer(dio: Dio())),
-              brandCubit: BrandCubit(DioConsumer(dio: Dio())),
-              categoryCubit: CategoryCubit(DioConsumer(dio: Dio())),
-            ),
-          ),
-          BlocProvider<ProductCubit>(
-              create: (_) => ProductCubit(DioConsumer(dio: Dio()))),
-          BlocProvider<BannersCubit>(
-              create: (_) => BannersCubit(DioConsumer(dio: Dio()))),
-          BlocProvider<TopSearchCubit>(
-              create: (_) => TopSearchCubit(DioConsumer(dio: Dio()))),
-          BlocProvider<BrandCubit>(
-              create: (_) => BrandCubit(DioConsumer(dio: Dio()))),
-          BlocProvider<CategoryCubit>(
-              create: (_) => CategoryCubit(DioConsumer(dio: Dio()))),
-          BlocProvider<UserDataCubit>(
-              create: (_) => UserDataCubit(DioConsumer(dio: Dio()))),
-        ],
+        providers: buildBlocProviders(dioConsumer),
         child: const MarketEcommers(),
       ),
     ),

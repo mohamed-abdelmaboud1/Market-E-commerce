@@ -8,7 +8,7 @@ class ProductModel {
   final String category;
   final double? rating;
   int? discount;
-  int? remain;
+   int? remain;
 
   ProductModel({
     required this.id,

@@ -14,11 +14,23 @@ class _BottomnavigationState extends State<Bottomnavigation> {
   int value = 0;
   List<String> bodyPush = [
     AppRouter.homePath,
+    AppRouter.cartViewPath,
     AppRouter.favoritesPath,
-    AppRouter.cartEmpty,
+    AppRouter.menuPath, 
   ];
   @override
   Widget build(BuildContext context) {
+     final String location = GoRouterState.of(context).uri.toString();
+
+    int currentIndex = 0;
+    if (location.startsWith(AppRouter.homePath)) {
+      currentIndex = 0;
+    } else if (location.startsWith(AppRouter.cartViewPath)) {
+      currentIndex = 1;
+    } else if (location.startsWith(AppRouter.favoritesPath)) {
+      currentIndex = 2;
+    }
+
     return BottomNavigationBar(
         backgroundColor: Colors.white,
         currentIndex: value,
@@ -30,13 +42,13 @@ class _BottomnavigationState extends State<Bottomnavigation> {
         showUnselectedLabels: true,
         onTap: (int x) {
           if (x == 3) {
-            widget.onMenuTap?.call(); 
-            return; 
+            widget.onMenuTap?.call();
+            return;
           } else {
             setState(() {
               value = x;
             });
-            context.push(bodyPush[value]); 
+            context.go(bodyPush[value]);
           }
         },
         items: const [

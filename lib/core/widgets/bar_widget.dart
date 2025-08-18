@@ -64,18 +64,21 @@ class BarWidget extends StatelessWidget {
                   size: 3.5.h,
                   color: PrimaryColor,
                 )
-              : Container(
-                  padding: EdgeInsets.all(2.w),
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    border: Border.all(
-                      color: PrimaryColor,
-                      width: 1.w,
-                    ),
-                  ),
+              : GestureDetector(
+                  onTap: () {
+                    context.go(AppRouter.profilePath);
+                  },
                   child: CircleAvatar(
-                    radius: 2.h,
-                    child: Image.asset(ImagePathes.logo),
+                    radius: 2.9.h,
+                    backgroundColor: Colors.blue,
+                    child: CircleAvatar(
+                      radius: 2.5.h,
+                      backgroundColor: Colors.white,
+                      child: ClipOval(
+                        child:
+                            Image.asset(ImagePathes.profile, fit: BoxFit.cover),
+                      ),
+                    ),
                   ),
                 ),
         ),

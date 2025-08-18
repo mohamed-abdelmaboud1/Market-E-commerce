@@ -29,6 +29,7 @@ class AllCategoriesPage extends StatelessWidget {
             TitleOfPoducts(
               title: "All Categories",
             ),
+            
             DetailsCategorySection(
               isScrollerV: true,
             ),

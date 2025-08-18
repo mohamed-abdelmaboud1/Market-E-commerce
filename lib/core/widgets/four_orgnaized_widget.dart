@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:marketi_ecommers/core/widgets/core/custom_button.dart';
 import 'package:marketi_ecommers/core/widgets/core/custom_text__widget.dart';
 import 'package:sizer/sizer.dart';
 
+import '../routing/app_router.dart';
 import '../utils/colors.dart';
 
 class FourOrgnaizedWidget extends StatelessWidget {
@@ -60,7 +62,7 @@ class FourOrgnaizedWidget extends StatelessWidget {
             groundColor: PrimaryColor,
             button: textButton,
             onPressed: () {
-              // context.push(AppRouter.home);
+               context.push(AppRouter.homePath);
             }),
       ],
     );
