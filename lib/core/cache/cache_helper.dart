@@ -72,4 +72,14 @@ class CacheHelper {
       return await sharedPreferences!.setInt(key, value);
     }
   }
+
+  //! Method to save dark theme
+  static Future<bool> putBoolean({required String key, required bool value}) async {
+    if (sharedPreferences == null) return false;
+    return await sharedPreferences!.setBool(key, value);
+  }
+
+  static bool? getBoolean({required String key}) {
+    return sharedPreferences?.getBool(key);
+  }
 }

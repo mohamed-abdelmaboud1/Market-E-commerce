@@ -6,10 +6,12 @@ import 'package:marketi_ecommers/core/utils/image_pathes.dart';
 import 'package:marketi_ecommers/core/widgets/bar_widget.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../../../../core/cache/cache_helper.dart';
 import '../../../../../core/widgets/core/custom_text__widget.dart';
 
 class ProfileViewBody extends StatefulWidget {
-  const ProfileViewBody({super.key});
+  const ProfileViewBody({super.key, required this.themeNotifier});
+  final ValueNotifier<ThemeMode> themeNotifier;
 
   @override
   State<ProfileViewBody> createState() => _ProfileViewBodyState();
@@ -103,6 +105,10 @@ class _ProfileViewBodyState extends State<ProfileViewBody> {
                 onChanged: (value) {
                   setState(() {
                     isDarkMode = value;
+                    widget.themeNotifier.value =
+                        value ? ThemeMode.dark : ThemeMode.light;
+                    CacheHelper.putBoolean(
+                        key: "isDarkMode", value: value); // تخزين القيمة
                   });
                 },
               ),
@@ -110,7 +116,7 @@ class _ProfileViewBodyState extends State<ProfileViewBody> {
                 icon: Icons.star_border,
                 text: "Rate Us",
                 onTap: () {
-                   showRateUsDialog(context);
+                  showRateUsDialog(context);
                 },
               ),
               buildListTile(

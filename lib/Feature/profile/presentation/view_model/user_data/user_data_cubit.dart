@@ -35,4 +35,5 @@ class UserDataCubit extends Cubit<UserDataState> {
       emit(UserDataError('Failed to load user data: $e'));
     }
   }
+  
 }

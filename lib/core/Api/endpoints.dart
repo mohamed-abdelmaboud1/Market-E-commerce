@@ -18,6 +18,7 @@ class Endpoints {
   static String addToFavUrl = "$baseUrl/user/addFavorite";
   static String deleteFromFavUrl = "$baseUrl/user/deleteFavorite";
   static String getFavUrl = "$baseUrl/user/getFavorite";
+  static String checkoutUrl = "$baseUrl/user/checkout";
 }
 
 class ApiKey {

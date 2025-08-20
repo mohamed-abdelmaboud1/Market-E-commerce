@@ -12,30 +12,28 @@ class FavView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            BarWidget(
-              textBar: 'Favorites',
-            ),
-            SizedBox(
-              height: 2.h,
-            ),
-            SearchWidget(),
-            SizedBox(
-              height: 3.h,
-            ),
-            TitleOfPoducts(
-              title: "All Products",
-            ),
-            DetailsPopularProductSection(
-              isScrollerV: true,
-              isFav: true,
-            ),
-          ],
+    return  Column(
+      children: [
+        BarWidget(
+          textBar: 'Favorites',
         ),
-      ),
+        SizedBox(
+          height: 2.h,
+        ),
+        SearchWidget(),
+        SizedBox(
+          height: 3.h,
+        ),
+        TitleOfPoducts(
+          title: "All Products",
+        ),
+        Expanded(
+          child: DetailsPopularProductSection(
+            isScrollerV: true,
+            isFav: true,
+          ),
+        ),
+      ],
     );
   }
 }

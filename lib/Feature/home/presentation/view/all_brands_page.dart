@@ -12,27 +12,27 @@ class AllBrandsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            BarWidget(
-              textBar: 'Brands',
-            ),
-            SizedBox(
-              height: 2.h,
-            ),
-            SearchWidget(),
-            SizedBox(
-              height: 3.h,
-            ),
-            TitleOfPoducts(
-              title: "All Brands",
-            ),
-            DetailsBrandsSection(
+      body: Column(
+        children: [
+          BarWidget(
+            textBar: 'Brands',
+          ),
+          SizedBox(
+            height: 2.h,
+          ),
+          SearchWidget(),
+          SizedBox(
+            height: 3.h,
+          ),
+          TitleOfPoducts(
+            title: "All Brands",
+          ),
+          Expanded(
+            child: DetailsBrandsSection(
               isScrollerV: true,
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

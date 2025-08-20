@@ -1,12 +1,7 @@
-import 'dart:typed_data';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:marketi_ecommers/Feature/home/presentation/view/widgets/category_image.dart';
-import 'package:marketi_ecommers/Feature/home/presentation/view/widgets/details_category_section.dart';
-
-import '../../../../favorite/presentation/view_models/add_to_fav/add_to_fav_cubit.dart';
-import '../../../../favorite/presentation/view_models/delete_from_fav/delete_from_fav_cubit.dart';
+import 'package:marketi_ecommers/Feature/home/presentation/view/widgets/image_widget/fav_icon_sec.dart';
+import 'package:marketi_ecommers/Feature/home/presentation/view/widgets/image_widget/image_sec.dart';
+import 'package:marketi_ecommers/Feature/home/presentation/view/widgets/image_widget/offer_sec.dart';
 
 class ImageWidget extends StatefulWidget {
   ImageWidget({
@@ -26,8 +21,8 @@ class ImageWidget extends StatefulWidget {
   double imageWidth;
   double? imageHight;
   bool? IsOffer = false;
-  bool? isFav;
-  bool? isFavPage;
+  bool? isFav; // show icon or not
+  final bool? isFavPage; // are we on favorites page?
   bool? isAdd;
   String nameProduct;
   final String productId;
@@ -37,71 +32,19 @@ class ImageWidget extends StatefulWidget {
 }
 
 class _ImageWidgetState extends State<ImageWidget> {
-  bool isFav = false;
-  bool FavPage = false;
+  bool isRedFav = false;
 
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        SizedBox(
-          width: widget.imageWidth,
-          height: widget.imageHight,
-          child: (widget.productImage != null && widget.productImage!.isNotEmpty
-              ? Image.network(widget.productImage!,
-                  errorBuilder: (context, error, stackTrace) =>
-                      Center(child: categoryImage(widget.nameProduct)))
-              //const Icon(Icons.broken_image))
-              : Center(child: categoryImage(widget.nameProduct))),
-        ),
-        if (widget.IsOffer == true)
-          Positioned(
-            top: 8,
-            left: 8,
-            child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-              decoration: BoxDecoration(
-                color: Colors.blue.withOpacity(0.3), // شفافية 30%
-                borderRadius: BorderRadius.circular(5),
-              ),
-              child: const Text(
-                "15% OFF",
-                style: TextStyle(
-                  fontSize: 12,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.blue,
-                ),
-              ),
-            ),
-          ),
+        ImageSec(widget: widget),
+        if (widget.IsOffer == true) OfferSec(),
         if (widget.isFav == true)
-          Positioned(
-            top: -2,
-            right: -5,
-            child: IconButton(
-              onPressed: () {
-                setState(() {
-                  isFav = !isFav;
-                });
-                isFav
-                    ? context
-                        .read<AddToFavCubit>()
-                        .addToProductCart(widget.productId)
-                    : context
-                        .read<DeleteFromFavCubit>()
-                        .deleteProductCart(widget.productId);
-
-                if (widget.isFavPage == true&& !isFav) {
-                  widget.onRemove?.call();
-                }
-              },
-             
-              icon: Icon(
-                isFav ? Icons.favorite : Icons.favorite_outline,
-                color: isFav ? Colors.red : Colors.black45,
-              ),
-            ),
-          ),
+          FavIconSec(
+              productId: widget.productId,
+              isFavPage: widget.isFavPage,
+              onRemove: widget.onRemove),
       ],
     );
   }

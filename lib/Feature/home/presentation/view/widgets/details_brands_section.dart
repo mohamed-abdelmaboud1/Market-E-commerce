@@ -48,8 +48,7 @@ class _DetailsBrandsSectionState extends State<DetailsBrandsSection> {
                   mainAxisSpacing: 2.h,
                   shrinkWrap: true,
                   childAspectRatio: 0.75, // نسبة العرض للارتفاع
-                  physics:
-                      const NeverScrollableScrollPhysics(), // علشان متتداخلش مع Scroll خارجي
+                  padding: EdgeInsets.zero,
                   children: brands
                       .map((brand) => ProductWidget(
                             imageWidth: double.infinity,

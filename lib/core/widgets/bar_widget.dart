@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:marketi_ecommers/core/routing/app_router.dart';
 import 'package:marketi_ecommers/core/utils/image_pathes.dart';
@@ -6,6 +7,7 @@ import 'package:marketi_ecommers/core/widgets/core/custom_text__widget.dart';
 import 'package:sizer/sizer.dart';
 
 import '../utils/colors.dart';
+import 'bottom_navigation.dart';
 
 class BarWidget extends StatelessWidget {
   BarWidget({super.key, this.textBar, this.isIcon = false});
@@ -19,8 +21,11 @@ class BarWidget extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsets.only(top: 10.w, left: 3.w),
-          child: GestureDetector(
-            onTap: () => Navigator.pop(context),
+          child: InkWell(
+            onTap: () {
+              context.go(AppRouter.homePath);
+              context.read<BottomNavCubit>().changeSelectedIndex(0, context);
+            },
             child: Container(
               decoration: BoxDecoration(
                 color: Colors.white,
@@ -31,15 +36,11 @@ class BarWidget extends StatelessWidget {
                 ),
               ),
               child: Center(
-                  child: IconButton(
-                icon: Icon(
+                child: Icon(
                   Icons.arrow_left_outlined,
                   size: 5.h,
                 ),
-                onPressed: () {
-                  context.go(AppRouter.homePath);
-                },
-              )),
+              ),
             ),
           ),
         ),

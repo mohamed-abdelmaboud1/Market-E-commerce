@@ -24,55 +24,45 @@ class _CartViewState extends State<CartView> {
     super.initState();
     context.read<GetCartCubit>().fetchProducts();
   }
+
   Widget build(BuildContext context) {
-    return Scaffold(
-        endDrawer: const NavigationMenuDrawerWidget(),
-      bottomNavigationBar: Builder(
-        builder: (ctx) => Bottomnavigation(
-          onMenuTap: () {
-            Scaffold.of(ctx).openEndDrawer();
-          },
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        BarWidget(
+          textBar: "Cart",
         ),
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            BarWidget(
-              textBar: "Cart",
-            ),
-           SizedBox(
-            height: 83.h,
-              child: BlocBuilder<GetCartCubit, GetCartState>(
-                builder: (context, state) {
-                  if (state is GetCartLoading) {
-                    return const Center(child: CircularProgressIndicator());
-                  } else if (state is GetCartLoaded) {
-                    if (state.products.isEmpty) {
-                      return FourOrgnaizedWidget(
-                        image: Image.asset(
-                          ImagePathes.image10,
-                          width: 200.w,
-                          height: 30.h,
-                        ),
-                        textBold: "Your Cart is Empty",
-                        textNormal:
-                            "Check our big offers, fresh products and fill your cart with items",
-                        textButton: "Start Shopping",
-                      );
-                    } else {
-                      return CartViewBody(products: state.products,);
-                    }
-                  } else if (state is GetCartError) {
-                    return Center(child: Text(state.errMessage));
-                  }
-                  return const SizedBox();
-                },
-              ),
-            ),
-          ],
+        Expanded(
+          child: BlocBuilder<GetCartCubit, GetCartState>(
+            builder: (context, state) {
+              if (state is GetCartLoading) {
+                return const Center(child: CircularProgressIndicator());
+              } else if (state is GetCartLoaded) {
+                if (state.products.isEmpty) {
+                  return FourOrgnaizedWidget(
+                    image: Image.asset(
+                      ImagePathes.image10,
+                      width: 200.w,
+                      height: 30.h,
+                    ),
+                    textBold: "Your Cart is Empty",
+                    textNormal:
+                        "Check our big offers, fresh products and fill your cart with items",
+                    textButton: "Start Shopping",
+                  );
+                } else {
+                  return CartViewBody(
+                    products: state.products,
+                  );
+                }
+              } else if (state is GetCartError) {
+                return Center(child: Text(state.errMessage));
+              }
+              return const SizedBox();
+            },
+          ),
         ),
-      ),
+      ],
     );
   }
 }

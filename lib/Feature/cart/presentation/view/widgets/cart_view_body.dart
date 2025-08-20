@@ -3,7 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:marketi_ecommers/Feature/cart/presentation/view/widgets/cart_product_widget.dart';
 import 'package:marketi_ecommers/Feature/cart/presentation/view/widgets/elevated_button_widget.dart';
+import 'package:marketi_ecommers/Feature/checkout/data/models/check_out_model.dart';
+import 'package:marketi_ecommers/Feature/checkout/data/models/checkout_model_product.dart';
 import 'package:marketi_ecommers/Feature/home/data/models/product_model.dart';
+import 'package:marketi_ecommers/core/Api/endpoints.dart';
+import 'package:marketi_ecommers/core/cache/cache_helper.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../../../../core/routing/app_router.dart';
@@ -11,6 +15,9 @@ import '../../../../../core/utils/colors.dart';
 import '../../../../../core/utils/image_pathes.dart';
 import '../../../../../core/widgets/core/custom_text__widget.dart';
 import '../../../../../core/widgets/core/title_of_product.dart';
+import '../../../../profile/data/models/user_data_model.dart';
+import '../../../../profile/presentation/view_model/user_data/user_data_cubit.dart';
+import '../../../../profile/presentation/view_model/user_data/user_data_state.dart';
 import '../../view_models/add_to_cart/add_to_cart_cubit.dart';
 import '../../view_models/delete_from_cart/delete_from_cart_cubit.dart';
 import '../../view_models/get_cart/get_cart_cubit.dart';
@@ -27,11 +34,14 @@ class _CartViewBodyState extends State<CartViewBody> {
   bool isFav = false;
   int quantity = 0;
   double totalPrice = 0.0;
+  int i = 0;
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(height: 2.h,),
+        SizedBox(
+          height: 2.h,
+        ),
         TitleOfPoducts(
           title: "Products in Cart",
         ),
@@ -41,6 +51,7 @@ class _CartViewBodyState extends State<CartViewBody> {
             itemCount: widget.products.length,
             itemBuilder: (context, index) {
               final product = widget.products[index];
+
               totalPrice += product.price;
               return Padding(
                 padding: EdgeInsets.only(right: 2.w),
@@ -65,8 +76,7 @@ class _CartViewBodyState extends State<CartViewBody> {
                         quantityRemain: product.remain!,
                         onRemove: () {
                           setState(() {
-                            widget.products
-                                .removeAt(index); 
+                            widget.products.removeAt(index);
                           });
                         }),
                   ),
@@ -107,13 +117,21 @@ class _CartViewBodyState extends State<CartViewBody> {
         ),
         ElevatedButtonWidget(
           textButton: "Check Out",
-          onPressed: (){
-                    context.push(AppRouter.checkOutPath);
-
+          onPressed: () {
+            final checkoutProducts = widget.products.map((product) {
+              return CheckOutModelProduct(
+                products: widget.products,
+                quantity: widget.products.length,
+              );
+            }).toList();
+            context.push(AppRouter.checkOutPath,
+                extra: CheckOutModel(
+                    userId: CacheHelper.getData(key: ApiKey.id),
+                    products: checkoutProducts));
           },
         ),
-         SizedBox(
-          height: 8.h,
+        SizedBox(
+          height: 1.h,
         ),
       ],
     );

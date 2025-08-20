@@ -1,4 +1,7 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:marketi_ecommers/Feature/checkout/data/models/check_out_model.dart';
 import 'package:marketi_ecommers/Feature/home/presentation/view/all_brands_page.dart';
 import 'package:marketi_ecommers/Feature/home/presentation/view/all_categories_page.dart';
 import 'package:marketi_ecommers/Feature/home/presentation/view/best_for_you_page.dart';
@@ -24,8 +27,12 @@ import '../../Feature/splash/presentation/view/on_boarding2.dart';
 import '../../Feature/splash/presentation/view/on_boarding3.dart';
 import '../../Feature/splash/presentation/view/splash_view.dart';
 import '../../Feature/verify/presentation/view/verify_code_with_phone.dart';
+import '../widgets/bottom_navigation.dart';
 
 class AppRouter {
+  final ValueNotifier<ThemeMode> themeNotifier;
+
+  AppRouter({required this.themeNotifier});
   static String splashPath = '/';
   static String onBoarding1Path = '/onBoarding1Path';
   static String onBoarding2Path = '/onBoarding2Path';
@@ -52,114 +59,117 @@ class AppRouter {
   static String profilePath = '/profilePath';
   static String favoritesPath = '/favoritesPath';
   static String checkOutPath = '/checkOutPath';
-  static GoRouter router = GoRouter(
-    initialLocation: checkOutPath,
-    routes: [
-      GoRoute(
-        path: splashPath,
-        builder: (context, state) => const SplashView(),
-      ),
-      GoRoute(
-        path: onBoarding1Path,
-        builder: (context, state) => const OnBoarding1(),
-      ),
-      GoRoute(
-        path: onBoarding2Path,
-        builder: (context, state) => const OnBoarding2(),
-      ),
-      GoRoute(
-        path: onBoarding3Path,
-        builder: (context, state) => const OnBoarding3(),
-      ),
-      GoRoute(
-        path: loginPath,
-        builder: (context, state) => const LoginView(),
-      ),
-      GoRoute(
-        path: registerPath,
-        builder: (context, state) => const RegisterView(),
-      ),
-      GoRoute(
-        path: forgetPasswordWithPhone,
-        builder: (context, state) => ForgetPasswordWithPhone(),
-      ),
-      GoRoute(
-        path: forgetPasswordWithMail,
-        builder: (context, state) => ForgetPasswordWithMail(),
-      ),
-      GoRoute(
-        path: verifyCodeWithPhone,
-        builder: (context, state) => VerifyCodeWithPhone(),
-      ),
-      GoRoute(
-        path: verifyCodeWithMail,
-        builder: (context, state) => VerifyCodeWithMail(),
-      ),
-      GoRoute(
-        path: confirmationNewPass,
-        builder: (context, state) => const ConfirmationNewPass(),
-      ),
-      GoRoute(
-        path: congratulationResetPass,
-        builder: (context, state) => const CongratulationResetPass(),
-      ),
-      GoRoute(
-        path: successOrderPage,
-        builder: (context, state) => SuccessOrderPage(),
-      ),
-      GoRoute(
-        path: cartViewPath,
-        builder: (context, state) => CartView(),
-      ),
-      GoRoute(
-        path: searchNotFoundPage,
-        builder: (context, state) => const SearchNotFoundPage(),
-      ),
-      GoRoute(
-        path: homePath,
-        builder: (context, state) => const HomeView(),
-      ),
-      GoRoute(
-        path: allBrandsPagePath,
-        builder: (context, state) => const AllBrandsPage(),
-      ),
-      GoRoute(
-        path: allCategoriesPagePath,
-        builder: (context, state) => const AllCategoriesPage(),
-      ),
-      GoRoute(
-        path: bestForYouPagePath,
-        builder: (context, state) => const BestForYouPage(),
-      ),
-      GoRoute(
-        path: buyAgainPagePath,
-        builder: (context, state) => const BuyAgainPage(),
-      ),
-      GoRoute(
-        path: popularProductPagePath,
-        builder: (context, state) => const PopularProductPage(),
-      ),
-      GoRoute(
-          path: detailsProductPath,
-          builder: (context, state) {
-            final product = state.extra;
-            return ProductDetails(product: product);
-          }),
-      GoRoute(
-        path: profilePath,
-        builder: (context, state) => const ProfileView(),
-      ),
-      GoRoute(
-        path: checkOutPath,
-        builder: (context, state) => const CheckoutView(),
-      ),
-      GoRoute(
-        path: favoritesPath,
-        builder: (context, state) {
-          const favView = const FavView();
-          return favView;
-        },
-      ),
-    ],
-  );
+
+  GoRouter get router => GoRouter(
+        initialLocation: homePath,
+        routes: [
+          GoRoute(
+            path: splashPath,
+            builder: (context, state) => const SplashView(),
+          ),
+          GoRoute(
+            path: onBoarding1Path,
+            builder: (context, state) => const OnBoarding1(),
+          ),
+          GoRoute(
+            path: onBoarding2Path,
+            builder: (context, state) => const OnBoarding2(),
+          ),
+          GoRoute(
+            path: onBoarding3Path,
+            builder: (context, state) => const OnBoarding3(),
+          ),
+          GoRoute(
+            path: loginPath,
+            builder: (context, state) => const LoginView(),
+          ),
+          GoRoute(
+            path: registerPath,
+            builder: (context, state) => const RegisterView(),
+          ),
+          GoRoute(
+            path: forgetPasswordWithPhone,
+            builder: (context, state) => ForgetPasswordWithPhone(),
+          ),
+          GoRoute(
+            path: forgetPasswordWithMail,
+            builder: (context, state) => ForgetPasswordWithMail(),
+          ),
+          GoRoute(
+            path: verifyCodeWithPhone,
+            builder: (context, state) => VerifyCodeWithPhone(),
+          ),
+          GoRoute(
+            path: verifyCodeWithMail,
+            builder: (context, state) => VerifyCodeWithMail(),
+          ),
+          GoRoute(
+            path: confirmationNewPass,
+            builder: (context, state) => const ConfirmationNewPass(),
+          ),
+          GoRoute(
+            path: congratulationResetPass,
+            builder: (context, state) => const CongratulationResetPass(),
+          ),
+          GoRoute(
+            path: successOrderPage,
+            builder: (context, state) => SuccessOrderPage(),
+          ),
+          GoRoute(
+            path: cartViewPath,
+            builder: (context, state) => CartView(),
+          ),
+          GoRoute(
+            path: searchNotFoundPage,
+            builder: (context, state) => const SearchNotFoundPage(),
+          ),
+          GoRoute(
+              path: homePath, builder: (context, state) => const HomeView()),
+          GoRoute(
+            path: allBrandsPagePath,
+            builder: (context, state) => const AllBrandsPage(),
+          ),
+          GoRoute(
+            path: allCategoriesPagePath,
+            builder: (context, state) => const AllCategoriesPage(),
+          ),
+          GoRoute(
+            path: bestForYouPagePath,
+            builder: (context, state) => const BestForYouPage(),
+          ),
+          GoRoute(
+            path: buyAgainPagePath,
+            builder: (context, state) => const BuyAgainPage(),
+          ),
+          GoRoute(
+            path: popularProductPagePath,
+            builder: (context, state) => const PopularProductPage(),
+          ),
+          GoRoute(
+              path: detailsProductPath,
+              builder: (context, state) {
+                final product = state.extra;
+                return ProductDetails(product: product);
+              }),
+          GoRoute(
+            path: profilePath,
+            builder: (context, state) => ProfileView(
+              themeNotifier: themeNotifier,
+            ),
+          ),
+          GoRoute(
+              path: checkOutPath,
+              builder: (context, state) {
+                final checkoutData = state.extra;
+                return CheckoutView(checkoutData: checkoutData);
+              }),
+          GoRoute(
+            path: favoritesPath,
+            builder: (context, state) {
+              const favView = const FavView();
+              return favView;
+            },
+          ),
+        ],
+      );
 }

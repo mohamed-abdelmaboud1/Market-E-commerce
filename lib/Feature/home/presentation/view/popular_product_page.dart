@@ -13,27 +13,27 @@ class PopularProductPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            BarWidget(
-              textBar: 'Popular Products',
-            ),
-            SizedBox(
-              height: 2.h,
-            ),
-            SearchWidget(),
-            SizedBox(
-              height: 3.h,
-            ),
-            TitleOfPoducts(
-              title: "All Products",
-            ),
-            DetailsPopularProductSection(
+      body: Column(
+        children: [
+          BarWidget(
+            textBar: 'Popular Products',
+          ),
+          SizedBox(
+            height: 2.h,
+          ),
+          SearchWidget(),
+          SizedBox(
+            height: 3.h,
+          ),
+          TitleOfPoducts(
+            title: "All Products",
+          ),
+          Expanded(
+            child: DetailsPopularProductSection(
               isScrollerV: true,
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

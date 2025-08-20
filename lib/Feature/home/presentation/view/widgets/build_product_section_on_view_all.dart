@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -8,7 +7,6 @@ import 'package:sizer/sizer.dart';
 import '../../../../../core/routing/app_router.dart';
 import '../../view_models/Product/product_cubit.dart';
 import '../../view_models/Product/product_state.dart';
-
 
 Widget buildProductSection(bool isScrollerV, bool showInternalLoading) {
   return BlocConsumer<ProductCubit, ProductState>(listener: (context, State) {
@@ -23,13 +21,12 @@ Widget buildProductSection(bool isScrollerV, bool showInternalLoading) {
         padding: EdgeInsets.symmetric(horizontal: 2.5.h, vertical: 2.h),
         child: isScrollerV == true
             ? GridView.count(
-                crossAxisCount: 2, // عدد الأعمدة
+                crossAxisCount: 2, 
                 crossAxisSpacing: 2.h,
                 mainAxisSpacing: 2.h,
                 shrinkWrap: true,
-                childAspectRatio: 0.75, // نسبة العرض للارتفاع
-                physics:
-                    const NeverScrollableScrollPhysics(), // علشان متتداخلش مع Scroll خارجي
+                childAspectRatio: 0.75, 
+                padding: EdgeInsets.zero, // عشان ميعملش مساحة من فوق
                 children: products
                     .map((product) => InkWell(
                           onTap: () {

@@ -33,7 +33,7 @@ class ProductWidget extends StatefulWidget {
   double? imageHight;
   bool? IsOffer = false;
   bool? isFav;
-  bool? isFavPage = false;
+  final bool? isFavPage;
   bool? isAdd;
   String? rating;
   final String productId;
@@ -72,31 +72,32 @@ class _ProductWidgetState extends State<ProductWidget> {
                       imageHight: widget.imageHight,
                       IsOffer: widget.IsOffer,
                       isFav: widget.isFav,
+                      isFavPage: widget.isFavPage,
                       isAdd: widget.isAdd,
                       productImage: widget.productImage,
                       nameProduct: widget.productName,
                       productId: widget.productId,
-                    onRemove: widget.onRemove,
+                      onRemove: widget.onRemove,
                     ),
                   )
-                : Expanded(
-                    child: Center(
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 20.0),
-                        child: ImageWidget(
-                          imageWidth: widget.imageWidth,
-                          imageHight: widget.imageHight,
-                          IsOffer: widget.IsOffer,
-                          isFav: widget.isFav,
-                            isFavPage: widget.isFavPage,
-                          isAdd: widget.isAdd,
-                          productImage: widget.productImage,
-                          nameProduct: widget.productName,
-                          productId: widget.productId,
+                :  Expanded(
+                        child: Center(
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 20.0),
+                            child: ImageWidget(
+                              imageWidth: widget.imageWidth,
+                              imageHight: widget.imageHight,
+                              IsOffer: widget.IsOffer,
+                              isFav: widget.isFav,
+                              isFavPage: widget.isFavPage,
+                              isAdd: widget.isAdd,
+                              productImage: widget.productImage,
+                              nameProduct: widget.productName,
+                              productId: widget.productId,
+                            ),
+                          ),
                         ),
                       ),
-                    ),
-                  ),
             Row(
               children: [
                 if (widget.price != null)

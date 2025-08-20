@@ -12,27 +12,27 @@ class BestForYouPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            BarWidget(
-              textBar: 'Best For You',
-            ),
-            SizedBox(
-              height: 2.h,
-            ),
-            SearchWidget(),
-            SizedBox(
-              height: 3.h,
-            ),
-            TitleOfPoducts(
-              title: "All Best Products",
-            ),
-          DetailsPopularProductSection(
-                isScrollerV: true,
-              ),
-          ],
-        ),
+      body: Column(
+        children: [
+          BarWidget(
+            textBar: 'Best For You',
+          ),
+          SizedBox(
+            height: 2.h,
+          ),
+          SearchWidget(),
+          SizedBox(
+            height: 3.h,
+          ),
+          TitleOfPoducts(
+            title: "All Best Products",
+          ),
+          Expanded( 
+            child : DetailsPopularProductSection(
+              isScrollerV: true,
+            ),)
+       
+        ],
       ),
     );
   }

@@ -45,8 +45,7 @@ class _DetailsCategorySectionState extends State<DetailsCategorySection> {
                       mainAxisSpacing: 2.h,
                       shrinkWrap: true,
                       childAspectRatio: 0.75, // نسبة العرض للارتفاع
-                      physics:
-                          const NeverScrollableScrollPhysics(), // علشان متتداخلش مع Scroll خارجي
+                      padding: EdgeInsets.zero,
                       children: categories
                           .map((brand) => InkWell(
                                 onTap: () {

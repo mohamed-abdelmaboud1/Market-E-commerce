@@ -13,43 +13,37 @@ import '../../../home/presentation/view/widgets/product_widget.dart';
 import '../view_models/get_fav/get_fav_state.dart';
 
 Widget buildFavSection(bool showInternalLoading) {
-  return SizedBox(
-    height: 83.h,
-    child: BlocBuilder<GetFavCubit, GetFavState>(
-      builder: (context, state) {
-        if (state is GetFavLoading) {
-          showInternalLoading
-              ? Container(
-                  height: MediaQuery.of(context).size.height * 0.5,
-                  alignment: Alignment.center,
-                  child: const CircularProgressIndicator(),
-                )
-              : const SizedBox.shrink();
-        } else if (state is GetFavLoaded) {
-          final products = state.products;
-          if (state.products.isEmpty) {
-            return FourOrgnaizedWidget(
-              image: Image.asset(
-                ImagePathes.image10,
-                width: 200.w,
-                height: 30.h,
-              ),
-              textBold: "Your Favorites page is Empty",
-              textNormal:
-                  "Check our big offers, fresh products and fill your cart with items",
-              textButton: "Start Shopping",
-            );
-          } else {
-            return FavViewContent(products: products);
-          }
-        } else if (state is GetFavError) {
-          return Center(child: Text(state.errMessage));
+  return BlocBuilder<GetFavCubit, GetFavState>(
+    builder: (context, state) {
+      if (state is GetFavLoading) {
+        return Container(
+          height: MediaQuery.of(context).size.height * 0.5,
+          alignment: Alignment.center,
+          child: const CircularProgressIndicator(),
+        );
+      } else if (state is GetFavLoaded) {
+        final products = state.products;
+        if (state.products.isEmpty) {
+          return FourOrgnaizedWidget(
+            image: Image.asset(
+              ImagePathes.image10,
+              width: 200.w,
+              height: 30.h,
+            ),
+            textBold: "Your Favorites page is Empty",
+            textNormal:
+                "Check our big offers, fresh products and fill your cart with items",
+            textButton: "Start Shopping",
+          );
         } else {
-          return Center(child: Text("No products available"));
+          return FavViewContent(products: products);
         }
-        return const SizedBox.shrink();
-      },
-    ),
+      } else if (state is GetFavError) {
+        return Center(child: Text(state.errMessage));
+      } else {
+        return Center(child: Text("No products available"));
+      }
+    },
   );
 }
 
@@ -76,8 +70,7 @@ class _FavViewContentState extends State<FavViewContent> {
           mainAxisSpacing: 2.h,
           shrinkWrap: true,
           childAspectRatio: 0.75, // نسبة العرض للارتفاع
-          physics:
-              const NeverScrollableScrollPhysics(), // علشان متتداخلش مع Scroll خارجي
+          padding: EdgeInsets.zero,
           children: widget.products
               .map((product) => InkWell(
                     onTap: () {
