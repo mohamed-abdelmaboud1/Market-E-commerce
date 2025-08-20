@@ -48,7 +48,7 @@ class _BottomnavigationState extends State<Bottomnavigation> {
             setState(() {
               value = x;
             });
-            context.go(bodyPush[value]);
+            context.push(bodyPush[value]);
           }
         },
         items: const [
