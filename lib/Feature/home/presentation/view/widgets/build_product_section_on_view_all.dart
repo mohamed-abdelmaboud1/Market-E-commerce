@@ -26,7 +26,7 @@ Widget buildProductSection(bool isScrollerV, bool showInternalLoading) {
                 mainAxisSpacing: 2.h,
                 shrinkWrap: true,
                 childAspectRatio: 0.75, 
-                padding: EdgeInsets.zero, // عشان ميعملش مساحة من فوق
+                padding: EdgeInsets.zero, 
                 children: products
                     .map((product) => InkWell(
                           onTap: () {

@@ -26,43 +26,45 @@ class _CartViewState extends State<CartView> {
   }
 
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        BarWidget(
-          textBar: "Cart",
-        ),
-        Expanded(
-          child: BlocBuilder<GetCartCubit, GetCartState>(
-            builder: (context, state) {
-              if (state is GetCartLoading) {
-                return const Center(child: CircularProgressIndicator());
-              } else if (state is GetCartLoaded) {
-                if (state.products.isEmpty) {
-                  return FourOrgnaizedWidget(
-                    image: Image.asset(
-                      ImagePathes.image10,
-                      width: 200.w,
-                      height: 30.h,
-                    ),
-                    textBold: "Your Cart is Empty",
-                    textNormal:
-                        "Check our big offers, fresh products and fill your cart with items",
-                    textButton: "Start Shopping",
-                  );
-                } else {
-                  return CartViewBody(
-                    products: state.products,
-                  );
-                }
-              } else if (state is GetCartError) {
-                return Center(child: Text(state.errMessage));
-              }
-              return const SizedBox();
-            },
+    return Scaffold(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          BarWidget(
+            textBar: "Cart",
           ),
-        ),
-      ],
+          Expanded(
+            child: BlocBuilder<GetCartCubit, GetCartState>(
+              builder: (context, state) {
+                if (state is GetCartLoading) {
+                  return const Center(child: CircularProgressIndicator());
+                } else if (state is GetCartLoaded) {
+                  if (state.products.isEmpty) {
+                    return FourOrgnaizedWidget(
+                      image: Image.asset(
+                        ImagePathes.image10,
+                        width: 200.w,
+                        height: 30.h,
+                      ),
+                      textBold: "Your Cart is Empty",
+                      textNormal:
+                          "Check our big offers, fresh products and fill your cart with items",
+                      textButton: "Start Shopping",
+                    );
+                  } else {
+                    return CartViewBody(
+                      products: state.products,
+                    );
+                  }
+                } else if (state is GetCartError) {
+                  return Center(child: Text(state.errMessage));
+                }
+                return const SizedBox();
+              },
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

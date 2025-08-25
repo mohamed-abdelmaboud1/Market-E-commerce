@@ -1,0 +1,2 @@
+C:/development_flutter/Flutter_Apps/marketi_ecommers/android/app/.cxx/Debug/215w4j4s/armeabi-v7a/CMakeFiles/edit_cache.dir
+C:/development_flutter/Flutter_Apps/marketi_ecommers/android/app/.cxx/Debug/215w4j4s/armeabi-v7a/CMakeFiles/rebuild_cache.dir

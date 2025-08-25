@@ -49,7 +49,7 @@ class _ProductWidgetState extends State<ProductWidget> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white70,
+        color: Theme.of(context).colorScheme.surface, //Colors.white70,
         borderRadius: BorderRadius.circular(10),
         boxShadow: [
           BoxShadow(
@@ -80,32 +80,36 @@ class _ProductWidgetState extends State<ProductWidget> {
                       onRemove: widget.onRemove,
                     ),
                   )
-                :  Expanded(
-                        child: Center(
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 20.0),
-                            child: ImageWidget(
-                              imageWidth: widget.imageWidth,
-                              imageHight: widget.imageHight,
-                              IsOffer: widget.IsOffer,
-                              isFav: widget.isFav,
-                              isFavPage: widget.isFavPage,
-                              isAdd: widget.isAdd,
-                              productImage: widget.productImage,
-                              nameProduct: widget.productName,
-                              productId: widget.productId,
-                            ),
-                          ),
+                : Expanded(
+                    child: Center(
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 20.0),
+                        child: ImageWidget(
+                          imageWidth: widget.imageWidth,
+                          imageHight: widget.imageHight,
+                          IsOffer: widget.IsOffer,
+                          isFav: widget.isFav,
+                          isFavPage: widget.isFavPage,
+                          isAdd: widget.isAdd,
+                          productImage: widget.productImage,
+                          nameProduct: widget.productName,
+                          productId: widget.productId,
                         ),
                       ),
+                    ),
+                  ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 if (widget.price != null)
-                  CustomTextWidget(
-                    color: TextColor,
-                    fontSize: 2.h,
-                    fontWeight: FontWeight.w500,
-                    text: widget.price!,
+                  Padding(
+                    padding: const EdgeInsets.only(left: 4.0),
+                    child: CustomTextWidget(
+                      color: TextColor,
+                      fontSize: 2.h,
+                      fontWeight: FontWeight.w500,
+                      text: widget.price!,
+                    ),
                   ),
                 if (widget.price != null) SizedBox(width: 10.w),
                 if (widget.price != null)
@@ -113,15 +117,18 @@ class _ProductWidgetState extends State<ProductWidget> {
                 if (widget.price != null) Text("${widget.rating}"),
               ],
             ),
-            SizedBox(
-              width: 35.w,
-              child: Center(
-                child: CustomTextWidget(
-                  color: TextColor,
-                  fontSize: 2.h,
-                  fontWeight: FontWeight.w500,
-                  text: widget.productName,
-                  textAlign: TextAlign.start,
+            Padding(
+              padding: const EdgeInsets.only(left: 4.0),
+              child: SizedBox(
+                width: 35.w,
+                child: Center(
+                  child: CustomTextWidget(
+                    color: TextColor,
+                    fontSize: 2.h,
+                    fontWeight: FontWeight.w500,
+                    text: widget.productName,
+                    textAlign: TextAlign.start,
+                  ),
                 ),
               ),
             ),
@@ -133,74 +140,90 @@ class _ProductWidgetState extends State<ProductWidget> {
               Align(
                 alignment: Alignment.center,
                 child: quantity == 0
-                    ? SizedBox(
-                        width: 34.w,
-                        height: 4.h,
-                        child: FloatingActionButton.extended(
-                          onPressed: () async {
-                            setState(() {
-                              quantity = 1;
-                            });
-                            context
-                                .read<AddToCartCubit>()
-                                .addToProductCart(widget.productId);
-                          },
-                          heroTag: null,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                          label: const Text(
-                            "Add",
-                            style: TextStyle(color: Colors.blue, fontSize: 14),
+                    ? Padding(
+                        padding: EdgeInsets.only(left: 3.w),
+                        child: SizedBox(
+                          width: 34.w,
+                          height: 4.h,
+                          child: FloatingActionButton.extended(
+                            onPressed: () async {
+                              setState(() {
+                                quantity = 1;
+                              });
+                              context
+                                  .read<AddToCartCubit>()
+                                  .addToProductCart(widget.productId);
+                            },
+                            backgroundColor: Theme.of(context)
+                                .colorScheme
+                                .secondaryContainer,
+                            heroTag: null,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            label: Text(
+                              "Add",
+                              style: TextStyle(
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .onSecondaryContainer,
+                                  fontSize: 14),
+                            ),
                           ),
                         ),
                       )
-                    : Container(
-                        padding: EdgeInsets.symmetric(horizontal: 8),
-                        decoration: BoxDecoration(
-                          color: Colors.blue.shade50,
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        width: 40.w,
-                        height: 4.h,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            IconButton(
-                              padding: EdgeInsets.zero,
-                              icon: quantity == 1
-                                  ? Icon(Icons.delete,
-                                      color: Colors.red, size: 18)
-                                  : Icon(Icons.remove,
-                                      color: PrimaryColor, size: 18),
-                              onPressed: () {
-                                setState(() {
-                                  quantity--;
-                                });
-                                context
-                                    .read<DeleteFromCartCubit>()
-                                    .deleteProductCart(widget.productId);
-                              },
-                            ),
-                            Text(
-                              "$quantity",
-                              style: TextStyle(
-                                  fontSize: 14, fontWeight: FontWeight.bold),
-                            ),
-                            IconButton(
-                              padding: EdgeInsets.zero,
-                              icon: Icon(Icons.add,
-                                  color: PrimaryColor, size: 18),
-                              onPressed: () {
-                                setState(() {
-                                  quantity++;
-                                });
-                                context
-                                    .read<AddToCartCubit>()
-                                    .addToProductCart(widget.productId);
-                              },
-                            ),
-                          ],
+                    : Padding(
+                        padding: EdgeInsets.only(left: 3.w),
+                        child: Container(
+                          padding: EdgeInsets.symmetric(horizontal: 8),
+                          decoration: BoxDecoration(
+                            color: Colors.blue.shade50,
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          width: 34.w,
+                          height: 4.h,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              IconButton(
+                                padding: EdgeInsets.zero,
+                                icon: quantity == 1
+                                    ? Icon(Icons.delete,
+                                        color: Colors.red, size: 18)
+                                    : Icon(Icons.remove,
+                                        color: PrimaryColor, size: 18),
+                                onPressed: () {
+                                  setState(() {
+                                    quantity--;
+                                  });
+                                  context
+                                      .read<DeleteFromCartCubit>()
+                                      .deleteProductCart(widget.productId);
+                                },
+                              ),
+                              Text(
+                                "$quantity",
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black87,
+                                ),
+                              ),
+                              IconButton(
+                                padding: EdgeInsets.zero,
+                                icon: Icon(Icons.add,
+                                    color: PrimaryColor, size: 18),
+                                onPressed: () {
+                                  setState(() {
+                                    quantity++;
+                                  });
+                                  context
+                                      .read<AddToCartCubit>()
+                                      .addToProductCart(widget.productId);
+                                },
+                              ),
+                            ],
+                          ),
                         ),
                       ),
               ),

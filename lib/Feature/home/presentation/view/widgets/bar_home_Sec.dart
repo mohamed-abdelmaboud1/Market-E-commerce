@@ -59,7 +59,7 @@ class _BarHomeSectionState extends State<BarHomeSection> {
                 text: "Hi, ${state.userData.name} !",
                 fontSize: 3.h,
                 fontWeight: FontWeight.w500,
-                color: Colors.black,
+                color: Theme.of(context).colorScheme.onBackground,
               ),
               SizedBox(
                 width: 15.h,

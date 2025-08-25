@@ -36,10 +36,8 @@ class BarWidget extends StatelessWidget {
                 ),
               ),
               child: Center(
-                child: Icon(
-                  Icons.arrow_left_outlined,
-                  size: 5.h,
-                ),
+                child: Icon(Icons.arrow_left_outlined,
+                    size: 5.h, color: Colors.black),
               ),
             ),
           ),
@@ -60,10 +58,18 @@ class BarWidget extends StatelessWidget {
         Padding(
           padding: EdgeInsets.only(top: 5.h, right: 4.w),
           child: isIcon == true
-              ? Icon(
-                  Icons.shopping_cart,
-                  size: 3.5.h,
-                  color: PrimaryColor,
+              ? IconButton(
+                  onPressed: () {
+                    context.go(AppRouter.cartViewPath);
+                    context
+                        .read<BottomNavCubit>()
+                        .changeSelectedIndex(1, context);
+                  },
+                  icon: Icon(
+                    Icons.shopping_cart,
+                    size: 3.5.h,
+                    color: PrimaryColor,
+                  ),
                 )
               : GestureDetector(
                   onTap: () {

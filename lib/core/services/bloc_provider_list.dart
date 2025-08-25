@@ -5,7 +5,9 @@ import 'package:marketi_ecommers/Feature/checkout/data/models/check_out_model.da
 import 'package:marketi_ecommers/Feature/checkout/presentation/view_model/checkout_cubit/checkout_cubit.dart';
 import 'package:marketi_ecommers/Feature/favorite/presentation/view_models/add_to_fav/add_to_fav_cubit.dart';
 import 'package:marketi_ecommers/Feature/for_password/presentation/view_models/send_resete_password_cubit.dart';
+import 'package:marketi_ecommers/Feature/profile/presentation/view_model/add_image/add_image_cubit.dart';
 import 'package:marketi_ecommers/core/Api/dio_consumer.dart';
+import 'package:marketi_ecommers/core/services/theme_cubit.dart';
 import 'package:marketi_ecommers/core/widgets/bottom_navigation.dart';
 
 import '../../Feature/cart/presentation/view_models/add_to_cart/add_to_cart_cubit.dart';
@@ -19,6 +21,7 @@ import '../../Feature/home/presentation/view_models/brand_and_categories/categor
 import '../../Feature/home/presentation/view_models/home_cubit/home_cubit.dart';
 import '../../Feature/login/presentation/view_models/signIn_cubit/signIn_cubit.dart';
 import '../../Feature/profile/presentation/view_model/user_data/user_data_cubit.dart';
+import '../../Feature/profile/presentation/view_model/user_edit/user_edit_cubit.dart';
 import '../../Feature/register/presentation/view_models/signUP_cubit/signUP_cubit.dart';
 import '../../Feature/search/presentation/view_models/topSearch/top_search_cubit.dart';
 import '../../Feature/verify/presentation/view_models/activated_reset_password_cubit.dart';
@@ -69,9 +72,15 @@ List<BlocProvider> buildBlocProviders(DioConsumer dioConsumer) {
     BlocProvider<CheckoutCubit>(
       create: (context) => CheckoutCubit(dioConsumer),
     ),
+     BlocProvider<UserEditCubit>(
+      create: (context) => UserEditCubit(dioConsumer),
+    ),
     BlocProvider<BottomNavCubit>(
       create: (context) => BottomNavCubit(),
-    )
-    
+    ),
+    BlocProvider<AddImageCubit>(
+      create: (context) =>AddImageCubit(dioConsumer),
+    ),
+     BlocProvider<ThemeCubit>(create:(context) => ThemeCubit()),
   ];
 }

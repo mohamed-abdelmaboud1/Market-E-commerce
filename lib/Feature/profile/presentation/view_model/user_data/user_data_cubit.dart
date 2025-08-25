@@ -1,7 +1,5 @@
-import 'dart:typed_data';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:dio/dio.dart';
-import 'package:marketi_ecommers/Feature/home/presentation/view_models/banners/banners_state.dart';
 import 'package:marketi_ecommers/Feature/profile/presentation/view_model/user_data/user_data_state.dart';
 import 'package:marketi_ecommers/core/Api/api_consumer.dart';
 import 'package:marketi_ecommers/core/cache/cache_helper.dart';
@@ -30,10 +28,10 @@ class UserDataCubit extends Cubit<UserDataState> {
         ),
       );
       final dataModel = UserDataResponse.fromJson(response);
+      final userName = CacheHelper.getData(key: 'name');
       emit(UserDataLoaded(dataModel.message));
     } catch (e) {
       emit(UserDataError('Failed to load user data: $e'));
     }
   }
-  
 }

@@ -21,18 +21,15 @@ import '../../Feature/checkout/presentation/view/checkout_view.dart';
 import '../../Feature/favorite/presentation/view/fav_view.dart';
 import '../../Feature/for_password/presentation/view/confirmation_new_pass .dart';
 import '../../Feature/for_password/presentation/view/congratulation_reset_pass.dart';
+import '../../Feature/profile/presentation/view/profile_edit_view.dart';
 import '../../Feature/profile/presentation/view/profile_view.dart';
 import '../../Feature/splash/presentation/view/on_boarding1.dart';
 import '../../Feature/splash/presentation/view/on_boarding2.dart';
 import '../../Feature/splash/presentation/view/on_boarding3.dart';
 import '../../Feature/splash/presentation/view/splash_view.dart';
 import '../../Feature/verify/presentation/view/verify_code_with_phone.dart';
-import '../widgets/bottom_navigation.dart';
 
 class AppRouter {
-  final ValueNotifier<ThemeMode> themeNotifier;
-
-  AppRouter({required this.themeNotifier});
   static String splashPath = '/';
   static String onBoarding1Path = '/onBoarding1Path';
   static String onBoarding2Path = '/onBoarding2Path';
@@ -59,9 +56,10 @@ class AppRouter {
   static String profilePath = '/profilePath';
   static String favoritesPath = '/favoritesPath';
   static String checkOutPath = '/checkOutPath';
+  static String editProfilePath = '/editProfilePath';
 
   GoRouter get router => GoRouter(
-        initialLocation: homePath,
+        initialLocation: splashPath,
         routes: [
           GoRoute(
             path: splashPath,
@@ -153,9 +151,11 @@ class AppRouter {
               }),
           GoRoute(
             path: profilePath,
-            builder: (context, state) => ProfileView(
-              themeNotifier: themeNotifier,
-            ),
+            builder: (context, state) => ProfileView(),
+          ),
+          GoRoute(
+            path: editProfilePath,
+            builder: (context, state) => EditProfilePage(),
           ),
           GoRoute(
               path: checkOutPath,

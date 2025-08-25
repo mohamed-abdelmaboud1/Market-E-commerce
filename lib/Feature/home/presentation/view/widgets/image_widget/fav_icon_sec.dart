@@ -6,7 +6,8 @@ import '../../../../../favorite/presentation/view_models/add_to_fav/add_to_fav_c
 import '../../../../../favorite/presentation/view_models/delete_from_fav/delete_from_fav_cubit.dart';
 
 class FavIconSec extends StatefulWidget {
-  const FavIconSec({super.key,  this.isFavPage,this.onRemove,required this.productId});
+  const FavIconSec(
+      {super.key, this.isFavPage, this.onRemove, required this.productId});
   final bool? isFavPage; // are we on favorites page?
   final VoidCallback? onRemove;
   final String productId;
@@ -14,12 +15,12 @@ class FavIconSec extends StatefulWidget {
   @override
   State<FavIconSec> createState() => _FavIconSecState();
 }
- 
+
 class _FavIconSecState extends State<FavIconSec> {
   bool isRedFav = false;
 
   @override
-   void initState() {
+  void initState() {
     super.initState();
     isRedFav = (widget.isFavPage == true);
   }
@@ -38,17 +39,23 @@ class _FavIconSecState extends State<FavIconSec> {
       }
     }
   }
+
   Widget build(BuildContext context) {
     return Positioned(
-            top: -2,
-            right: -5,
-            child: IconButton(
-              onPressed: _favFunc,
-              icon: Icon(
-                isRedFav ? Icons.favorite : Icons.favorite_outline,
-                color: isRedFav ? Colors.red : Colors.black45,
-              ),
-            ),
-          );
+      top: -2,
+      right: -5,
+      child: IconButton(
+        onPressed: _favFunc,
+        icon: Icon(
+          isRedFav ? Icons.favorite : Icons.favorite_outline,
+          color: isRedFav
+              ? Colors.red
+              : Theme.of(context).brightness == Brightness.light
+                  ? Colors.black45
+                  : Colors.white70,
+          // Theme.of(context).iconTheme.color,
+        ),
+      ),
+    );
   }
 }

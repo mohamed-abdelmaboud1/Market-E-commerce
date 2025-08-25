@@ -19,6 +19,9 @@ class Endpoints {
   static String deleteFromFavUrl = "$baseUrl/user/deleteFavorite";
   static String getFavUrl = "$baseUrl/user/getFavorite";
   static String checkoutUrl = "$baseUrl/user/checkout";
+  static String userEditUrl = "$baseUrl/portfoilo/editUserData";
+  static String addImageUrl = "$baseUrl/portfoilo/addImage";
+  static String signOutUrl = "$baseUrl/auth/oAuth/signOut ";
 }
 
 class ApiKey {

@@ -65,11 +65,11 @@ class NavigationMenuDrawerWidget extends StatelessWidget {
             Expanded(
               child: ListView(
                 children: [
-                  drawerItem(Icons.refresh, "Buy Again"),
-                  drawerItem(Icons.shopping_bag_outlined, "My Orders"),
-                  drawerItem(Icons.credit_card, "Payments"),
-                  drawerItem(Icons.settings, "Account Settings"),
-                  drawerItem(Icons.support_agent, "Support"),
+                  drawerItem(Icons.refresh, "Buy Again", context),
+                  drawerItem(Icons.shopping_bag_outlined, "My Orders", context),
+                  drawerItem(Icons.credit_card, "Payments", context),
+                  drawerItem(Icons.settings, "Account Settings", context),
+                  drawerItem(Icons.support_agent, "Support", context),
                 ],
               ),
             ),
@@ -79,4 +79,3 @@ class NavigationMenuDrawerWidget extends StatelessWidget {
     );
   }
 }
-

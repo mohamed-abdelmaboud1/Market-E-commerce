@@ -63,7 +63,7 @@ class _CartProductWidgetState extends State<CartProductWidget> {
         ),
         Expanded(
           child: Padding(
-            padding:  EdgeInsets.symmetric(horizontal: 1.h),
+            padding: EdgeInsets.symmetric(horizontal: 1.h),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -81,8 +81,10 @@ class _CartProductWidgetState extends State<CartProductWidget> {
                       ),
                     ),
                     Icon(
-                      isFav ? Icons.favorite : Icons.favorite_outline,
-                      color: isFav ? Colors.red : Colors.black45,
+                      isFav ? Icons.favorite : Icons.favorite_border,
+                      color: Theme.of(context).brightness == Brightness.light
+                              ? Colors.black45 
+                              : Colors.white70
                     ),
                   ],
                 ),

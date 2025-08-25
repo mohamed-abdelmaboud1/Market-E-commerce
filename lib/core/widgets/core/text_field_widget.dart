@@ -10,7 +10,8 @@ class TextFieldWidget extends StatefulWidget {
   final TextInputType? keyboardType; //  for custom keyboard type
   final bool readOnly;
   final VoidCallback? onTap;
-
+  final bool? isEdit;
+  final String? hintText;
   const TextFieldWidget({
     super.key,
     required this.mailPassText,
@@ -20,6 +21,8 @@ class TextFieldWidget extends StatefulWidget {
     this.keyboardType,
     this.readOnly = false,
     this.onTap,
+    this.isEdit = false,
+    this.hintText,
   });
   @override
   State<TextFieldWidget> createState() => _TextFieldWidgetState();
@@ -52,10 +55,12 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
                       : TextInputType.text),
               decoration: InputDecoration(
                 labelText: widget.mailPassText,
-                labelStyle: TextStyle(
-                  fontSize: 15.sp,
-                  color: const Color(0xFF929BAB),
-                ),
+                labelStyle: widget.isEdit == false
+                    ? TextStyle(
+                        fontSize: 15.sp,
+                        color: const Color(0xFF929BAB),
+                      )
+                    : null,
                 suffixIcon: widget.mailPassText == 'Password' ||
                         widget.mailPassText == 'Confirm Password'
                     ? IconButton(
@@ -71,11 +76,27 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
                           });
                         },
                       )
-                    : null,
+                    : (widget.isEdit == true
+                        ? IconButton(
+                            icon: Icon(
+                              Icons.edit,
+                              // : Icons.done,
+                              color: PrimaryColor,
+                              size: 5.w,
+                            ),
+                            onPressed: () {
+                              setState(() {
+                                // isPasswordVisible = !isPasswordVisible;
+                              });
+                            },
+                          )
+                        : null),
                 prefixIcon: Icon(
                   widget.icon,
                   size: 4.3.w,
-                  color: Colors.black,
+                  color: Theme.of(context).brightness == Brightness.light
+                      ? Colors.black45
+                      : PrimaryColor,
                 ),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(3.w),

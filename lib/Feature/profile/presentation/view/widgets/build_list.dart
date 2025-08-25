@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:marketi_ecommers/core/utils/colors.dart';
 import 'package:marketi_ecommers/core/widgets/core/custom_text__widget.dart';
 import 'package:sizer/sizer.dart';
 
@@ -6,12 +7,16 @@ Widget buildListTile({
   required IconData icon,
   required String text,
   required VoidCallback onTap,
+  required BuildContext context,
   Color? color,
 }) {
   return ListTile(
     leading: Icon(
       icon,
-      color: color ?? Colors.black87,
+      color: color ??
+          (Theme.of(context).brightness == Brightness.light
+              ? Colors.black45
+              : PrimaryColor),
       size: 25,
     ),
     title: CustomTextWidget(

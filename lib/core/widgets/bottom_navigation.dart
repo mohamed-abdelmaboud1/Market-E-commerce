@@ -13,10 +13,16 @@ class Bottomnavigation extends StatelessWidget {
     return BlocBuilder<BottomNavCubit, int>(
       builder: (context, currentIndex) {
         return BottomNavigationBar(
-          backgroundColor: Colors.white,
+          // backgroundColor: Colors.white,
+          // selectedItemColor: Colors.blue,
+          // unselectedItemColor: const Color(0xff67687E),
           currentIndex: currentIndex,
-          selectedItemColor: Colors.blue,
-          unselectedItemColor: const Color(0xff67687E),
+          backgroundColor:
+              Theme.of(context).bottomNavigationBarTheme.backgroundColor,
+          selectedItemColor:
+              Theme.of(context).bottomNavigationBarTheme.selectedItemColor,
+          unselectedItemColor:
+              Theme.of(context).bottomNavigationBarTheme.unselectedItemColor,
           showUnselectedLabels: true,
           onTap: (int index) {
             if (index == 3) {

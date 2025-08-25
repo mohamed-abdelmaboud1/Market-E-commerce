@@ -16,7 +16,7 @@ class CategoryViewWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           CustomTextWidget(
-              color: TextColor,
+              color: Theme.of(context).colorScheme.onBackground, //TextColor,
               fontSize: 5.w,
               fontWeight: FontWeight.w600,
               text: text),
@@ -25,6 +25,7 @@ class CategoryViewWidget extends StatelessWidget {
               context.go(location);
             },
             child: CustomTextWidget(
+                isThemeColor: false,
                 color: const Color(0xff3F80FF),
                 fontSize: 5.w,
                 fontWeight: FontWeight.w500,

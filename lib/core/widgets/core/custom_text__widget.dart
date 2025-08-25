@@ -5,10 +5,11 @@ class CustomTextWidget extends StatelessWidget {
   CustomTextWidget({
     required this.color,
     required this.fontSize,
-     this.fontWeight,
+    this.fontWeight,
     required this.text,
     this.textAlign,
     this.maxLines = 3,
+    this.isThemeColor=true,
   });
   final String text;
   final Color color;
@@ -16,6 +17,7 @@ class CustomTextWidget extends StatelessWidget {
   final FontWeight? fontWeight;
   final TextAlign? textAlign;
   final int? maxLines;
+  final bool isThemeColor;
   @override
   Widget build(BuildContext context) {
     return Text(
@@ -25,7 +27,7 @@ class CustomTextWidget extends StatelessWidget {
       softWrap: true, // يخلي النص يلف على سطر جديد
       overflow: TextOverflow.ellipsis,
       style: GoogleFonts.poppins(
-        color: color,
+        color: isThemeColor? Theme.of(context).colorScheme.onBackground : color,
         fontSize: fontSize,
         fontWeight: fontWeight,
       ),

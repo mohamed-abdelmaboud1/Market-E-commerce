@@ -1,0 +1,1 @@
+C:\development_flutter\Flutter_Apps\marketi_ecommers\build\app\intermediates\cxx\Debug\215w4j4s\obj\arm64-v8a
