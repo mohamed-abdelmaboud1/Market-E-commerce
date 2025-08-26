@@ -4,12 +4,14 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../../../../core/utils/colors.dart';
 import '../../../../../core/widgets/core/custom_text__widget.dart';
 
-Widget SocialLoginButtons() {
+Widget SocialLoginButtons(BuildContext context) {
   return Column(
     children: [
       CustomTextWidget(
         text: 'Or Continue With',
-        color: const Color(0xFF51526C),
+        color:  Theme.of(context).brightness == Brightness.light
+              ? const Color(0xFF51526C)
+              : Colors.white.withOpacity(0.2) ,
         fontSize: 14.7.sp,
         fontWeight: FontWeight.w400,
       ),

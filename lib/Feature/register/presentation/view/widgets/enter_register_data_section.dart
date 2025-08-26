@@ -32,20 +32,7 @@ class EnterRegisterDataSection extends StatelessWidget {
           height: 1.h,
         ),
     
-        //Username
-        BuildLabelText(
-          sizePaddding: 30,
-          text: "Username",
-        ),
-        TextFieldWidget(
-          mailPassText: 'Username',
-          icon: Icons.person,
-          controller: cubit.signUpName,
-        ),
-        SizedBox(
-          height: 1.h,
-        ),
-    
+      
         //Phone Number
         BuildLabelText(
           sizePaddding: 26,

@@ -50,7 +50,8 @@ class _MyWidgetState extends State<buildRememberMeRow> {
               },
               child: CustomTextWidget(
                 text: 'Forgot password?',
-                color: PrimaryColor,
+                isThemeColor: false,
+                color:  PrimaryColor,
                 fontSize: 14.4.sp,
                 fontWeight: FontWeight.w500,
               ),

@@ -7,7 +7,9 @@ class SplashView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor:  Theme.of(context).brightness == Brightness.light
+              ? Colors.white
+              : Colors.black ,
       body:SplashBody(),
       
       );

@@ -29,6 +29,7 @@ class ToRegisterSection extends StatelessWidget {
           },
           child: CustomTextWidget(
             text: ' register?',
+            isThemeColor: false,
             color: PrimaryColor,
             fontSize: 14.7.sp,
             fontWeight: FontWeight.w400,

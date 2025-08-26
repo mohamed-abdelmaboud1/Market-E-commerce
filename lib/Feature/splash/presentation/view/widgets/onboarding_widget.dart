@@ -55,6 +55,7 @@ class OnboardingWidget extends StatelessWidget {
             text: '$text2',
             textAlign: TextAlign.center,
             color: TextColor,
+            maxLines: 5,
             fontSize: 15.sp,
             fontWeight: FontWeight.w500,
           ),

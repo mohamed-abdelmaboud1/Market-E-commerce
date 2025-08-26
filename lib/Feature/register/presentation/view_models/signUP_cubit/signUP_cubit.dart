@@ -19,7 +19,7 @@ class SignupCubit extends Cubit<UserState> {
   TextEditingController signUpEmail = TextEditingController();
   TextEditingController signUpPassword = TextEditingController();
   TextEditingController confirmPassword = TextEditingController();
-
+ 
   signUp() async {
     try {
       emit(SignUpLoading());

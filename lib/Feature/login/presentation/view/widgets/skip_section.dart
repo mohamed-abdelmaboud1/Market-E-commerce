@@ -22,7 +22,9 @@ class SkipSection extends StatelessWidget {
               width: 20.w,
               height: 7.h,
               decoration: BoxDecoration(
-                color: Colors.white,
+                color:  Theme.of(context).brightness == Brightness.light
+              ? Colors.white
+              : Colors.black ,
                 borderRadius: BorderRadius.circular(14),
               ),
               child: Center(

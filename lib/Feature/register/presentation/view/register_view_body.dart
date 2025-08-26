@@ -61,7 +61,7 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
               SizedBox(
                 height: 1.h,
               ),
-              SocialLoginButtons(),
+              SocialLoginButtons(context),
               SizedBox(height: 3.h),
             ],
           ),

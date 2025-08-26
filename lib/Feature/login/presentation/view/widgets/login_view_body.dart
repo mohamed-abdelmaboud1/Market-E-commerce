@@ -67,7 +67,10 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                       color: PrimaryColor,
                     )
                   : CustomButton(
-                      textcolor: Colors.white,
+                      textcolor:
+                          Theme.of(context).brightness == Brightness.light
+                              ? Colors.white
+                              : Colors.black,
                       groundColor: PrimaryColor,
                       button: "Log In",
                       onPressed: () async {
@@ -77,7 +80,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
               SizedBox(
                 height: 1.h,
               ),
-              SocialLoginButtons(),
+              SocialLoginButtons(context),
               SizedBox(height: 2.h),
               ToRegisterSection(),
               SizedBox(height: 3.h),
