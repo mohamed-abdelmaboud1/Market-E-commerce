@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import '../../../../../core/utils/image_pathes.dart';
+
 import '../../../../../core/routing/app_router.dart';
+import '../../../../../core/utils/image_pathes.dart';
 
 class SplashBody extends StatefulWidget {
   const SplashBody({super.key});
@@ -23,6 +24,7 @@ class _SplashBodyState extends State<SplashBody> {
     context.go(AppRouter.onBoarding1Path);
   }
 
+  @override
   Widget build(BuildContext context) {
     return Center(
       child: Image.asset(
