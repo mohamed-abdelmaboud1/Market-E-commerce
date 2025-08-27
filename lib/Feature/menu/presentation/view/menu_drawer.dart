@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:marketi_ecommers/core/routing/app_router.dart';
 import 'package:marketi_ecommers/core/utils/image_pathes.dart';
 import 'package:sizer/sizer.dart';
-
-import '../../../../core/routing/app_router.dart';
 import 'widgets/build_drawer_item.dart';
 
 class NavigationMenuDrawerWidget extends StatelessWidget {
@@ -15,15 +15,19 @@ class NavigationMenuDrawerWidget extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Header
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Row(
                 children: [
-                  CircleAvatar(
-                    radius: 25,
-                    backgroundImage:
-                        AssetImage(ImagePathes.profile), // صورة البروفايل
+                  GestureDetector(
+                    onTap: () {
+                      context.go(AppRouter.profilePath);
+                    },
+                    child: CircleAvatar(
+                      radius: 25,
+                      backgroundImage:
+                          AssetImage(ImagePathes.profile),
+                    ),
                   ),
                   const SizedBox(width: 12),
                   Column(

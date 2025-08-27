@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:marketi_ecommers/core/widgets/bottom_navigation.dart';
 import 'package:marketi_ecommers/core/widgets/core/custom_button.dart';
 import 'package:marketi_ecommers/core/widgets/core/custom_text__widget.dart';
 import 'package:sizer/sizer.dart';
@@ -36,7 +38,9 @@ class FourOrgnaizedWidget extends StatelessWidget {
           textAlign: TextAlign.center,
           textBold,
           style: GoogleFonts.poppins(
-            color: TextColor,
+            color: Theme.of(context).brightness == Brightness.light
+                ? TextColor
+                : const Color.fromARGB(255, 169, 190, 239),
             fontSize: 20.sp,
             fontWeight: FontWeight.w500,
           ),
@@ -62,7 +66,8 @@ class FourOrgnaizedWidget extends StatelessWidget {
             groundColor: PrimaryColor,
             button: textButton,
             onPressed: () {
-               context.push(AppRouter.homePath);
+              context.read<BottomNavCubit>().changeSelectedIndex(0, context);
+              context.push(AppRouter.homePath);
             }),
       ],
     );

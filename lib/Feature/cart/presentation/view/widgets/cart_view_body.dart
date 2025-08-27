@@ -1,27 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:marketi_ecommers/Feature/cart/presentation/view/widgets/cart_product_widget.dart';
-import 'package:marketi_ecommers/Feature/cart/presentation/view/widgets/elevated_button_widget.dart';
-import 'package:marketi_ecommers/Feature/checkout/data/models/check_out_model.dart';
-import 'package:marketi_ecommers/Feature/checkout/data/models/checkout_model_product.dart';
+import 'package:marketi_ecommers/Feature/cart/presentation/view/widgets/check_out_sec_widget.dart';
+import 'package:marketi_ecommers/Feature/cart/presentation/view/widgets/total_price_sec.dart';
 import 'package:marketi_ecommers/Feature/home/data/models/product_model.dart';
-import 'package:marketi_ecommers/core/Api/endpoints.dart';
-import 'package:marketi_ecommers/core/cache/cache_helper.dart';
 import 'package:sizer/sizer.dart';
-
 import '../../../../../core/routing/app_router.dart';
-import '../../../../../core/utils/colors.dart';
 import '../../../../../core/utils/image_pathes.dart';
-import '../../../../../core/widgets/core/custom_text__widget.dart';
 import '../../../../../core/widgets/core/title_of_product.dart';
-import '../../../../profile/data/models/user_data_model.dart';
-import '../../../../profile/presentation/view_model/user_data/user_data_cubit.dart';
-import '../../../../profile/presentation/view_model/user_data/user_data_state.dart';
-import '../../view_models/add_to_cart/add_to_cart_cubit.dart';
-import '../../view_models/delete_from_cart/delete_from_cart_cubit.dart';
-import '../../view_models/get_cart/get_cart_cubit.dart';
-import '../../view_models/get_cart/get_cart_state.dart';
 
 class CartViewBody extends StatefulWidget {
   CartViewBody({super.key, required this.products});
@@ -88,48 +74,11 @@ class _CartViewBodyState extends State<CartViewBody> {
         SizedBox(
           height: 1.h,
         ),
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: 2.h),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              CustomTextWidget(
-                text: "Total Price",
-                fontSize: 16.sp,
-                color: Colors.black,
-                fontWeight: FontWeight.w600,
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 2.w),
-                child: CustomTextWidget(
-                  text:
-                      "EGP ${widget.products.fold(0, (total, item) => total + (item.price))}",
-                  fontSize: 16.sp,
-                  color: Colors.black,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-            ],
-          ),
-        ),
+        TotalPriceSec(widget: widget),
         SizedBox(
           height: 2.h,
         ),
-        ElevatedButtonWidget(
-          textButton: "Check Out",
-          onPressed: () {
-            final checkoutProducts = widget.products.map((product) {
-              return CheckOutModelProduct(
-                products: widget.products,
-                quantity: widget.products.length,
-              );
-            }).toList();
-            context.push(AppRouter.checkOutPath,
-                extra: CheckOutModel(
-                    userId: CacheHelper.getData(key: ApiKey.id),
-                    products: checkoutProducts));
-          },
-        ),
+        CheckOutSecWidget(widget: widget),
         SizedBox(
           height: 1.h,
         ),

@@ -7,6 +7,7 @@ import 'package:marketi_ecommers/Feature/profile/presentation/view/widgets/profi
 import 'package:marketi_ecommers/Feature/profile/presentation/view/widgets/show_rate_dialog.dart';
 import 'package:marketi_ecommers/core/routing/app_router.dart';
 import 'package:marketi_ecommers/core/widgets/bar_widget.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sizer/sizer.dart';
 import '../../../../../core/services/theme_cubit.dart';
 
@@ -103,7 +104,10 @@ class _ProfileViewBodyState extends State<ProfileViewBody> {
                 context: context,
                 icon: Icons.logout,
                 text: "Log Out",
-                onTap: () {
+                onTap: () async {
+                  final prefs = await SharedPreferences.getInstance();
+                 // await prefs.clear();
+                  await prefs.remove("token");
                   context.go(AppRouter.splashPath);
                 },
                 color: Colors.red,

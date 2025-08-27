@@ -1,15 +1,11 @@
-import 'dart:ffi';
-
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:marketi_ecommers/Feature/profile/presentation/view_model/user_data/user_data_cubit.dart';
 import 'package:marketi_ecommers/core/routing/app_router.dart';
 import 'package:marketi_ecommers/core/utils/image_pathes.dart';
-import 'package:marketi_ecommers/core/widgets/core/custom_text__widget.dart';
-import 'package:marketi_ecommers/cubit/user_cubit/user_state.dart';
 import 'package:sizer/sizer.dart';
-
 import '../../../../profile/presentation/view_model/user_data/user_data_state.dart';
 
 class BarHomeSection extends StatefulWidget {
@@ -55,11 +51,16 @@ class _BarHomeSectionState extends State<BarHomeSection> {
               SizedBox(
                 width: 2.h,
               ),
-              CustomTextWidget(
-                text: "Hi, ${state.userData.name} !",
-                fontSize: 3.h,
-                fontWeight: FontWeight.w500,
-                color: Theme.of(context).colorScheme.onBackground,
+              AutoSizeText(
+                "Hi, ${state.userData.name} !",
+                style: TextStyle(
+                  fontSize: 18.sp,
+                  fontWeight: FontWeight.w500,
+                  color: Theme.of(context).colorScheme.onBackground,
+                ),
+                maxLines: 1,
+                minFontSize: 10,
+                overflow: TextOverflow.ellipsis,
               ),
               SizedBox(
                 width: 15.h,

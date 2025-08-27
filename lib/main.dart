@@ -11,30 +11,6 @@ import 'core/cache/cache_helper.dart';
 import 'core/routing/app_router.dart';
 import 'core/services/bloc_provider_list.dart';
 
-/*void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await CacheHelper.init();
-  final dioConsumer = DioConsumer(dio: Dio());
- bool isDark = CacheHelper.getBoolean(key: "isDarkMode") ?? false;
-  final ValueNotifier<ThemeMode> themeNotifier =
-      ValueNotifier(isDark ? ThemeMode.dark : ThemeMode.light);
-
-  runApp(
-    DevicePreview(
-      enabled: !kReleaseMode,
-      builder: (context) => ValueListenableBuilder<ThemeMode>(
-        valueListenable: themeNotifier,
-        builder: (context, currentTheme, child) {
-          return MultiBlocProvider(
-            providers: buildBlocProviders(dioConsumer),
-            child: MarketEcommers(),//themeNotifier: themeNotifier),
-          );
-        },
-      ),
-    ),
-  );
-}*/
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await CacheHelper.init();
@@ -69,6 +45,7 @@ class MarketEcommers extends StatelessWidget {
               theme: lightTheme,
               darkTheme: darkTheme,
               themeMode: themeMode,
+              
             );
           },
         );

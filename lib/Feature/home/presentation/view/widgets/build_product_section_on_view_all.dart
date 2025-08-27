@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:marketi_ecommers/Feature/home/data/models/product_model.dart';
 import 'package:marketi_ecommers/Feature/home/presentation/view/widgets/product_widget.dart';
 import 'package:marketi_ecommers/core/utils/image_pathes.dart';
 import 'package:sizer/sizer.dart';
@@ -20,70 +21,8 @@ Widget buildProductSection(bool isScrollerV, bool showInternalLoading) {
       return Padding(
         padding: EdgeInsets.symmetric(horizontal: 2.5.h, vertical: 2.h),
         child: isScrollerV == true
-            ? GridView.count(
-                crossAxisCount: 2, 
-                crossAxisSpacing: 2.h,
-                mainAxisSpacing: 2.h,
-                shrinkWrap: true,
-                childAspectRatio: 0.75, 
-                padding: EdgeInsets.zero, 
-                children: products
-                    .map((product) => InkWell(
-                          onTap: () {
-                            context.push(AppRouter.detailsProductPath,
-                                extra: product);
-                          },
-                          child: ProductWidget(
-                            imageWidth: double.infinity,
-                            imageHight: 120,
-                            productImage: product.images.isNotEmpty
-                                ? "${product.images[0].replaceAll('\\', '/')}"
-                                : ImagePathes.notExistPhoto,
-                            productName: product.title,
-                            isAdd: true,
-                            rating: product.rating!.toStringAsFixed(1),
-                            price: "${product.price} LE",
-                            productId: product.id,
-                          ),
-                        ))
-                    .toList(),
-              )
-            : SizedBox(
-                height: 28.h,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: products.length,
-                  itemBuilder: (context, index) {
-                    final product = products[index];
-                    return Padding(
-                      padding: EdgeInsets.only(right: 2.w),
-                      child: InkWell(
-                        onTap: () {
-                          context.push(AppRouter.detailsProductPath,
-                              extra: product);
-                        },
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                          child: ProductWidget(
-                            imageWidth: 40.w,
-                            imageHight: 120,
-                            productImage: product.images.isNotEmpty
-                                ? "${product.images[0].replaceAll('\\', '/')}"
-                                : ImagePathes.notExistPhoto,
-                            price: "${product.price} LE",
-                            rating: product.rating!.toStringAsFixed(1),
-                            productName: product.title,
-                            IsOffer: true,
-                            isAdd: true,
-                            isFav: true,
-                            productId: product.id,
-                          ),
-                        ),
-                      ),
-                    );
-                  },
-                ),
-              ),
+            ? ProductsInVerticalPage(products: products)
+            : ProductInHomePage(products: products),
       );
     } else if (state is ProductLoading) {
       return showInternalLoading
@@ -99,4 +38,94 @@ Widget buildProductSection(bool isScrollerV, bool showInternalLoading) {
       return Center(child: Text("No products available"));
     }
   });
+}
+
+class ProductInHomePage extends StatelessWidget {
+  const ProductInHomePage({
+    super.key,
+    required this.products,
+  });
+
+  final List<ProductModel> products;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+        height: 28.h,
+        child: ListView.builder(
+          scrollDirection: Axis.horizontal,
+          itemCount: products.length,
+          itemBuilder: (context, index) {
+            final product = products[index];
+            return Padding(
+              padding: EdgeInsets.only(right: 2.w),
+              child: InkWell(
+                onTap: () {
+                  context.push(AppRouter.detailsProductPath,
+                      extra: product);
+                },
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  child: ProductWidget(
+                    imageWidth: 40.w,
+                    imageHight: 120,
+                    productImage: product.images.isNotEmpty
+                        ? "${product.images[0].replaceAll('\\', '/')}"
+                        : ImagePathes.notExistPhoto,
+                    price: "${product.price} LE",
+                    rating: product.rating!.toStringAsFixed(1),
+                    productName: product.title,
+                    IsOffer: true,
+                    isAdd: true,
+                    isFav: true,
+                    productId: product.id,
+                  ),
+                ),
+              ),
+            );
+          },
+        ),
+      );
+  }
+}
+
+class ProductsInVerticalPage extends StatelessWidget {
+  const ProductsInVerticalPage({
+    super.key,
+    required this.products,
+  });
+
+  final List<ProductModel> products;
+
+  @override
+  Widget build(BuildContext context) {
+    return GridView.count(
+        crossAxisCount: 2, 
+        crossAxisSpacing: 2.h,
+        mainAxisSpacing: 2.h,
+        shrinkWrap: true,
+        childAspectRatio: 0.75, 
+        padding: EdgeInsets.zero, 
+        children: products
+            .map((product) => InkWell(
+                  onTap: () {
+                    context.push(AppRouter.detailsProductPath,
+                        extra: product);
+                  },
+                  child: ProductWidget(
+                    imageWidth: double.infinity,
+                    imageHight: 120,
+                    productImage: product.images.isNotEmpty
+                        ? "${product.images[0].replaceAll('\\', '/')}"
+                        : ImagePathes.notExistPhoto,
+                    productName: product.title,
+                    isAdd: true,
+                    rating: product.rating!.toStringAsFixed(1),
+                    price: "${product.price} LE",
+                    productId: product.id,
+                  ),
+                ))
+            .toList(),
+      );
+  }
 }

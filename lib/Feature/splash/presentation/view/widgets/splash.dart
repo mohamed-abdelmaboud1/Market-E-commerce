@@ -14,9 +14,13 @@ class _SplashBodyState extends State<SplashBody> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(const Duration(seconds: 3), () {
-      context.go(AppRouter.onBoarding1Path);
-    });
+    navigateTo();
+  }
+
+  Future<void> navigateTo() async {
+    await Future.delayed(const Duration(seconds: 3));
+    if (!mounted) return;
+    context.go(AppRouter.onBoarding1Path);
   }
 
   Widget build(BuildContext context) {

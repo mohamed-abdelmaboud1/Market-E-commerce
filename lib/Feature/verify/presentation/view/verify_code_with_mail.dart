@@ -52,7 +52,7 @@ class _VerifyCodeWithMailState extends State<VerifyCodeWithMail> {
                     textBar: "Verification Code",
                     image: ImagePathes.image7,
                     text:
-                        "Please enter the 4 digit code sent to: You@gmail.com "),
+                        "Please enter the 8 digit code sent to: You@gmail.com "),
                 SizedBox(
                   height: 5.h,
                 ),

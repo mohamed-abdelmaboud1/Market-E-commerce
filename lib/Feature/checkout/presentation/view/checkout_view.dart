@@ -6,9 +6,12 @@ import 'package:sizer/sizer.dart';
 import '../../../../core/routing/app_router.dart';
 import '../../../../core/widgets/bar_widget.dart';
 import '../../../cart/presentation/view/widgets/elevated_button_widget.dart';
-import '../../data/models/check_out_model.dart';
 import '../view_model/checkout_cubit/checkout_cubit.dart';
 import '../view_model/checkout_cubit/checkout_state.dart';
+import 'widgets/address_card.dart';
+import 'widgets/build_row.dart';
+import 'widgets/info_card.dart';
+import 'widgets/section_title.dart';
 
 class CheckoutView extends StatefulWidget {
   const CheckoutView({super.key, required this.checkoutData});
@@ -20,7 +23,6 @@ class CheckoutView extends StatefulWidget {
 class _CheckoutViewState extends State<CheckoutView> {
   @override
   Widget build(BuildContext context) {
-   
     return Scaffold(
       body: BlocConsumer<CheckoutCubit, CheckoutState>(
         listener: (context, state) {
@@ -50,16 +52,16 @@ class _CheckoutViewState extends State<CheckoutView> {
                   const SizedBox(height: 20),
 
                   /// Address Section
-                  _sectionTitle("Address"),
+                  sectionTitle("Address"),
                   const SizedBox(height: 8),
-                  _addressCard(),
+                  addressCard(),
 
                   const SizedBox(height: 20),
 
                   /// Delivery time
-                  _sectionTitle("Delivery time"),
+                  sectionTitle("Delivery time"),
                   const SizedBox(height: 8),
-                  _infoCard(
+                  infoCard(
                     icon: Icons.local_shipping_outlined,
                     text: "Within 2 days",
                   ),
@@ -67,9 +69,9 @@ class _CheckoutViewState extends State<CheckoutView> {
                   const SizedBox(height: 20),
 
                   /// Payment Method
-                  _sectionTitle("Payment"),
+                  sectionTitle("Payment"),
                   const SizedBox(height: 8),
-                  _infoCard(
+                  infoCard(
                     icon: Icons.payments_outlined,
                     text: "Cash on delivery",
                     trailing: TextButton(
@@ -110,7 +112,7 @@ class _CheckoutViewState extends State<CheckoutView> {
                   const SizedBox(height: 20),
 
                   /// Payment Summary
-                  _sectionTitle("Payment"),
+                  sectionTitle("Payment"),
                   const SizedBox(height: 8),
                   Container(
                     padding: const EdgeInsets.all(12),
@@ -120,11 +122,11 @@ class _CheckoutViewState extends State<CheckoutView> {
                     ),
                     child: Column(
                       children: [
-                        _buildRow("Subtotal (3 items)", "EGP 1,120.00"),
+                        buildRow("Subtotal (3 items)", "EGP 1,120.00"),
                         const Divider(),
-                        _buildRow("Delivery Fees", "EGP 10.00"),
+                        buildRow("Delivery Fees", "EGP 10.00"),
                         const Divider(thickness: 1.5),
-                        _buildRow("Total", "EGP 1,130.00",
+                        buildRow("Total", "EGP 1,130.00",
                             isBold: true, color: Colors.blue),
                       ],
                     ),
@@ -153,83 +155,4 @@ class _CheckoutViewState extends State<CheckoutView> {
       ),
     );
   }
-
-  Widget _sectionTitle(String text) {
-    return CustomTextWidget(
-      color: Colors.black,
-      fontSize: 16,
-      text: text,
-      fontWeight: FontWeight.bold,
-    );
-  }
-
-  Widget _addressCard() {
-    return Container(
-      padding: const EdgeInsets.all(12),
-      decoration: BoxDecoration(
-        border: Border.all(color: Colors.grey.shade300),
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: Row(
-        children: [
-          const Icon(Icons.home, color: Colors.blue),
-          const SizedBox(width: 8),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
-                Text("Home", style: TextStyle(fontWeight: FontWeight.bold)),
-                Text("Anshas, Al-sharqia, Egypt."),
-                Text("Mobile: +20 101 840 3043"),
-              ],
-            ),
-          ),
-          TextButton(
-            onPressed: () {},
-            child: const Text("Change"),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _infoCard(
-      {required IconData icon, required String text, Widget? trailing}) {
-    return Container(
-      padding: const EdgeInsets.all(12),
-      decoration: BoxDecoration(
-        border: Border.all(color: Colors.grey.shade300),
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: Row(
-        children: [
-          Icon(icon, color: Colors.black54),
-          const SizedBox(width: 8),
-          Text(text),
-          const Spacer(),
-          if (trailing != null) trailing,
-        ],
-      ),
-    );
-  }
-}
-
-Widget _buildRow(String label, String value,
-    {bool isBold = false, Color? color}) {
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    children: [
-      CustomTextWidget(
-          color: Colors.black,
-          fontSize: 17.sp,
-          text: label,
-          fontWeight: isBold ? FontWeight.bold : FontWeight.normal),
-      CustomTextWidget(
-        color: color ?? Colors.black,
-        fontSize: 17.sp,
-        text: value,
-        fontWeight: isBold ? FontWeight.bold : FontWeight.normal,
-      ),
-    ],
-  );
 }

@@ -1,7 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:marketi_ecommers/Feature/checkout/data/models/check_out_model.dart';
 import 'package:marketi_ecommers/Feature/home/presentation/view/all_brands_page.dart';
 import 'package:marketi_ecommers/Feature/home/presentation/view/all_categories_page.dart';
 import 'package:marketi_ecommers/Feature/home/presentation/view/best_for_you_page.dart';

@@ -1,8 +1,9 @@
-
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../../../../core/routing/app_router.dart';
 import '../../../../../core/utils/colors.dart';
 
 class SkipSection extends StatelessWidget {
@@ -17,14 +18,16 @@ class SkipSection extends StatelessWidget {
         Padding(
           padding: EdgeInsets.only(left: 3.h),
           child: GestureDetector(
-            onTap: () {},
+            onTap: () {
+              context.push(AppRouter.homePath);
+            },
             child: Container(
               width: 20.w,
               height: 7.h,
               decoration: BoxDecoration(
-                color:  Theme.of(context).brightness == Brightness.light
-              ? Colors.white
-              : Colors.black ,
+                color: Theme.of(context).brightness == Brightness.light
+                    ? Colors.white
+                    : Colors.black,
                 borderRadius: BorderRadius.circular(14),
               ),
               child: Center(

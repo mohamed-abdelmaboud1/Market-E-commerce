@@ -29,7 +29,7 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
         if (State is SignUpSuccess) {
           customSnackBar(
               context, "Success, Please Verifyed Your Email", Colors.green);
-          context.push(AppRouter.homePath);
+          context.push(AppRouter.loginPath);
         } else if (State is SignUpFailure) {
           customSnackBar(context, State.errMessage, Colors.red);
         }

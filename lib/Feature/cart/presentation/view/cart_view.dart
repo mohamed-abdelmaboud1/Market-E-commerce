@@ -4,12 +4,9 @@ import 'package:marketi_ecommers/Feature/cart/presentation/view/widgets/cart_vie
 import 'package:marketi_ecommers/Feature/cart/presentation/view_models/get_cart/get_cart_cubit.dart';
 import 'package:marketi_ecommers/Feature/cart/presentation/view_models/get_cart/get_cart_state.dart';
 import 'package:sizer/sizer.dart';
-
 import '../../../../core/utils/image_pathes.dart';
 import '../../../../core/widgets/bar_widget.dart';
-import '../../../../core/widgets/bottom_navigation.dart';
 import '../../../../core/widgets/four_orgnaized_widget.dart';
-import '../../../menu/presentation/view/menu_drawer.dart';
 
 class CartView extends StatefulWidget {
   const CartView({super.key});

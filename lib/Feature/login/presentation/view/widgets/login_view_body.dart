@@ -67,10 +67,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                       color: PrimaryColor,
                     )
                   : CustomButton(
-                      textcolor:
-                          Theme.of(context).brightness == Brightness.light
-                              ? Colors.white
-                              : Colors.black,
+                      textcolor: Colors.white,
                       groundColor: PrimaryColor,
                       button: "Log In",
                       onPressed: () async {

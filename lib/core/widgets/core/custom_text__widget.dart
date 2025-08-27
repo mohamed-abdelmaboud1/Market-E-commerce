@@ -24,7 +24,7 @@ class CustomTextWidget extends StatelessWidget {
       '$text',
       textAlign: textAlign ?? TextAlign.center,
       maxLines: maxLines,
-      softWrap: true, // يخلي النص يلف على سطر جديد
+      softWrap: true, 
       overflow: TextOverflow.ellipsis,
       style: GoogleFonts.poppins(
         color: isThemeColor? Theme.of(context).colorScheme.onBackground : color,

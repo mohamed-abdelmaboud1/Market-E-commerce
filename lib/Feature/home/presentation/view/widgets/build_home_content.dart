@@ -18,6 +18,7 @@ class BuildHomeContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
+        
         children: [
           DetailsBannersSection(
             showInternalLoading: false,

@@ -1,12 +1,7 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:marketi_ecommers/core/utils/image_pathes.dart';
 import 'package:marketi_ecommers/Feature/for_password/presentation/view/widgets/forget_pass_widget.dart';
 import 'package:sizer/sizer.dart';
-
-import '../../../../core/routing/app_router.dart';
 import '../../../../core/utils/colors.dart';
 import '../../../register/presentation/view/widgets/build_label_text.dart';
 import '../../../../core/widgets/core/custom_button.dart';
