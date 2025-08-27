@@ -23,10 +23,11 @@ class _HomeViewBodyState extends State<HomeViewBody> {
     context.read<HomeCubit>().fetchHomeData();
   }
 
+  @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        BarHomeSection(),
+        const BarHomeSection(),
         SizedBox(
           height: 3.h,
         ),
@@ -36,14 +37,13 @@ class _HomeViewBodyState extends State<HomeViewBody> {
             context.go(AppRouter.searchNotFoundPage);
           },
         ),
-      
         Expanded(
           child: BlocBuilder<HomeCubit, HomeState>(
             builder: (context, state) {
               if (state is HomeInitial || state is HomeLoading) {
                 return const Center(child: CircularProgressIndicator());
               } else if (state is HomeLoaded) {
-                return BuildHomeContent();
+                return const BuildHomeContent();
               } else if (state is HomeError) {
                 return Center(child: Text(state.errMessage));
               }

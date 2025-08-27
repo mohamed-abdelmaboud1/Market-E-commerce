@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
+
 import '../../../../../core/utils/colors.dart';
-import 'dots_indicator.dart';
 import '../../../../../core/widgets/core/custom_text__widget.dart';
+import 'dots_indicator.dart';
 
 class OnboardingWidget extends StatelessWidget {
   OnboardingWidget({
@@ -26,7 +27,7 @@ class OnboardingWidget extends StatelessWidget {
           height: 20.h,
         ),
         Image.asset(
-          '$image',
+          image,
           fit: BoxFit.cover,
         ),
         SizedBox(
@@ -40,7 +41,7 @@ class OnboardingWidget extends StatelessWidget {
           height: 3.h,
         ),
         CustomTextWidget(
-          text: '$text1',
+          text: text1,
           textAlign: TextAlign.center,
           color: TextColor,
           fontSize: 20.sp,
@@ -52,7 +53,7 @@ class OnboardingWidget extends StatelessWidget {
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 2.h),
           child: CustomTextWidget(
-            text: '$text2',
+            text: text2,
             textAlign: TextAlign.center,
             color: TextColor,
             maxLines: 5,
