@@ -32,7 +32,7 @@ class _ProfileEditViewBodyState extends State<ProfileEditViewBody> {
   late TextEditingController _genderController;
   late TextEditingController _addressController;
   late TextEditingController _typeController;
-  late String imagePath;
+  //late String imagePath;
 
   @override
   void initState() {
@@ -125,7 +125,7 @@ class _ProfileEditViewBodyState extends State<ProfileEditViewBody> {
                           gender: _genderController.text,
                           address: _addressController.text,
                           type: _typeController.text,
-                          image: imagePath,
+                          //image: imagePath,
                         );
                         context.read<UserEditCubit>().editUserData(userData);
                       }

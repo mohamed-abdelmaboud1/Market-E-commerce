@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:marketi_ecommers/core/routing/app_router.dart';
 import 'package:sizer/sizer.dart';
-
 import '../../../../core/utils/colors.dart';
 import '../../../../core/utils/image_pathes.dart';
 import '../../../../core/widgets/core/custom_button.dart';
@@ -39,6 +37,7 @@ class CongratulationResetPass extends StatelessWidget {
                         icon: Icon(
                           Icons.arrow_left_outlined,
                           size: 5.h,
+                          color: Colors.black,
                         ),
                         onPressed: () {
                           Navigator.pop(context);
@@ -62,15 +61,17 @@ class CongratulationResetPass extends StatelessWidget {
             SizedBox(
               height: 3.h,
             ),
-            Text(
+            CustomTextWidget(
+              isThemeColor: false,
+              color: Theme.of(context).brightness == Brightness.light
+                ? TextColor
+                : const Color.fromARGB(255, 169, 190, 239),
+              fontSize: 20.sp,
+              fontWeight: FontWeight.w500,
+              text: "Congratulations",
               textAlign: TextAlign.center,
-              "Congratulations",
-              style: GoogleFonts.poppins(
-                color: TextColor,
-                fontSize: 20.sp,
-                fontWeight: FontWeight.w500,
-              ),
             ),
+           
             SizedBox(
               height: 3.h,
             ),
@@ -93,7 +94,7 @@ class CongratulationResetPass extends StatelessWidget {
                 groundColor: PrimaryColor,
                 button: "Log In",
                 onPressed: () {
-                   context.push(AppRouter.loginPath);
+                  context.push(AppRouter.loginPath);
                 }),
           ],
         ),

@@ -33,4 +33,14 @@ class SignupCubit extends Cubit<UserState> {
       emit(SignUpFailure(errMessage: e.errorModel.errorMessage));
     }
   }
+
+  @override
+  Future<void> close() {
+    signUpName.dispose();
+    signUpPhoneNumber.dispose();
+    signUpEmail.dispose();
+    signUpPassword.dispose();
+    confirmPassword.dispose();
+    return super.close();
+  }
 }

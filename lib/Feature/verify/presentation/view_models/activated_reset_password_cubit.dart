@@ -31,4 +31,10 @@ class ActivatedResetPasswordCubit extends Cubit<UserState> {
       emit(restPassFailure(errMessage: e.errorModel.errorMessage));
     }
   }
+   @override
+  Future<void> close() {
+    signUpEmail.dispose();
+    codeConfirm.dispose();
+    return super.close();
+  }
 }

@@ -7,7 +7,6 @@ import 'package:marketi_ecommers/core/utils/image_pathes.dart';
 import 'package:marketi_ecommers/cubit/user_cubit/user_state.dart';
 import 'package:marketi_ecommers/Feature/for_password/presentation/view/widgets/forget_pass_widget.dart';
 import 'package:sizer/sizer.dart';
-
 import '../../../../core/routing/app_router.dart';
 import '../../../../core/utils/colors.dart';
 import '../../../register/presentation/view/widgets/build_label_text.dart';

@@ -31,6 +31,10 @@ class TextFieldWidget extends StatefulWidget {
 class _TextFieldWidgetState extends State<TextFieldWidget> {
   bool isPasswordVisible = false;
 
+void dispose() {
+  super.dispose();
+}
+
   @override
   Widget build(BuildContext context) {
     return Column(

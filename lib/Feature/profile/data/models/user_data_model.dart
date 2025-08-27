@@ -7,7 +7,7 @@ class UserDataModel {
   final String gender;
   final String address;
   final String type;
-  final String image;
+  //final String image;
 
   UserDataModel({
     required this.id,
@@ -16,7 +16,7 @@ class UserDataModel {
     required this.gender,
     required this.address,
     required this.type,
-    required this.image,
+   // required this.image,
   });
   factory UserDataModel.fromJson(Map<String, dynamic> jsonData) {
     return UserDataModel(
@@ -26,7 +26,7 @@ class UserDataModel {
       gender: jsonData[ApiKey.gender] ?? '',
       address: jsonData[ApiKey.address] ?? '',
       type: jsonData[ApiKey.type] ?? '',
-      image: jsonData[ApiKey.image] ?? '',
+      //image: jsonData[ApiKey.image] ?? '',
     );
   }
   //using when edit
@@ -38,7 +38,7 @@ class UserDataModel {
       ApiKey.gender: gender,
       ApiKey.address: address,
       ApiKey.type: type,
-      ApiKey.image: image,
+      //ApiKey.image: image,
     };
   }
 }

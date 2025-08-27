@@ -4,14 +4,14 @@ import 'package:go_router/go_router.dart';
 import 'package:marketi_ecommers/Feature/register/presentation/view/widgets/enter_register_data_section.dart';
 import 'package:marketi_ecommers/Feature/register/presentation/view_models/signUP_cubit/signUP_cubit.dart';
 import 'package:sizer/sizer.dart';
-import '../../../../core/routing/app_router.dart';
-import '../../../../core/utils/colors.dart';
-import '../../../../cubit/user_cubit/user_state.dart';
-import '../../../../core/widgets/core/custom_snack_bar.dart';
-import 'widgets/Social_login.dart';
-import '../../../../core/widgets/core/custom_button.dart';
-import '../view_models/signUP_cubit/signUP_state.dart';
-import 'widgets/return_sec.dart';
+import '../../../../../core/routing/app_router.dart';
+import '../../../../../core/utils/colors.dart';
+import '../../../../../cubit/user_cubit/user_state.dart';
+import '../../../../../core/widgets/core/custom_snack_bar.dart';
+import 'Social_login.dart';
+import '../../../../../core/widgets/core/custom_button.dart';
+import '../../view_models/signUP_cubit/signUP_state.dart';
+import 'return_sec.dart';
 
 class RegisterViewBody extends StatefulWidget {
   const RegisterViewBody({super.key});

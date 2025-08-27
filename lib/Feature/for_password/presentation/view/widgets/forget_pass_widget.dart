@@ -8,6 +8,7 @@ import '../../../../../core/utils/image_pathes.dart';
 import '../../../../register/presentation/view/widgets/build_label_text.dart';
 import '../../../../../core/widgets/core/text_field_widget.dart';
 import '../../../../../core/widgets/core/custom_text__widget.dart';
+import '../../../../register/presentation/view/widgets/return_sec.dart';
 
 class ForgetPassWidget extends StatelessWidget {
   ForgetPassWidget(
@@ -42,6 +43,7 @@ class ForgetPassWidget extends StatelessWidget {
                     child: Icon(
                       Icons.arrow_left_outlined,
                       size: 5.h,
+                      color: Colors.black,
                     ),
                   ),
                 ),

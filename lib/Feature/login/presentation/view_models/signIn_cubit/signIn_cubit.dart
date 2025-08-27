@@ -15,7 +15,7 @@ class SigninCubit extends Cubit<UserState> {
   GlobalKey<FormState> signInFormKey = GlobalKey();
   TextEditingController signInEmail = TextEditingController();
   TextEditingController signInPassword = TextEditingController();
-  
+
   SigninModel? user;
   signIn() async {
     try {
@@ -33,5 +33,12 @@ class SigninCubit extends Cubit<UserState> {
     } on ServerException catch (e) {
       emit(SignInFailure(errMessage: e.errorModel.errorMessage));
     }
+  }
+
+  @override
+  Future<void> close() {
+    signInEmail.dispose();
+    signInPassword.dispose();
+    return super.close();
   }
 }

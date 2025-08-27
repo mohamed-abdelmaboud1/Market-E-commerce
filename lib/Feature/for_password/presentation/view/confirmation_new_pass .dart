@@ -68,6 +68,7 @@ class _ConfirmationNewPassState extends State<ConfirmationNewPass> {
                             icon: Icon(
                               Icons.arrow_left_outlined,
                               size: 5.h,
+                              color: Colors.black,
                             ),
                             onPressed: () {
                               Navigator.pop(context);
@@ -91,14 +92,15 @@ class _ConfirmationNewPassState extends State<ConfirmationNewPass> {
                 SizedBox(
                   height: 3.h,
                 ),
-                Text(
+                CustomTextWidget(
+                  isThemeColor: false,
+                  color: Theme.of(context).brightness == Brightness.light
+                      ? TextColor
+                      : const Color.fromARGB(255, 169, 190, 239),
+                  fontSize: 20.sp,
+                  fontWeight: FontWeight.w500,
+                  text: "Congratulations",
                   textAlign: TextAlign.center,
-                  "Congratulations",
-                  style: GoogleFonts.poppins(
-                    color: TextColor,
-                    fontSize: 20.sp,
-                    fontWeight: FontWeight.w500,
-                  ),
                 ),
                 SizedBox(
                   height: 3.h,
@@ -116,7 +118,6 @@ class _ConfirmationNewPassState extends State<ConfirmationNewPass> {
                 SizedBox(
                   height: 3.h,
                 ),
-               
                 TextFieldWidget(
                   mailPassText: 'You@gmail.com',
                   icon: Icons.mail_outline,
@@ -126,8 +127,6 @@ class _ConfirmationNewPassState extends State<ConfirmationNewPass> {
                 SizedBox(
                   height: 1.h,
                 ),
-
-                
                 TextFieldWidget(
                   mailPassText: 'Password',
                   icon: Icons.lock_outlined,
@@ -137,8 +136,6 @@ class _ConfirmationNewPassState extends State<ConfirmationNewPass> {
                 SizedBox(
                   height: 1.h,
                 ),
-
-                
                 TextFieldWidget(
                   mailPassText: 'Confirm Password',
                   icon: Icons.lock_outlined,
@@ -155,13 +152,12 @@ class _ConfirmationNewPassState extends State<ConfirmationNewPass> {
                         textcolor: Colors.white,
                         groundColor: PrimaryColor,
                         button: "Done",
-                         onPressed: () async {
+                        onPressed: () async {
                           await cubit.resetePassword();
                           if (!mounted) return;
                           context.push(AppRouter.congratulationResetPass);
                         },
-                        
-                        ),
+                      ),
               ],
             ),
           ),
